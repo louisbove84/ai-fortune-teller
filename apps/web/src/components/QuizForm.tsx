@@ -108,26 +108,23 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="w-full max-w-2xl mx-auto"
     >
       {/* Progress bar */}
-      <div className="mb-8">
+      <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-gray-400">
-            Question {currentQuestion + 1} of {questions.length}
-          </span>
-          <span className="text-sm text-fortune-gold">
-            {Math.round(((currentQuestion + 1) / questions.length) * 100)}%
+          <span className="text-xs text-cyan-400">
+            {currentQuestion + 1} / {questions.length}
           </span>
         </div>
-        <div className="w-full bg-mystic-800 rounded-full h-2">
+        <div className="w-full bg-black/40 rounded-full h-1">
           <motion.div
-            className="bg-gradient-to-r from-fortune-purple to-fortune-gold h-2 rounded-full"
+            className="bg-cyan-400 h-1 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
           />
         </div>
       </div>
@@ -135,44 +132,44 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentQuestion}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.3 }}
-          className="bg-mystic-900/80 backdrop-blur-lg rounded-2xl p-8 mystic-shadow"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-fortune-gold mb-6 text-center">
+          <h2 className="text-xl font-semibold text-cyan-300 mb-4 text-center">
             {question.question}
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             {question.options.map((option) => (
               <motion.button
                 key={option.value}
                 onClick={() =>
                   question.multiple ? handleMultipleChoice(option.value) : handleAnswer(option.value)
                 }
-                className={`w-full p-4 rounded-lg text-left transition-all duration-300 ${
+                className={`w-full p-3 rounded text-left text-sm transition-all ${
                   question.multiple && selectedSkills.includes(option.value)
-                    ? "bg-fortune-purple text-white mystic-shadow"
-                    : "bg-mystic-800/50 hover:bg-mystic-700 text-gray-200"
+                    ? "bg-cyan-500/30 border border-cyan-400 text-cyan-300"
+                    : "bg-black/40 hover:bg-black/60 border border-cyan-500/20 text-gray-300"
                 }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
               >
                 <div className="flex items-center">
                   {question.multiple && (
                     <div
-                      className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center ${
+                      className={`w-4 h-4 rounded border mr-3 flex items-center justify-center ${
                         selectedSkills.includes(option.value)
-                          ? "border-fortune-gold bg-fortune-gold"
-                          : "border-gray-400"
+                          ? "border-cyan-400 bg-cyan-400/30"
+                          : "border-cyan-500/50"
                       }`}
                     >
-                      {selectedSkills.includes(option.value) && <span className="text-xs">✓</span>}
+                      {selectedSkills.includes(option.value) && <span className="text-xs text-cyan-300">✓</span>}
                     </div>
                   )}
-                  <span className="text-lg">{option.label}</span>
+                  <span>{option.label}</span>
                 </div>
               </motion.button>
             ))}
@@ -182,11 +179,11 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
             <motion.button
               onClick={handleMultipleNext}
               disabled={selectedSkills.length === 0}
-              className="mt-6 w-full px-6 py-3 bg-fortune-gold hover:bg-yellow-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-mystic-950 font-bold rounded-lg transition-all duration-300"
+              className="mt-4 w-full px-6 py-2 bg-cyan-500/20 hover:bg-cyan-400/30 disabled:bg-black/20 disabled:cursor-not-allowed border border-cyan-400 disabled:border-cyan-500/20 text-cyan-300 disabled:text-gray-600 font-semibold rounded transition-all text-sm"
               whileHover={{ scale: selectedSkills.length > 0 ? 1.02 : 1 }}
               whileTap={{ scale: selectedSkills.length > 0 ? 0.98 : 1 }}
             >
-              {isLastQuestion ? "Reveal My Fortune" : "Next Question"}
+              {isLastQuestion ? "Reveal Fortune" : "Next"}
             </motion.button>
           )}
         </motion.div>
@@ -195,9 +192,9 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
       {currentQuestion > 0 && (
         <button
           onClick={() => setCurrentQuestion(currentQuestion - 1)}
-          className="mt-4 text-gray-400 hover:text-white transition-colors"
+          className="mt-3 text-cyan-400/60 hover:text-cyan-400 transition-colors text-sm"
         >
-          ← Previous Question
+          ← Back
         </button>
       )}
     </motion.div>
