@@ -4,17 +4,12 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 16, 0, 43;
-  --background-end-rgb: 13, 13, 23;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
+  background: #0a0e1a url('/fortune-teller-bg.png') no-repeat center center fixed;
+  background-size: contain;
   min-height: 100vh;
   font-family: var(--font-geist-sans);
 }
@@ -51,16 +46,13 @@ body {
   background: #7209b7;
 }
 
-/* Starry background animation */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+/* Flicker animation for text */
+@keyframes flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(0, 255, 255, 0.8); }
+  50% { opacity: 0.8; text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
 }
 
-.star {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  animation: twinkle 3s infinite;
+.animate-flicker {
+  animation: flicker 2s infinite;
 }
 

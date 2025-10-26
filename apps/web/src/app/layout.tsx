@@ -21,25 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <Providers>
-          <div className="min-h-screen bg-starry-gradient relative overflow-hidden">
-            {/* Starry background effect */}
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(50)].map((_, i) => (
-                <div
-                  key={i}
-                  className="star"
-                  style={{
-                    width: `${Math.random() * 3 + 1}px`,
-                    height: `${Math.random() * 3 + 1}px`,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 3}s`,
-                  }}
-                />
-              ))}
-            </div>
-            {children}
-          </div>
+          {children}
         </Providers>
       </body>
     </html>
