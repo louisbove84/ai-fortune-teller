@@ -1,9 +1,4 @@
 {
-  "buildCommand": "cd apps/web && npm install && npm run build",
-  "outputDirectory": "apps/web/.next",
-  "framework": "nextjs",
-  "installCommand": "npm install --legacy-peer-deps",
-  "devCommand": "cd apps/web && npm run dev",
   "headers": [
     {
       "source": "/.well-known/farcaster.json",
