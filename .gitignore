@@ -49,3 +49,18 @@ typechain-types/
 # Turbo
 .turbo/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+venv_fortune/
+ENV/
+env/
+*.egg-info/
+
+# Python data cache
+apps/web/python/data/
+
