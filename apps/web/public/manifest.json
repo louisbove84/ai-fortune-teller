@@ -1,0 +1,21 @@
+{
+  "name": "AI Fortune Teller",
+  "short_name": "Fortune",
+  "description": "Peer into your career's future in the age of AI. Get free fortunes or premium AI strategies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#00ffff",
+  "icons": [
+    {
+      "src": "/fortune-teller-bg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["productivity", "lifestyle"],
+  "lang": "en",
+  "scope": "/",
+  "orientation": "portrait-primary"
+}
+

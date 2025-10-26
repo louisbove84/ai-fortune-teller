@@ -1,0 +1,33 @@
+{
+  "miniapp": {
+    "name": "AI Fortune Teller",
+    "version": "1",
+    "iconUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "homeUrl": "https://ai-fortune-teller.vercel.app",
+    "imageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "buttonTitle": "Peer Into Your Career's Future",
+    "splashImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "splashBackgroundColor": "#0a0e1a",
+    "subtitle": "Career Resilience Against AI",
+    "description": "Discover your career's fate in the age of AI. Get a free fortune based on real job market data, or unlock premium AI-powered strategies and an NFT.",
+    "screenshotUrls": [
+      "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png"
+    ],
+    "primaryCategory": "social",
+    "heroImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "tagline": "career-ai-fortune",
+    "ogImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "ogTitle": "AI Fortune Teller",
+    "ogDescription": "Peer into your career's future. Will AI disrupt your profession or will you thrive?",
+    "tags": ["career", "ai", "fortune", "jobs", "future"]
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjg4NjUwMywidHlwZSI6ImF1dGgiLCJrZXkiOiIweEQyRTc4MzlDOTI2QTlBMzQ5ODdFM0E4NjI2ODFDYTUyZmU2M2M0ZTYifQ",
+    "payload": "eyJkb21haW4iOiJhaS1mb3J0dW5lLXRlbGxlci52ZXJjZWwuYXBwIn0",
+    "signature": "TMc8wzD6CDpvZ3dq3V2Q84bdueI9mkGZoIopNQf19g1K6684JAmBVRNSH0DiOlQvOl8iRWLfZAJ9JHgu/hq72Rw="
+  },
+  "baseBuilder": {
+    "ownerAddress": "0x3b583CA8953effcF2135679886A9965754954204"
+  }
+}
+

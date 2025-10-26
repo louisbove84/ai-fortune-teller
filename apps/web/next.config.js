@@ -5,15 +5,6 @@ const nextConfig = {
   images: {
     domains: ["ipfs.io", "gateway.pinata.cloud"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/.well-known/farcaster.json",
-        destination: `https://api.farcaster.xyz/miniapps/hosted-manifest/${process.env.HOSTED_MANIFEST_ID || "placeholder"}`,
-        permanent: false,
-      },
-    ];
-  },
   async headers() {
     return [
       {
