@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 16, 0, 43;
+  --background-end-rgb: 13, 13, 23;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+  font-family: var(--font-geist-sans);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .mystic-shadow {
+    box-shadow: 0 0 30px rgba(157, 78, 221, 0.4);
+  }
+  
+  .crystal-glow {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+  }
+}
+
+/* Custom scrollbar for mystical theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9d4edd;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7209b7;
+}
+
+/* Starry background animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+

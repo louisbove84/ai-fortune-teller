@@ -1,0 +1,25 @@
+{
+  "name": "@ai-fortune-teller/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "deploy:testnet": "hardhat run scripts/deploy.ts --network base-sepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy.ts --network base",
+    "verify": "hardhat verify",
+    "clean": "hardhat clean"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "hardhat": "^2.22.0",
+    "@types/node": "^22.5.0",
+    "typescript": "^5.5.0"
+  }
+}
+
