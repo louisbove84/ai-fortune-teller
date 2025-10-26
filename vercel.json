@@ -3,7 +3,6 @@
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
   "installCommand": "npm install --legacy-peer-deps",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./apps/web",
   "devCommand": "cd apps/web && npm run dev",
   "headers": [
     {
