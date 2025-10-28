@@ -3,16 +3,24 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { injected } from "wagmi/connectors";
+import { 
+  Wallet, 
+  ConnectWallet, 
+  WalletDropdown, 
+  Identity, 
+  Avatar, 
+  Name, 
+  Address, 
+  EthBalance, 
+  WalletDropdownDisconnect 
+} from "@coinbase/onchainkit/wallet";
+import { useAccount } from "wagmi";
 import PremiumFortune from "@/components/PremiumFortune";
 import type { QuizAnswers } from "@/types/fortune";
 
 export default function PremiumPage() {
   const router = useRouter();
   const { address, isConnected } = useAccount();
-  const { connect } = useConnect();
-  const { disconnect } = useDisconnect();
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [hasPaid, setHasPaid] = useState(false);
 
@@ -24,10 +32,6 @@ export default function PremiumPage() {
     }
     setAnswers(JSON.parse(answersStr));
   }, [router]);
-
-  const handleConnect = () => {
-    connect({ connector: injected() });
-  };
 
   const handlePayment = async () => {
     if (!isConnected || !address) {
@@ -143,14 +147,23 @@ export default function PremiumPage() {
           </div>
 
           {!isConnected ? (
-            <motion.button
-              onClick={handleConnect}
-              className="w-full px-8 py-4 bg-fortune-purple hover:bg-fortune-darkPurple text-white text-xl font-bold rounded-lg mystic-shadow transition-all duration-300 hover:scale-105"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              🦊 Connect Wallet
-            </motion.button>
+            <div className="flex justify-center">
+              <Wallet>
+                <ConnectWallet className="w-full px-8 py-4 bg-fortune-purple hover:bg-fortune-darkPurple text-white text-xl font-bold rounded-lg mystic-shadow transition-all duration-300 hover:scale-105">
+                  <Avatar className="h-6 w-6" />
+                  <Name className="ml-2" />
+                </ConnectWallet>
+                <WalletDropdown>
+                  <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                    <Avatar />
+                    <Name />
+                    <Address />
+                    <EthBalance />
+                  </Identity>
+                  <WalletDropdownDisconnect />
+                </WalletDropdown>
+              </Wallet>
+            </div>
           ) : (
             <div className="space-y-4">
               <div className="bg-mystic-800/50 rounded-lg p-4 text-center">
@@ -158,12 +171,19 @@ export default function PremiumPage() {
                 <div className="text-fortune-gold font-mono">
                   {address?.slice(0, 6)}...{address?.slice(-4)}
                 </div>
-                <button
-                  onClick={() => disconnect()}
-                  className="text-sm text-gray-400 hover:text-white mt-2"
-                >
-                  Disconnect
-                </button>
+                <div className="flex justify-center mt-2">
+                  <Wallet>
+                    <WalletDropdown>
+                      <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                        <Avatar />
+                        <Name />
+                        <Address />
+                        <EthBalance />
+                      </Identity>
+                      <WalletDropdownDisconnect />
+                    </WalletDropdown>
+                  </Wallet>
+                </div>
               </div>
 
               <motion.button
