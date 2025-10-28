@@ -38,11 +38,15 @@ ai-fortune-teller/
 │       │   ├── components/  # CrystalBall, QuizForm, etc.
 │       │   ├── lib/         # Wagmi config
 │       │   └── types/       # TypeScript definitions
+│       ├── python/          # Flask backend + Kaggle data
+│       └── public/          # Static assets
 ├── packages/
 │   ├── ui/                  # Shared components (Button, Card)
 │   ├── contracts/           # Hardhat + ProphecyToken (ERC-721)
 │   └── agent/               # AgentKit CDP integration
-└── docs/                    # Setup guides
+├── docs/                    # All documentation
+├── scripts/                 # Setup and utility scripts
+└── README.md               # This file
 ```
 
 ## 🚀 Quick Start
@@ -59,21 +63,35 @@ ai-fortune-teller/
 
 ```bash
 # Clone repository
-git clone <your-repo-url>
+git clone https://github.com/louisbove84/ai-fortune-teller.git
 cd ai-fortune-teller
 
 # Install dependencies
 npm install
 
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your credentials (see Configuration section)
+# Set up Python backend
+./scripts/setup_python.sh
 
-# Run development server
-npm run dev
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your API keys (GROK_API_KEY, etc.)
+
+# Start development servers
+./scripts/start_dev.sh
 ```
 
-Visit `http://localhost:3000` to see the app!
+Visit `http://localhost:3000` to see the app! 🎉
+
+## 📚 Documentation
+
+All detailed documentation is available in the [`docs/`](docs/) folder:
+
+- **[Complete Setup Guide](docs/GETTING_STARTED.md)** - Detailed installation instructions
+- **[Quick Start Guide](docs/QUICK_START_GUIDE.md)** - Fast setup for developers
+- **[Python Backend Setup](docs/PYTHON_BACKEND_SETUP.md)** - Backend configuration
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Vercel deployment instructions
+- **[API Documentation](docs/API.md)** - API endpoints and usage
+- **[Architecture Overview](docs/ARCHITECTURE.md)** - System design details
 
 ## ⚙️ Configuration
 
