@@ -85,12 +85,6 @@ export default function ResultPage() {
     return "You're in a relatively safe position. Keep learning to stay ahead!";
   };
 
-  const getJobOpeningsDescription = (projectedOpenings: number): string => {
-    if (projectedOpenings === 0) return "You may be in trouble";
-    if (projectedOpenings < 1000) return "Good luck";
-    if (projectedOpenings < 5000) return "Smooth sailing";
-    return "Smooth sailing";
-  };
 
 
   const getAutomationTier = (risk: number): AutomationTier => {
@@ -238,7 +232,7 @@ export default function ResultPage() {
                 <div className="p-4 h-full flex flex-col justify-between text-yellow-900">
                   {/* Header */}
                   <div className="text-center mb-3">
-                    <h1 className="text-lg font-bold text-yellow-900 mb-1">YOUR FORTUNE</h1>
+                    <h1 className="text-lg font-bold text-yellow-900 mb-1">YOUR AI FORTUNE</h1>
                     <div className="w-full h-0.5 bg-yellow-700"></div>
                   </div>
 
@@ -255,17 +249,6 @@ export default function ResultPage() {
                     </div>
                   </div>
 
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-2 mb-4 text-center">
-                    <div className="bg-yellow-300 rounded p-2">
-                      <div className="text-sm font-bold text-yellow-900">{result.job_data.growth_projection}%</div>
-                      <div className="text-xs text-yellow-900">Growth</div>
-                    </div>
-                    <div className="bg-yellow-300 rounded p-2">
-                      <div className="text-sm font-bold text-yellow-900">{getJobOpeningsDescription(Math.round(result.job_data.growth_projection * 1000))}</div>
-                      <div className="text-xs text-yellow-900">Job Outlook</div>
-                    </div>
-                  </div>
 
                   {/* Prophecy */}
                   <div className="flex-1 mb-6">

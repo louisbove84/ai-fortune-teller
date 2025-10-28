@@ -373,7 +373,14 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     else:  # low
         ai_impact_msg += " Your field has minimal AI disruption - focus on honing your human skills."
     
-    growth_msg = f" Job growth projections show {abs(growth):.0f}% {'growth' if growth > 0 else 'decline'} through 2030."
+    # Job outlook analysis
+    projected_openings = int(growth * 1000)  # Convert growth % to approximate job openings
+    if projected_openings == 0:
+        outlook_msg = " The job market outlook is concerning with no projected openings - you may be in trouble."
+    elif projected_openings < 1000:
+        outlook_msg = f" Job growth projections show {abs(growth):.0f}% {'growth' if growth > 0 else 'decline'} through 2030, but with limited opportunities - good luck."
+    else:
+        outlook_msg = f" Job growth projections show {abs(growth):.0f}% {'growth' if growth > 0 else 'decline'} through 2030 with {projected_openings:,} projected openings - smooth sailing ahead."
     
     salary_change = score_data['salary_analysis']['change_percent']
     if salary_change > 10:
@@ -385,7 +392,7 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     
     conclusion = "\n\nRemember: Those who embrace change and continuously adapt shall thrive. Unlock premium insights for your personalized roadmap to AI resilience."
     
-    return intro + "\n\n" + assessment + salary_msg + risk_msg + ai_impact_msg + growth_msg + salary_trend + conclusion
+    return intro + "\n\n" + assessment + salary_msg + risk_msg + ai_impact_msg + outlook_msg + salary_trend + conclusion
 
 
 def _generate_fate_map(user_data: Dict[str, Any],
