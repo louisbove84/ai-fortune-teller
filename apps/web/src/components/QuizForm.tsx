@@ -98,6 +98,8 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
     match_method: string;
     industry?: string;
     location?: string;
+    automation_risk?: number;
+    growth_projection?: number;
   }>>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
