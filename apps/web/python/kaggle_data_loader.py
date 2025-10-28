@@ -43,23 +43,23 @@ class JobMarketDataLoader:
         # Check if cached version exists
         if os.path.exists(self.cache_file) and not force_refresh:
             cache_age_days = (Path(self.cache_file).stat().st_mtime - Path().stat().st_mtime) / 86400
-            print(f"📦 Loading dataset from cache (cached {abs(int(cache_age_days))} days ago)...")
+            print(f"Loading dataset from cache (cached {abs(int(cache_age_days))} days ago)...")
             print(f"   Cache location: {self.cache_file}")
             self.df = pd.read_csv(self.cache_file)
-            print(f"   ✅ Loaded {len(self.df)} jobs from cache")
+            print(f"   Loaded {len(self.df)} jobs from cache")
             return self.df
         
-        print("📥 Downloading dataset from Kaggle...")
+        print("Downloading dataset from Kaggle...")
         print("   This is a one-time download, will be cached for future use.")
         try:
             # Download dataset to local directory
             dataset_path = kagglehub.dataset_download(self.dataset_id)
-            print(f"   📁 Dataset downloaded to: {dataset_path}")
+            print(f"   Dataset downloaded to: {dataset_path}")
             
             # Find CSV file in the downloaded directory
             csv_files = list(Path(dataset_path).glob("*.csv"))
             if csv_files:
-                print(f"   📄 Found {len(csv_files)} CSV file(s)")
+                print(f"   Found {len(csv_files)} CSV file(s)")
                 # Load the first CSV file
                 self.df = pd.read_csv(csv_files[0])
             else:
@@ -67,12 +67,12 @@ class JobMarketDataLoader:
             
             # Cache for future use
             self.df.to_csv(self.cache_file, index=False)
-            print(f"   ✅ Dataset downloaded and cached to:")
+            print(f"   Dataset downloaded and cached to:")
             print(f"      {self.cache_file}")
-            print(f"   📊 Cached {len(self.df)} jobs for future use")
+            print(f"   Cached {len(self.df)} jobs for future use")
             
         except Exception as e:
-            print(f"⚠️  Error loading from Kaggle: {e}")
+            print(f"Error loading from Kaggle: {e}")
             print("   Using fallback data structure...")
             # Fallback: create sample data structure if download fails
             self.df = self._create_fallback_data()

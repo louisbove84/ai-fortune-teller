@@ -17,19 +17,19 @@ export async function POST(req: NextRequest) {
     // Handle different event types
     switch (body.event) {
       case "frame.added":
-        console.log("✅ Frame added by user:", body.fid);
+        console.log("Frame added by user:", body.fid);
         break;
       
       case "frame.removed":
-        console.log("❌ Frame removed by user:", body.fid);
+        console.log("Frame removed by user:", body.fid);
         break;
       
       case "frame.opened":
-        console.log("👀 Frame opened by user:", body.fid);
+        console.log("Frame opened by user:", body.fid);
         break;
       
       default:
-        console.log("📝 Unknown event type:", body.event);
+        console.log("Unknown event type:", body.event);
     }
 
     return NextResponse.json({ 
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       message: "Webhook processed successfully" 
     });
   } catch (error) {
-    console.error("❌ Webhook error:", error);
+    console.error("Webhook error:", error);
     return NextResponse.json(
       { 
         success: false, 

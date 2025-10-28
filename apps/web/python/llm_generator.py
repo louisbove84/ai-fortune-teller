@@ -53,11 +53,11 @@ class FortuneLLMGenerator:
                 base_url="https://api.x.ai/v1"
             )
             self.model = "grok-3"  # Grok's latest model (updated from grok-beta)
-            print("🤖 Using Grok (xAI) for LLM generation")
+            print("Using Grok (xAI) for LLM generation")
         else:  # openai
             self.client = OpenAI(api_key=self.api_key)
             self.model = "gpt-4o-mini"  # Cost-effective model
-            print("🤖 Using OpenAI GPT-4o-mini for LLM generation")
+            print("Using OpenAI GPT-4o-mini for LLM generation")
     
     def generate_premium_fortune(self, 
                                  user_profile: Dict[str, Any],

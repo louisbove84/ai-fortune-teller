@@ -18,13 +18,13 @@ from dotenv import load_dotenv
 # Try to load from .env.local (Next.js convention)
 env_local = Path(__file__).parent.parent.parent / '.env.local'
 if env_local.exists():
-    print(f"📄 Loading environment from {env_local}")
+    print(f"Loading environment from {env_local}")
     load_dotenv(env_local)
 else:
     # Fallback to .env
     env_file = Path(__file__).parent.parent.parent / '.env'
     if env_file.exists():
-        print(f"📄 Loading environment from {env_file}")
+        print(f"Loading environment from {env_file}")
         load_dotenv(env_file)
 
 app = Flask(__name__)
@@ -40,9 +40,9 @@ def get_llm_generator():
     if llm_generator is None:
         try:
             llm_generator = FortuneLLMGenerator()
-            print(f"✅ LLM generator initialized: {llm_generator.provider}")
+            print(f"LLM generator initialized: {llm_generator.provider}")
         except ValueError as e:
-            print(f"⚠️  Warning: LLM generator not available: {e}")
+            print(f"Warning: LLM generator not available: {e}")
             print("    Premium features will be unavailable.")
             llm_generator = None
     return llm_generator
@@ -329,7 +329,7 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     growth = job_data['job_growth_projection']
     salary_comparison = score_data['salary_analysis']['user_comparison']
     
-    intro = f"🔮 The crystal ball reveals your path, {job_title}..."
+    intro = f"The crystal ball reveals your path, {job_title}..."
     
     if score >= 70:
         assessment = f"Fortune smiles upon you! Your resilience score of {score}/100 positions you well for the AI age."
@@ -344,11 +344,11 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     comparison = salary_comparison['comparison']
     
     if comparison == 'above':
-        salary_msg = f"\n\n💰 Your salary is above market median (${market_median:,.0f}), placing you in the top {100-percentile}% of earners in your field."
+        salary_msg = f"\n\nYour salary is above market median (${market_median:,.0f}), placing you in the top {100-percentile}% of earners in your field."
     elif comparison == 'below':
-        salary_msg = f"\n\n💰 Your salary is below market median (${market_median:,.0f}), indicating room for growth and negotiation opportunities."
+        salary_msg = f"\n\nYour salary is below market median (${market_median:,.0f}), indicating room for growth and negotiation opportunities."
     else:
-        salary_msg = f"\n\n💰 Your salary aligns with market median (${market_median:,.0f}), showing you're competitively positioned."
+        salary_msg = f"\n\nYour salary aligns with market median (${market_median:,.0f}), showing you're competitively positioned."
     
     risk_msg = f"\n\nYour field faces {risk:.0f}% automation risk by 2030"
     if risk > 60:
@@ -420,7 +420,7 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     
     print(f"""
-    🔮 AI Fortune Teller Python API Server
+    AI Fortune Teller Python API Server
     
     Endpoints:
     - GET  /health                  - Health check

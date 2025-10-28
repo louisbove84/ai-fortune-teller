@@ -231,7 +231,7 @@ export default function PremiumFortune({ answers, address }: PremiumFortuneProps
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-fortune-purple to-fortune-darkPurple flex items-center justify-center text-6xl">
-                    🔮
+                    NFT
                   </div>
                 )}
               </div>
@@ -260,11 +260,11 @@ export default function PremiumFortune({ answers, address }: PremiumFortuneProps
                   whileHover={{ scale: minting ? 1 : 1.02 }}
                   whileTap={{ scale: minting ? 1 : 0.98 }}
                 >
-                  {minting ? "Minting..." : "🎭 Mint Your NFT"}
+                  {minting ? "Minting..." : "Mint Your NFT"}
                 </motion.button>
               ) : (
                 <div className="text-center p-4 bg-green-900/50 rounded-lg">
-                  <p className="text-green-300 font-bold">✅ NFT Minted Successfully!</p>
+                  <p className="text-green-300 font-bold">NFT Minted Successfully!</p>
                 </div>
               )}
             </div>

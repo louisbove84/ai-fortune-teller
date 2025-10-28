@@ -69,7 +69,7 @@ export default function PremiumPage() {
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           className="text-6xl"
         >
-          🔮
+          Loading...
         </motion.div>
       </div>
     );
