@@ -52,9 +52,13 @@ export function SimpleWalletProvider({ children }: SimpleWalletProviderProps) {
 
   useEffect(() => {
     setIsClient(true);
+    console.log('SimpleWalletProvider mounted');
+    console.log('OnchainKit API Key:', process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY ? 'Set' : 'Missing');
+    console.log('Wagmi config:', config ? 'Created' : 'Failed');
   }, []);
 
   if (!isClient || !config) {
+    console.log('SimpleWalletProvider: Not rendering providers', { isClient, config: !!config });
     return <>{children}</>;
   }
 

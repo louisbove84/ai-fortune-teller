@@ -23,11 +23,18 @@ export function WalletButton({ showConnectionStatus = false }: WalletButtonProps
 
   console.log('WalletButton rendered:', { isConnected, address });
 
+  const handleConnectClick = () => {
+    console.log('Connect wallet clicked');
+  };
+
   return (
     <>
       <div className="absolute top-8 right-8 z-50">
         <Wallet>
-          <ConnectWallet className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+          <ConnectWallet 
+            className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+            onClick={handleConnectClick}
+          >
             Connect Wallet
           </ConnectWallet>
           <WalletDropdown>
