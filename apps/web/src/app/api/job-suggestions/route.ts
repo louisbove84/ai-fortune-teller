@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
         const data = await pythonResponse.json();
         return NextResponse.json(data);
       }
-    } catch (pythonError) {
+    } catch {
       console.log('Python backend not available, using CSV fallback');
     }
 
@@ -60,8 +60,11 @@ export async function POST(req: NextRequest) {
           }
           return null;
         })
-        .filter(title => title && title.toLowerCase().includes(query.toLowerCase()))
-        .filter(title => title.length > 0);
+        .filter((title): title is string => 
+          title !== null && 
+          title.length > 0 && 
+          title.toLowerCase().includes(query.toLowerCase())
+        );
       
       // Count frequency and get unique suggestions
       const jobCounts: { [key: string]: number } = {};
