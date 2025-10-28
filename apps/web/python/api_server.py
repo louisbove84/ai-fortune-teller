@@ -11,6 +11,7 @@ from pathlib import Path
 
 from kaggle_data_loader import get_loader
 from llm_generator import FortuneLLMGenerator
+from hybrid_job_search import HybridJobSearch
 
 # Load environment variables from .env.local if it exists
 from dotenv import load_dotenv
@@ -32,6 +33,7 @@ CORS(app)  # Enable CORS for Next.js frontend
 
 # Initialize services
 data_loader = get_loader()
+hybrid_search = HybridJobSearch(data_loader)  # Initialize hybrid search
 llm_generator = None  # Initialize lazily when needed
 
 def get_llm_generator():
@@ -73,45 +75,46 @@ def get_dataset_summary():
 @app.route('/api/job-suggestions', methods=['POST'])
 def get_job_suggestions():
     """
-    Get job title suggestions based on user input
+    Get job title suggestions using hybrid fuzzy + vector search
     
     Request body:
     {
-        "query": "software"
+        "query": "software enginer"  # typos handled!
     }
     
     Returns:
     {
-        "suggestions": ["Software Developer", "Software Engineer", ...]
+        "suggestions": [
+            {
+                "job_title": "Software Engineer",
+                "confidence": 92.5,
+                "match_method": "fuzzy",
+                "industry": "Technology",
+                "location": "USA"
+            },
+            ...
+        ]
     }
     """
     try:
         data = request.get_json()
-        query = data.get('query', '').lower().strip()
+        query = data.get('query', '').strip()
         
         if len(query) < 2:
             return jsonify({'suggestions': []})
         
-        # Get unique job titles from dataset
-        df = data_loader.df
-        if df is None:
-            data_loader.load_dataset()
-            df = data_loader.df
-        
-        # Filter job titles that contain the query
-        job_col = 'Job Title' if 'Job Title' in df.columns else 'Job_Title'
-        matching_jobs = df[df[job_col].str.lower().str.contains(query, na=False)]
-        
-        # Get unique job titles, sorted by frequency
-        suggestions = matching_jobs[job_col].value_counts().head(15).index.tolist()
+        # Use hybrid search (fuzzy + vector)
+        results = hybrid_search.hybrid_search(query, top_k=15)
         
         return jsonify({
-            'suggestions': suggestions,
-            'total_matches': len(matching_jobs)
+            'suggestions': results,
+            'total_matches': len(results)
         })
         
     except Exception as e:
         print(f"Error getting job suggestions: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': 'Failed to get job suggestions'}), 500
 
 

@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ suggestions: [] });
     }
 
-    // Try to read from Python backend first (for local development)
+    // Try to read from Python backend first (for local development with hybrid search)
     try {
       const pythonResponse = await fetch(`${process.env.PYTHON_API_URL || 'http://localhost:5000'}/api/job-suggestions`, {
         method: 'POST',
@@ -27,10 +27,11 @@ export async function POST(req: NextRequest) {
 
       if (pythonResponse.ok) {
         const data = await pythonResponse.json();
+        // Python backend returns: { suggestions: [{job_title, confidence, match_method, ...}] }
         return NextResponse.json(data);
       }
-    } catch {
-      console.log('Python backend not available, using CSV fallback');
+    } catch (error) {
+      console.log('Python backend not available, using CSV fallback:', error);
     }
 
     // Fallback: Read CSV file directly (for production)

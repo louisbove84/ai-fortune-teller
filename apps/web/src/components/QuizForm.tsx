@@ -92,7 +92,13 @@ interface QuizFormProps {
 export default function QuizForm({ onComplete }: QuizFormProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Partial<QuizAnswers>>({});
-  const [jobSuggestions, setJobSuggestions] = useState<string[]>([]);
+  const [jobSuggestions, setJobSuggestions] = useState<Array<{
+    job_title: string;
+    confidence: number;
+    match_method: string;
+    industry?: string;
+    location?: string;
+  }>>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
@@ -220,10 +226,19 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
                   {jobSuggestions.map((job, index) => (
                     <button
                       key={index}
-                      onClick={() => handleJobTitleSelect(job)}
-                      className="w-full p-2 text-left text-sm bg-black/30 hover:bg-cyan-500/20 border border-cyan-500/20 rounded transition-all"
+                      onClick={() => handleJobTitleSelect(typeof job === 'string' ? job : job.job_title)}
+                      className="w-full p-2 text-left text-sm bg-black/30 hover:bg-cyan-500/20 border border-cyan-500/20 rounded transition-all flex items-center justify-between"
                     >
-                      {job}
+                      <span>{typeof job === 'string' ? job : job.job_title}</span>
+                      {typeof job === 'object' && job.confidence && (
+                        <span className={`text-xs px-2 py-0.5 rounded-full ${
+                          job.confidence >= 90 ? 'bg-green-500/20 text-green-400' :
+                          job.confidence >= 75 ? 'bg-yellow-500/20 text-yellow-400' :
+                          'bg-blue-500/20 text-blue-400'
+                        }`}>
+                          {job.confidence.toFixed(0)}% {job.match_method}
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
