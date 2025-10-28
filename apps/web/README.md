@@ -4,10 +4,11 @@ Vintage fortune teller that reveals your career's fate in the age of AI.
 
 ## Features
 
-- 🔮 **Free Fortune**: Get career insights based on 30,000 real jobs from Kaggle
-- ⚡ **Premium Reading**: AI-powered strategies using Grok LLM
+- 🔮 **Career Insights**: Get fortune based on 30,000 real jobs from Kaggle
+- 💼 **Job Market Data**: Real automation risk, salary trends, and growth projections
 - 🎨 **Vintage Aesthetic**: 1920s fortune teller machine design
 - 🎯 **Minimal Design**: Clean, focused user experience
+- 🔗 **Wallet Required**: Connect via OnchainKit before taking quiz
 
 ## Environment Variables
 

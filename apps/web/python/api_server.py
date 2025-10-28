@@ -181,8 +181,9 @@ def get_free_fortune():
         return jsonify({'error': 'Failed to generate fortune'}), 500
 
 
-@app.route('/api/fortune/premium', methods=['POST'])
-def get_premium_fortune():
+# Premium endpoint disabled - no longer used
+# @app.route('/api/fortune/premium', methods=['POST'])
+def get_premium_fortune_disabled():
     """
     Generate premium fortune with LLM-powered insights
     
@@ -425,8 +426,8 @@ if __name__ == '__main__':
     Endpoints:
     - GET  /health                  - Health check
     - GET  /api/dataset/summary     - Dataset statistics
-    - POST /api/fortune/free        - Free fortune (Kaggle data)
-    - POST /api/fortune/premium     - Premium fortune (LLM-powered)
+    - POST /api/fortune/free        - Fortune (Kaggle job market data)
+    - GET  /api/job-suggestions     - Job title suggestions
     
     Starting on http://localhost:{port}
     """)
