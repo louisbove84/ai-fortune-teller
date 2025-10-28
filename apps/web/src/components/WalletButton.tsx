@@ -34,6 +34,15 @@ export function WalletButton({ showConnectionStatus = false }: WalletButtonProps
           <ConnectWallet 
             className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
             onConnect={handleConnectClick}
+            render={({ label, onClick, context, status, isLoading }) => (
+              <button
+                onClick={onClick}
+                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Connecting...' : 'Connect Wallet'}
+              </button>
+            )}
           />
           <WalletDropdown>
             <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
