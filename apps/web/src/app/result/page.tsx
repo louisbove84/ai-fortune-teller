@@ -165,44 +165,6 @@ export default function ResultPage() {
     fetchFortune();
   }, [router, createFallbackResult]);
 
-  const createFallbackResult = useCallback((answers: QuizAnswers): FortuneResult => {
-    // Calculate basic automation risk based on job title and AI skills
-    const automationRisk = calculateAutomationRisk(answers.job_title, answers.ai_skills);
-    const score = Math.max(10, 100 - automationRisk);
-    
-    return {
-      score,
-      narrative: `Based on your role as a ${answers.job_title} with ${answers.ai_skills} AI skills, you have a ${automationRisk}% automation risk. ${getAutomationAdvice(automationRisk)}`,
-      riskLevel: automationRisk > 60 ? "high" : automationRisk > 30 ? "medium" : "low",
-      outlook: automationRisk > 60 ? "concerning" : automationRisk > 30 ? "neutral" : "positive",
-      factors: {
-        automation_risk: automationRisk,
-        growth_projection: 5, // Default growth
-        skills_adaptation: "Medium",
-        salary_trend: 0,
-      },
-      salary_analysis: {
-        current: 0,
-        projected: 0,
-        change_percent: 0,
-        user_comparison: {
-          user_salary_range: answers.current_salary,
-          market_median: 0,
-          percentile: 50,
-        },
-      },
-      job_data: {
-        automation_risk: automationRisk,
-        growth_projection: 5,
-        skills_needed: "Unknown",
-        industry: "Unknown",
-        location: answers.location,
-      },
-      data_source: "fallback",
-      tier: "free",
-    };
-  }, []);
-
 
   if (loading) {
     return (
