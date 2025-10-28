@@ -5,8 +5,11 @@ import { NextRequest, NextResponse } from "next/server";
  * Provides searchable job titles from the Kaggle dataset
  */
 export async function POST(req: NextRequest) {
+  let query = '';
+  
   try {
-    const { query } = await req.json();
+    const body = await req.json();
+    query = body.query || '';
     
     if (!query || query.length < 2) {
       return NextResponse.json({ suggestions: [] });
