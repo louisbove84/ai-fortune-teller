@@ -57,6 +57,76 @@ export default function ResultPage() {
     }
   ];
 
+  const calculateAutomationRisk = (jobTitle: string, aiSkills: string): number => {
+    const title = jobTitle.toLowerCase();
+    let risk = 30; // Base risk
+    
+    // Job title risk factors
+    if (title.includes('data entry') || title.includes('cashier') || title.includes('receptionist')) risk += 40;
+    else if (title.includes('analyst') || title.includes('accountant') || title.includes('bookkeeper')) risk += 25;
+    else if (title.includes('developer') || title.includes('engineer') || title.includes('designer')) risk += 15;
+    else if (title.includes('manager') || title.includes('director') || title.includes('executive')) risk += 5;
+    else if (title.includes('teacher') || title.includes('nurse') || title.includes('therapist')) risk += 10;
+    
+    // AI skills adjustment
+    if (aiSkills === 'expert') risk -= 20;
+    else if (aiSkills === 'intermediate') risk -= 10;
+    else if (aiSkills === 'beginner') risk -= 5;
+    
+    return Math.max(5, Math.min(95, risk));
+  };
+
+  const getAutomationAdvice = (risk: number): string => {
+    if (risk > 70) return "Consider upskilling in AI-resistant areas like creativity, emotional intelligence, or complex problem-solving.";
+    if (risk > 40) return "You're in a moderate risk zone. Focus on developing complementary AI skills.";
+    return "You're in a relatively safe position. Keep learning to stay ahead!";
+  };
+
+  const getAutomationTier = (risk: number): AutomationTier => {
+    if (risk <= 20) return automationTiers[0];
+    if (risk <= 40) return automationTiers[1];
+    if (risk <= 60) return automationTiers[2];
+    if (risk <= 80) return automationTiers[3];
+    return automationTiers[4];
+  };
+
+  const createFallbackResult = useCallback((answers: QuizAnswers): FortuneResult => {
+    // Calculate basic automation risk based on job title and AI skills
+    const automationRisk = calculateAutomationRisk(answers.job_title, answers.ai_skills);
+    const score = Math.max(10, 100 - automationRisk);
+    
+    return {
+      score,
+      narrative: `Based on your role as a ${answers.job_title} with ${answers.ai_skills} AI skills, you have a ${automationRisk}% automation risk. ${getAutomationAdvice(automationRisk)}`,
+      riskLevel: automationRisk > 60 ? "high" : automationRisk > 30 ? "medium" : "low",
+      outlook: automationRisk > 60 ? "concerning" : automationRisk > 30 ? "neutral" : "positive",
+      factors: {
+        automation_risk: automationRisk,
+        growth_projection: 5, // Default growth
+        skills_adaptation: "Medium",
+        salary_trend: 0,
+      },
+      salary_analysis: {
+        current: 0,
+        projected: 0,
+        change_percent: 0,
+        user_comparison: {
+          user_salary_range: answers.current_salary,
+          market_median: 0,
+          percentile: 50,
+        },
+      },
+      job_data: {
+        automation_risk: automationRisk,
+        growth_projection: 5,
+        skills_needed: "Unknown",
+        industry: "Unknown",
+        location: answers.location,
+      },
+      data_source: "fallback",
+      tier: "free",
+    };
+  }, []);
 
   useEffect(() => {
     const fetchFortune = async () => {
@@ -132,39 +202,6 @@ export default function ResultPage() {
       tier: "free",
     };
   }, []);
-
-  const calculateAutomationRisk = (jobTitle: string, aiSkills: string): number => {
-    const title = jobTitle.toLowerCase();
-    let risk = 30; // Base risk
-    
-    // Job title risk factors
-    if (title.includes('data entry') || title.includes('cashier') || title.includes('receptionist')) risk += 40;
-    else if (title.includes('analyst') || title.includes('accountant') || title.includes('bookkeeper')) risk += 25;
-    else if (title.includes('developer') || title.includes('engineer') || title.includes('designer')) risk += 15;
-    else if (title.includes('manager') || title.includes('director') || title.includes('executive')) risk += 5;
-    else if (title.includes('teacher') || title.includes('nurse') || title.includes('therapist')) risk += 10;
-    
-    // AI skills adjustment
-    if (aiSkills === 'expert') risk -= 20;
-    else if (aiSkills === 'intermediate') risk -= 10;
-    else if (aiSkills === 'beginner') risk -= 5;
-    
-    return Math.max(5, Math.min(95, risk));
-  };
-
-  const getAutomationAdvice = (risk: number): string => {
-    if (risk > 70) return "Consider upskilling in AI-resistant areas like creativity, emotional intelligence, or complex problem-solving.";
-    if (risk > 40) return "You're in a moderate risk zone. Focus on developing complementary AI skills.";
-    return "You're in a relatively safe position. Keep learning to stay ahead!";
-  };
-
-  const getAutomationTier = (risk: number): AutomationTier => {
-    if (risk <= 20) return automationTiers[0];
-    if (risk <= 40) return automationTiers[1];
-    if (risk <= 60) return automationTiers[2];
-    if (risk <= 80) return automationTiers[3];
-    return automationTiers[4];
-  };
 
 
   if (loading) {
