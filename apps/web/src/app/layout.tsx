@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "AI Fortune Teller - Career Resilience in the AI Age",
   description: "Discover your career fate in the age of AI. Get free fortunes from real job market data, or pay for premium AI strategies & collectible NFTs on Base.",
   manifest: "/manifest.json",
-  metadataBase: new URL("https://ai-fortune-teller.vercel.app"),
+  metadataBase: new URL("https://fortune.beuxbunk.com"),
   openGraph: {
     title: "AI Fortune Teller",
     description: "Discover your career fate in the age of AI. Get free fortunes or premium AI strategies & NFTs on Base.",
     type: "website",
-    url: "https://ai-fortune-teller.vercel.app",
+    url: "https://fortune.beuxbunk.com",
     images: [
       {
         url: "/fortune-teller-bg.png",

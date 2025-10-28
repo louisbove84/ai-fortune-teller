@@ -2,29 +2,29 @@
   "miniapp": {
     "name": "AI Fortune Teller",
     "version": "1",
-    "iconUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
-    "homeUrl": "https://ai-fortune-teller.vercel.app",
-    "imageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "iconUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
+    "homeUrl": "https://fortune.beuxbunk.com",
+    "imageUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
     "buttonTitle": "🔮 Get Your AI Career Fortune",
-    "splashImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "splashImageUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
     "splashBackgroundColor": "#0a0e1a",
-    "webhookUrl": "https://ai-fortune-teller.vercel.app/api/webhook",
+    "webhookUrl": "https://fortune.beuxbunk.com/api/webhook",
     "subtitle": "Career Resilience in the AI Age",
     "description": "AI-powered career fortune teller. Get free insights from real job market data, or pay for premium AI strategies & collectible NFTs on Base network.",
     "screenshotUrls": [
-      "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png"
+      "https://fortune.beuxbunk.com/fortune-teller-bg.png"
     ],
     "primaryCategory": "utility",
-    "heroImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "heroImageUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
     "tagline": "ai-career-fortune",
-    "ogImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
+    "ogImageUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
     "ogTitle": "AI Fortune Teller",
     "ogDescription": "Discover your career fate in the age of AI. Get free fortunes or premium AI strategies & NFTs on Base.",
     "tags": ["ai", "career", "fortune", "base", "nft"]
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjg4NjUwMywidHlwZSI6ImF1dGgiLCJrZXkiOiIweEQyRTc4MzlDOTI2QTlBMzQ5ODdFM0E4NjI2ODFDYTUyZmU2M2M0ZTYifQ",
-    "payload": "eyJkb21haW4iOiJhaS1mb3J0dW5lLXRlbGxlci52ZXJjZWwuYXBwIn0",
+    "payload": "eyJkb21haW4iOiJmb3J0dW5lLmJldXhidW5rLmNvbSJ9",
     "signature": "TMc8wzD6CDpvZ3dq3V2Q84bdueI9mkGZoIopNQf19g1K6684JAmBVRNSH0DiOlQvOl8iRWLfZAJ9JHgu/hq72Rw="
   },
   "baseBuilder": {

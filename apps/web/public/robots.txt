@@ -3,5 +3,5 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ai-fortune-teller.vercel.app/sitemap.xml
+Sitemap: https://fortune.beuxbunk.com/sitemap.xml
 
