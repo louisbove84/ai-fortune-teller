@@ -8,7 +8,7 @@ Vintage fortune teller that reveals your career's fate in the age of AI.
 - 💼 **Job Market Data**: Real automation risk, salary trends, and growth projections
 - 🎨 **Vintage Aesthetic**: 1920s fortune teller machine design
 - 🎯 **Minimal Design**: Clean, focused user experience
-- 🔗 **Wallet Required**: Connect via OnchainKit before taking quiz
+- ⚡ **Instant Access**: No wallet or signup required
 
 ## Environment Variables
 

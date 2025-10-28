@@ -1,7 +1,7 @@
 {
   "name": "AI Fortune Teller",
   "short_name": "Fortune",
-  "description": "Discover your career fate in the age of AI. Connect your wallet and get AI-powered career insights.",
+  "description": "Discover your career fate in the age of AI. Get AI-powered career insights based on real job market data.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0e1a",

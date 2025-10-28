@@ -3,19 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
+import QuizForm from "@/components/QuizForm";
 import type { QuizAnswers } from "@/types/fortune";
-
-// Dynamically import wallet components to prevent SSR issues
-const WalletButton = dynamic(
-  () => import("@/components/WalletButton").then((mod) => ({ default: mod.WalletButton })),
-  { ssr: false }
-);
-
-const ConnectedQuiz = dynamic(
-  () => import("@/components/ConnectedQuiz").then((mod) => ({ default: mod.ConnectedQuiz })),
-  { ssr: false }
-);
 
 export default function Home() {
   const router = useRouter();
@@ -33,9 +22,6 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
-      {/* Wallet Connection - Client-side only */}
-      <WalletButton showConnectionStatus={showQuiz} />
-
       {!showQuiz ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,7 +39,7 @@ export default function Home() {
           </motion.button>
         </motion.div>
       ) : (
-        <ConnectedQuiz onComplete={handleQuizComplete} />
+        <QuizForm onComplete={handleQuizComplete} />
       )}
     </main>
   );

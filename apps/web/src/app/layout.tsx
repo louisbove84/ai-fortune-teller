@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SimpleWalletProvider } from "@/components/SimpleWalletProvider";
 
 export const metadata: Metadata = {
   title: "AI Fortune Teller - Career Resilience in the AI Age",
-  description: "Discover your career fate in the age of AI. Connect your wallet and get AI-powered career insights based on real job market data.",
+  description: "Discover your career fate in the age of AI. Get AI-powered career insights based on real job market data.",
   manifest: "/manifest.json",
   metadataBase: new URL("https://fortune.beuxbunk.com"),
   openGraph: {
     title: "AI Fortune Teller",
-    description: "Discover your career fate in the age of AI. Connect your wallet and get AI-powered career insights.",
+    description: "Discover your career fate in the age of AI. Get AI-powered career insights.",
     type: "website",
     url: "https://fortune.beuxbunk.com",
     images: [
@@ -37,9 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <SimpleWalletProvider>
-          {children}
-        </SimpleWalletProvider>
+        {children}
       </body>
     </html>
   );
