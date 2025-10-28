@@ -18,6 +18,10 @@ def precompute_embeddings():
     print("Loading dataset...")
     data_loader = JobMarketDataLoader()
     
+    # Ensure dataset is loaded
+    if data_loader.df is None:
+        data_loader.load_dataset()
+    
     # Get unique job titles
     job_titles = data_loader.df['Job Title'].unique()
     print(f"Found {len(job_titles)} unique job titles")

@@ -97,7 +97,7 @@ class HybridJobSearch:
         
         return results
     
-    def hybrid_search(self, query: str, top_k: int = 10, fuzzy_threshold: float = 80.0) -> List[Dict]:
+    def hybrid_search(self, query: str, top_k: int = 10, fuzzy_threshold: float = 85.0) -> List[Dict]:
         """
         Perform hybrid search: fuzzy first, then vector if needed.
         
