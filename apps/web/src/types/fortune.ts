@@ -34,6 +34,7 @@ export interface FortuneResult {
     skills_needed: string;
     industry: string;
     location: string;
+    ai_impact_level?: string;
   };
   data_source: string;
   tier: "free";

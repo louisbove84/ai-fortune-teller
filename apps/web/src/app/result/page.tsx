@@ -76,13 +76,29 @@ export default function ResultPage() {
     else if (aiSkills === 'intermediate') risk -= 10;
     else if (aiSkills === 'beginner') risk -= 5;
     
-    return Math.max(5, Math.min(95, risk));
+    return Math.max(10, Math.min(90, risk)); // Lowered minimum from 5% to 10%
   };
 
   const getAutomationAdvice = (risk: number): string => {
     if (risk > 70) return "Consider upskilling in AI-resistant areas like creativity, emotional intelligence, or complex problem-solving.";
     if (risk > 40) return "You're in a moderate risk zone. Focus on developing complementary AI skills.";
     return "You're in a relatively safe position. Keep learning to stay ahead!";
+  };
+
+  const getJobOpeningsDescription = (projectedOpenings: number): string => {
+    if (projectedOpenings === 0) return "You may be in trouble";
+    if (projectedOpenings < 1000) return "Good luck";
+    if (projectedOpenings < 5000) return "Smooth sailing";
+    return "Smooth sailing";
+  };
+
+  const getAIImpactDescription = (aiImpact: string): string => {
+    switch (aiImpact?.toLowerCase()) {
+      case 'high': return 'High AI Impact';
+      case 'moderate': return 'Moderate AI Impact';
+      case 'low': return 'Low AI Impact';
+      default: return 'Unknown AI Impact';
+    }
   };
 
   const getAutomationTier = (risk: number): AutomationTier => {
@@ -248,19 +264,23 @@ export default function ResultPage() {
                   </div>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-2 mb-3 text-center">
+                  <div className="grid grid-cols-2 gap-2 mb-4 text-center">
                     <div className="bg-yellow-300 rounded p-2">
                       <div className="text-sm font-bold text-yellow-900">{result.job_data.growth_projection}%</div>
                       <div className="text-xs text-yellow-900">Growth</div>
                     </div>
                     <div className="bg-yellow-300 rounded p-2">
-                      <div className="text-sm font-bold text-yellow-900">{Math.round(result.job_data.growth_projection * 1000)}</div>
-                      <div className="text-xs text-yellow-900">Job Openings 2030</div>
+                      <div className="text-sm font-bold text-yellow-900">{getJobOpeningsDescription(Math.round(result.job_data.growth_projection * 1000))}</div>
+                      <div className="text-xs text-yellow-900">Job Outlook</div>
+                    </div>
+                    <div className="bg-yellow-300 rounded p-2 col-span-2">
+                      <div className="text-sm font-bold text-yellow-900">{getAIImpactDescription(result.job_data.ai_impact_level || 'Unknown')}</div>
+                      <div className="text-xs text-yellow-900">AI Impact Level</div>
                     </div>
                   </div>
 
                   {/* Prophecy */}
-                  <div className="flex-1 mb-3">
+                  <div className="flex-1 mb-6">
                     <h3 className="text-sm font-bold text-yellow-900 mb-2 text-center">PROPHECY</h3>
                     <p className="text-xs text-yellow-900 leading-tight text-center">
                       As a {answers.job_title}, {result.narrative}

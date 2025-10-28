@@ -104,7 +104,7 @@ def get_job_suggestions():
             return jsonify({'suggestions': []})
         
         # Use hybrid search (fuzzy + vector)
-        results = hybrid_search.hybrid_search(query, top_k=15)
+        results = hybrid_search.hybrid_search(query, top_k=6)
         
         return jsonify({
             'suggestions': results,
@@ -173,7 +173,8 @@ def get_free_fortune():
                 'growth_projection': job_data['job_growth_projection'],
                 'skills_needed': job_data['required_skills_adaptation'],
                 'industry': job_data.get('industry', 'Unknown'),
-                'location': job_data.get('location', 'Unknown')
+                'location': job_data.get('location', 'Unknown'),
+                'ai_impact_level': job_data.get('ai_impact_level', 'Unknown')
             },
             'data_source': job_data['data_source'],
             'tier': 'free'
