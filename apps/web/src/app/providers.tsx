@@ -6,7 +6,6 @@ import { OnchainKitProvider } from "@coinbase/onchainkit";
 import { base } from "wagmi/chains";
 import { config } from "@/lib/wagmi";
 import { useState, type ReactNode } from "react";
-import "@coinbase/onchainkit/styles.css";
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
