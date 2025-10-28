@@ -3,27 +3,21 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { 
-  Wallet, 
-  ConnectWallet, 
-  WalletDropdown, 
-  WalletDropdownDisconnect 
-} from "@coinbase/onchainkit/wallet";
-import { 
-  Avatar, 
-  Name, 
-  Identity, 
-  Address 
-} from "@coinbase/onchainkit/identity";
-import { useAccount } from "wagmi";
+import dynamic from "next/dynamic";
 import PremiumFortune from "@/components/PremiumFortune";
 import type { QuizAnswers } from "@/types/fortune";
 
+// Dynamically import wallet section to prevent SSR issues
+const PremiumWalletSection = dynamic(
+  () => import("@/components/PremiumWalletSection").then((mod) => ({ default: mod.PremiumWalletSection })),
+  { ssr: false }
+);
+
 export default function PremiumPage() {
   const router = useRouter();
-  const { address, isConnected } = useAccount();
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [hasPaid, setHasPaid] = useState(false);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
 
   useEffect(() => {
     const answersStr = sessionStorage.getItem("fortuneAnswers");
@@ -35,7 +29,7 @@ export default function PremiumPage() {
   }, [router]);
 
   const handlePayment = async () => {
-    if (!isConnected || !address) {
+    if (!walletAddress) {
       alert("Please connect your wallet first");
       return;
     }
@@ -46,7 +40,7 @@ export default function PremiumPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          address,
+          address: walletAddress,
           answers,
         }),
       });
@@ -55,6 +49,7 @@ export default function PremiumPage() {
 
       if (data.success) {
         setHasPaid(true);
+        setWalletAddress(walletAddress);
         // Store transaction for NFT minting
         sessionStorage.setItem("paymentTx", data.txHash);
       } else {
@@ -80,8 +75,8 @@ export default function PremiumPage() {
     );
   }
 
-  if (hasPaid) {
-    return <PremiumFortune answers={answers} address={address!} />;
+  if (hasPaid && walletAddress) {
+    return <PremiumFortune answers={answers} address={walletAddress} />;
   }
 
   return (
@@ -147,41 +142,7 @@ export default function PremiumPage() {
             <div className="text-gray-300 mb-4">≈ 0.001 ETH on Base (low gas fees!)</div>
           </div>
 
-          <div className="flex justify-center">
-            <Wallet>
-              <ConnectWallet className="w-full px-8 py-4 bg-fortune-purple hover:bg-fortune-darkPurple text-white text-xl font-bold rounded-lg mystic-shadow transition-all duration-300 hover:scale-105">
-                <span>Connect Wallet</span>
-              </ConnectWallet>
-              <WalletDropdown>
-                <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                  <Avatar />
-                  <Name />
-                  <Address />
-                </Identity>
-                <WalletDropdownDisconnect />
-              </WalletDropdown>
-            </Wallet>
-          </div>
-          
-          {isConnected && (
-            <div className="space-y-4">
-              <div className="bg-mystic-800/50 rounded-lg p-4 text-center">
-                <div className="text-sm text-gray-400 mb-1">Connected:</div>
-                <div className="text-fortune-gold font-mono">
-                  {address?.slice(0, 6)}...{address?.slice(-4)}
-                </div>
-              </div>
-
-              <motion.button
-                onClick={handlePayment}
-                className="w-full px-8 py-4 bg-fortune-gold hover:bg-yellow-500 text-mystic-950 text-xl font-bold rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                💫 Unlock Full Destiny - Pay $3
-              </motion.button>
-            </div>
-          )}
+          <PremiumWalletSection onPayment={handlePayment} />
 
           <div className="text-center">
             <button
