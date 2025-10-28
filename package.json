@@ -4,8 +4,7 @@
   "private": true,
   "description": "AI Fortune Teller - Farcaster Mini App for career resilience assessment",
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
     "dev": "turbo run dev",

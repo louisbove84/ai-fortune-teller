@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "./providers";
+import { SimpleWalletProvider } from "@/components/SimpleWalletProvider";
 
 export const metadata: Metadata = {
   title: "AI Fortune Teller - Career Resilience in the AI Age",
@@ -37,9 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <Providers>
+        <SimpleWalletProvider>
           {children}
-        </Providers>
+        </SimpleWalletProvider>
       </body>
     </html>
   );
