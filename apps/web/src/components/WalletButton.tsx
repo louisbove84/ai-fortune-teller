@@ -14,7 +14,11 @@ import {
   Address 
 } from "@coinbase/onchainkit/identity";
 
-export function WalletButton() {
+interface WalletButtonProps {
+  showConnectionStatus?: boolean;
+}
+
+export function WalletButton({ showConnectionStatus = false }: WalletButtonProps) {
   const { address, isConnected } = useAccount();
 
   return (
@@ -33,7 +37,7 @@ export function WalletButton() {
         </Wallet>
       </div>
 
-      {isConnected && (
+      {showConnectionStatus && isConnected && (
         <p className="mt-6 text-fortune-gold text-sm">
           Wallet Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
         </p>

@@ -103,7 +103,7 @@ export default function ResultPage() {
           </p>
         </motion.div>
 
-        {/* CTA for Premium */}
+        {/* Actions */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -111,17 +111,10 @@ export default function ResultPage() {
           className="text-center space-y-4"
         >
           <button
-            onClick={() => router.push("/premium")}
+            onClick={() => router.push("/")}
             className="w-full px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all"
           >
-            Get Premium Reading + NFT
-          </button>
-
-          <button
-            onClick={() => router.push("/")}
-            className="text-cyan-400/60 hover:text-cyan-400 transition-colors text-sm"
-          >
-            ← Start Over
+            Take Another Reading
           </button>
         </motion.div>
       </motion.div>
