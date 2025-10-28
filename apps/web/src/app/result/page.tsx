@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
 
 interface AutomationTier {
@@ -12,13 +11,6 @@ interface AutomationTier {
   color: string;
   bgColor: string;
   emoji: string;
-}
-
-interface NPCTier {
-  level: number;
-  name: string;
-  description: string;
-  color: string;
 }
 
 export default function ResultPage() {
@@ -66,13 +58,6 @@ export default function ResultPage() {
     }
   ];
 
-  const npcTiers: NPCTier[] = [
-    { level: 1, name: "Main Character", description: "You're the protagonist of your own story", color: "text-purple-400" },
-    { level: 2, name: "Supporting Cast", description: "Important but not the star", color: "text-blue-400" },
-    { level: 3, name: "Background Character", description: "You exist, that's something", color: "text-yellow-400" },
-    { level: 4, name: "NPC", description: "Generic dialogue options", color: "text-orange-400" },
-    { level: 5, name: "Ultimate NPC", description: "You are the Wojak", color: "text-red-400" }
-  ];
 
   useEffect(() => {
     const fetchFortune = async () => {
@@ -182,13 +167,6 @@ export default function ResultPage() {
     return automationTiers[4];
   };
 
-  const getNPCTier = (risk: number): NPCTier => {
-    if (risk <= 20) return npcTiers[0];
-    if (risk <= 40) return npcTiers[1];
-    if (risk <= 60) return npcTiers[2];
-    if (risk <= 80) return npcTiers[3];
-    return npcTiers[4];
-  };
 
   if (loading) {
     return (
@@ -208,7 +186,6 @@ export default function ResultPage() {
 
   const automationRisk = result.factors.automation_risk;
   const automationTier = getAutomationTier(automationRisk);
-  const npcTier = getNPCTier(automationRisk);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 relative">
@@ -216,120 +193,83 @@ export default function ResultPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl w-full space-y-6"
+        className="max-w-2xl w-full space-y-4"
       >
         {/* Header */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
-          <h1 className="text-4xl font-bold text-cyan-300 mb-2 animate-flicker">
+          <h1 className="text-3xl font-bold text-cyan-300 mb-2 animate-flicker">
             Your Fortune
           </h1>
-          <p className="text-cyan-400">The crystal ball has spoken...</p>
+          <p className="text-cyan-400 text-sm">The crystal ball has spoken...</p>
         </motion.div>
 
-        {/* Main Results Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Automation Tier Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className={`${automationTier.bgColor} backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6`}
-          >
-            <div className="text-center">
-              <div className="text-6xl mb-4">{automationTier.emoji}</div>
-              <h2 className={`text-2xl font-bold ${automationTier.color} mb-2`}>
-                {automationTier.name}
-              </h2>
-              <p className="text-gray-300 mb-4">{automationTier.description}</p>
-              <div className="text-3xl font-bold text-cyan-300">
-                {automationRisk}% Automation Risk
-              </div>
-            </div>
-          </motion.div>
-
-          {/* NPC Tier Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6"
-          >
-            <div className="text-center">
-              <div className="mb-4">
-                <Image
-                  src="/NPC_wojak_meme.png"
-                  alt="NPC Wojak"
-                  width={120}
-                  height={120}
-                  className="mx-auto rounded-lg"
-                />
-              </div>
-              <h2 className={`text-2xl font-bold ${npcTier.color} mb-2`}>
-                NPC Level {npcTier.level}
-              </h2>
-              <p className="text-gray-300 mb-2">{npcTier.name}</p>
-              <p className="text-sm text-gray-400">{npcTier.description}</p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Job Stats */}
+        {/* Automation Risk Card - Main Focus */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6"
+          transition={{ delay: 0.4 }}
+          className={`${automationTier.bgColor} backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6`}
         >
-          <h3 className="text-xl font-bold text-cyan-300 mb-4 text-center">Job Market Stats</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div>
-              <div className="text-2xl font-bold text-cyan-400">{result.job_data.growth_projection}%</div>
-              <div className="text-sm text-gray-400">Projected Growth</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-orange-400">{automationRisk}%</div>
-              <div className="text-sm text-gray-400">AI Risk</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-green-400">{answers.location}</div>
-              <div className="text-sm text-gray-400">Location</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-400">{answers.experience}</div>
-              <div className="text-sm text-gray-400">Experience</div>
+          <div className="text-center">
+            <div className="text-5xl mb-3">{automationTier.emoji}</div>
+            <h2 className={`text-xl font-bold ${automationTier.color} mb-2`}>
+              {automationTier.name}
+            </h2>
+            <p className="text-gray-300 text-sm mb-3">{automationTier.description}</p>
+            <div className="text-4xl font-bold text-cyan-300">
+              {automationRisk}% Automation Risk
             </div>
           </div>
         </motion.div>
 
-        {/* Narrative */}
+        {/* Consolidated Stats & Narrative */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0 }}
-          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-5"
         >
-          <h3 className="text-xl font-bold text-cyan-300 mb-4 text-center">The Prophecy</h3>
-          <p className="text-base text-gray-300 leading-relaxed whitespace-pre-line">
-            {result.narrative}
-          </p>
-          {result.data_source === "fallback" && (
-            <div className="mt-4 p-3 bg-yellow-500/20 border border-yellow-500/30 rounded text-yellow-300 text-sm">
-              ⚠️ Using fallback calculation (Python backend unavailable)
+          {/* Job Stats Row */}
+          <div className="grid grid-cols-3 gap-4 mb-4 text-center">
+            <div>
+              <div className="text-xl font-bold text-cyan-400">{result.job_data.growth_projection}%</div>
+              <div className="text-xs text-gray-400">Growth</div>
             </div>
-          )}
+            <div>
+              <div className="text-xl font-bold text-green-400">{answers.location}</div>
+              <div className="text-xs text-gray-400">Location</div>
+            </div>
+            <div>
+              <div className="text-xl font-bold text-purple-400">{answers.experience}</div>
+              <div className="text-xs text-gray-400">Experience</div>
+            </div>
+          </div>
+
+          {/* Narrative */}
+          <div className="border-t border-cyan-500/20 pt-4">
+            <h3 className="text-lg font-bold text-cyan-300 mb-3 text-center">The Prophecy</h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              {result.narrative}
+            </p>
+            {result.data_source === "fallback" && (
+              <div className="mt-3 p-2 bg-yellow-500/20 border border-yellow-500/30 rounded text-yellow-300 text-xs text-center">
+                ⚠️ Using fallback calculation
+              </div>
+            )}
+          </div>
         </motion.div>
 
         {/* Actions */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="text-center space-y-4"
+          transition={{ delay: 0.8 }}
+          className="text-center"
         >
           <button
             onClick={() => router.push("/")}
