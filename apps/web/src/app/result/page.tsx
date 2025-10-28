@@ -226,19 +226,19 @@ export default function ResultPage() {
               </div>
 
               {/* Ticket Back - Results */}
-              <div className="absolute inset-0 w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-b from-yellow-200 to-yellow-300 rounded-lg shadow-2xl border-4 border-yellow-400">
+              <div className="absolute inset-0 w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-lg shadow-2xl border-4 border-yellow-600">
                 <div className="p-4 h-full flex flex-col justify-between text-yellow-900">
                   {/* Header */}
                   <div className="text-center mb-3">
                     <h1 className="text-lg font-bold text-yellow-900 mb-1">YOUR FORTUNE</h1>
-                    <div className="w-full h-0.5 bg-yellow-600"></div>
+                    <div className="w-full h-0.5 bg-yellow-700"></div>
                   </div>
 
                   {/* Automation Risk - Main Focus */}
-                  <div className={`${automationTier.bgColor} rounded-lg p-3 mb-3`}>
+                  <div className="bg-yellow-600 rounded-lg p-3 mb-3">
                     <div className="text-center">
                       <div className="text-3xl mb-1">{automationTier.emoji}</div>
-                      <h2 className={`text-sm font-bold ${automationTier.color} mb-1`}>
+                      <h2 className="text-sm font-bold text-yellow-900 mb-1">
                         {automationTier.name}
                       </h2>
                       <div className="text-2xl font-bold text-yellow-900">
@@ -249,11 +249,11 @@ export default function ResultPage() {
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-2 mb-3 text-center">
-                    <div className="bg-yellow-200 rounded p-2">
+                    <div className="bg-yellow-300 rounded p-2">
                       <div className="text-sm font-bold text-yellow-900">{result.job_data.growth_projection}%</div>
                       <div className="text-xs text-yellow-900">Growth</div>
                     </div>
-                    <div className="bg-yellow-200 rounded p-2">
+                    <div className="bg-yellow-300 rounded p-2">
                       <div className="text-sm font-bold text-yellow-900">{Math.round(result.job_data.growth_projection * 1000)}</div>
                       <div className="text-xs text-yellow-900">Job Openings 2030</div>
                     </div>
