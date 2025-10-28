@@ -33,7 +33,7 @@ export function WalletButton({ showConnectionStatus = false }: WalletButtonProps
         <Wallet>
           <ConnectWallet 
             className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-            onClick={handleConnectClick}
+            onConnect={handleConnectClick}
           />
           <WalletDropdown>
             <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
