@@ -9,13 +9,13 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "react": "^18.3.1",
+    "react": "^19.0.0-rc",
     "framer-motion": "^11.5.0",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.5.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.5",
+    "@types/react": "npm:types-react@rc",
     "typescript": "^5.5.0"
   }
 }
