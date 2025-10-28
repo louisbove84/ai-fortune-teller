@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { QuizAnswers } from "@/types/fortune";
 
@@ -99,15 +99,9 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
   const question = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
 
-  // Fetch job suggestions when user types
-  useEffect(() => {
-    if (question.id === "job_title" && searchQuery.length > 2) {
-      fetchJobSuggestions(searchQuery);
-    }
-  }, [searchQuery, question.id]);
-
-  const fetchJobSuggestions = async (query: string) => {
+  const fetchJobSuggestions = useCallback(async (query: string) => {
     setIsSearching(true);
+    console.log('Fetching job suggestions for:', query);
     try {
       const response = await fetch('/api/job-suggestions', {
         method: 'POST',
@@ -115,13 +109,26 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
         body: JSON.stringify({ query })
       });
       const data = await response.json();
+      console.log('Job suggestions received:', data);
       setJobSuggestions(data.suggestions || []);
     } catch (error) {
       console.error('Error fetching job suggestions:', error);
     } finally {
       setIsSearching(false);
     }
-  };
+  }, []);
+
+  // Fetch job suggestions when user types
+  useEffect(() => {
+    if (question.id === "job_title" && searchQuery.length >= 2) {
+      const timer = setTimeout(() => {
+        fetchJobSuggestions(searchQuery);
+      }, 300);
+      return () => clearTimeout(timer);
+    } else {
+      setJobSuggestions([]);
+    }
+  }, [searchQuery, question.id, fetchJobSuggestions]);
 
   const handleAnswer = (value: string) => {
     const newAnswers = { ...answers, [question.id]: value };
