@@ -3,11 +3,25 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useAccount } from "wagmi";
+import { 
+  Wallet, 
+  ConnectWallet, 
+  WalletDropdown, 
+  WalletDropdownDisconnect 
+} from "@coinbase/onchainkit/wallet";
+import { 
+  Avatar, 
+  Name, 
+  Identity, 
+  Address 
+} from "@coinbase/onchainkit/identity";
 import QuizForm from "@/components/QuizForm";
 import type { QuizAnswers } from "@/types/fortune";
 
 export default function Home() {
   const router = useRouter();
+  const { address, isConnected } = useAccount();
   const [showQuiz, setShowQuiz] = useState(false);
 
   const handleStartQuiz = () => {
@@ -22,6 +36,23 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
+      {/* Wallet Connection - Top Right */}
+      <div className="absolute top-8 right-8 z-50">
+        <Wallet>
+          <ConnectWallet className="px-6 py-3 bg-fortune-purple hover:bg-fortune-darkPurple text-white font-bold rounded-lg mystic-shadow transition-all duration-300">
+            <span>Connect Wallet</span>
+          </ConnectWallet>
+          <WalletDropdown>
+            <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+              <Avatar />
+              <Name />
+              <Address />
+            </Identity>
+            <WalletDropdownDisconnect />
+          </WalletDropdown>
+        </Wallet>
+      </div>
+
       {!showQuiz ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,6 +68,17 @@ export default function Home() {
           >
             Begin Reading
           </motion.button>
+
+          {isConnected && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-6 text-fortune-gold text-sm"
+            >
+              Wallet Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
+            </motion.p>
+          )}
         </motion.div>
       ) : (
         <QuizForm onComplete={handleQuizComplete} />
