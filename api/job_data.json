@@ -1,0 +1,3836 @@
+{
+  "Investment analyst": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Journalist, newspaper": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Financial planner": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Legal secretary": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Aeronautical engineer": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, insurance": {
+    "industry": "Manufacturing",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dentist": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Emergency planning/management officer": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Visual merchandiser": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Housing manager/officer": {
+    "industry": "Entertainment",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geologist, wellsite": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Runner, broadcasting/film/video": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Press photographer": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Biochemist, clinical": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Town planner": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, civil (consulting)": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Audiological scientist": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical scientist, histocompatibility and immunogenetics": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Music therapist": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Advertising copywriter": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Commercial horticulturist": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Secondary school teacher": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Production assistant, radio": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Armed forces technical officer": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Youth worker": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Special effects artist": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ceramics designer": {
+    "industry": "Transportation",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Animal technologist": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Firefighter": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Charity fundraiser": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Jewellery designer": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ecologist": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Operations geologist": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Patent attorney": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Media buyer": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Tour manager": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Higher education careers adviser": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Fitness centre manager": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Immunologist": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Contracting civil engineer": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surgeon": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Environmental consultant": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, electrical": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, commercial/residential": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Customer service manager": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Microbiologist": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Secretary/administrator": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Armed forces operational officer": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, horticultural": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Architect": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, structural": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Trade union research officer": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Radio producer": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Primary school teacher": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Site engineer": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Electrical engineer": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Armed forces logistics/support/administrative officer": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Programmer, systems": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Archivist": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Tourist information centre manager": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Occupational therapist": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "General practice doctor": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Air cabin crew": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, art": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Lighting technician, broadcasting/film/video": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Herbalist": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Technical brewer": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Water engineer": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clothing/textile technologist": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Cabin crew": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Estate manager/land agent": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Database administrator": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, music": {
+    "industry": "Manufacturing",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical embryologist": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Photographer": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Consulting civil engineer": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, multimedia": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Architectural technologist": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Acupuncturist": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, technical sales": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, mining": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Investment banker, operational": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Manufacturing engineer": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Librarian, public": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Air broker": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Counselling psychologist": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Quarry manager": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Speech and language therapist": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ranger/warden": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Animal nutritionist": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, civil (contracting)": {
+    "industry": "Finance",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Hospital pharmacist": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Police officer": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research scientist (maths)": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Radiation protection practitioner": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Advice worker": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Meteorologist": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator, local government": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Museum/gallery conservator": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Technical author": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Multimedia specialist": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Counsellor": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, maintenance (IT)": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Fish farm manager": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ambulance person": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Multimedia programmer": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Higher education lecturer": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Quantity surveyor": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Senior tax professional/tax inspector": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Interpreter": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Animator": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Exhibitions officer, museum/gallery": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Museum/gallery exhibitions officer": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Press sub": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Automotive engineer": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Contractor": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, research (maths)": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Horticultural consultant": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Careers adviser": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Paediatric nurse": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research scientist (physical sciences)": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Programmer, applications": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Child psychotherapist": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Early years teacher": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Statistician": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Advertising account executive": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Electronics engineer": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Advertising account planner": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ergonomist": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Community arts worker": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Accounting technician": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Magazine features editor": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, building services": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Bookseller": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Cartographer": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pensions consultant": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, ceramics/pottery": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dramatherapist": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Training and development officer": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Museum education officer": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, music": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Materials engineer": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical biochemist": {
+    "industry": "Manufacturing",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chiropodist": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Journalist, broadcasting": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Industrial buyer": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Legal executive": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Doctor, hospital": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Risk manager": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Recycling officer": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Travel agency manager": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, secondary school": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Community pharmacist": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Publishing rights manager": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Volunteer coordinator": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Musician": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sales professional, IT": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Retail banker": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Games developer": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Accountant, chartered": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, primary school": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "IT sales professional": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Theatre stage manager": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Museum/gallery curator": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Petroleum engineer": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Health service manager": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Planning and development surveyor": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Estate agent": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, research (life sciences)": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, mining": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Producer, radio": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, materials": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Public librarian": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Drilling engineer": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Economist": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Farm manager": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Location manager": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Amenity horticulturist": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Special educational needs teacher": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Mental health nurse": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Hydrologist": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Bonds trader": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Product manager": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Production assistant, television": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Minerals surveyor": {
+    "industry": "Finance",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, chemical": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Environmental health practitioner": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, early years/pre": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, product/process development": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Civil Service fast streamer": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Hospital doctor": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Aid worker": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chartered accountant": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief of Staff": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, biomedical": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, fashion/clothing": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Information systems manager": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Broadcast presenter": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Physiotherapist": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Oceanographer": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Interior and spatial designer": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, manufacturing systems": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Charity officer": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Tax inspector": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Commissioning editor": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Theatre manager": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sales promotion account executive": {
+    "industry": "Finance",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Health promotion specialist": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Mechanical engineer": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Public relations officer": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Television production assistant": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical psychologist": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Buyer, industrial": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geochemist": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, jewellery": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychiatrist": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, land/geomatics": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Health and safety inspector": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Hydrogeologist": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Professor Emeritus": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Systems developer": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Civil engineer, contracting": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychotherapist": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Social worker": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Producer, television/film/video": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Building surveyor": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Radio broadcast assistant": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Lexicographer": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research officer, political party": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Educational psychologist": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Comptroller": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Lecturer, higher education": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Probation officer": {
+    "industry": "Finance",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Science writer": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sound technician, broadcasting/film/video": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Exercise physiologist": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sport and exercise psychologist": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Careers information officer": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Illustrator": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Medical illustrator": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Marine scientist": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Futures trader": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, English as a foreign language": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief Marketing Officer": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geophysical data processor": {
+    "industry": "Transportation",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Nurse, learning disability": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, occupational": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Garment/textile technologist": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Editorial assistant": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, forensic": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Information officer": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chiropractor": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Journalist, magazine": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Corporate investment banker": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Transport planner": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Optometrist": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Conservator, museum/gallery": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Public affairs consultant": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Education officer, community": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Purchasing manager": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Secretary, company": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Commercial/residential surveyor": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chartered legal executive (England and Wales)": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Medical physicist": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, educational": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sales executive": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, quantity": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Management consultant": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Solicitor": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Patent examiner": {
+    "industry": "Retail",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Television floor manager": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator, Civil Service": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Building services engineer": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Osteopath": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Fashion designer": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Water quality scientist": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Environmental manager": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Buyer, retail": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Energy engineer": {
+    "industry": "Manufacturing",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Archaeologist": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychotherapist, child": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Building control surveyor": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Naval architect": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, drilling": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Occupational psychologist": {
+    "industry": "Manufacturing",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Medical laboratory scientific officer": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Academic librarian": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Radiographer, diagnostic": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Colour technologist": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chartered certified accountant": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Actuary": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Plant breeder/geneticist": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Barista": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, broadcasting (operations)": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Financial risk analyst": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Forest/woodland manager": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sub": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Librarian, academic": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Web designer": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Furniture designer": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Government social research officer": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Editor, magazine features": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator, charities/voluntary organisations": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Translator": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, control and instrumentation": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Gaffer": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Programmer, multimedia": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Industrial/product designer": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Education officer, environmental": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "English as a second language teacher": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, planning and development": {
+    "industry": "Finance",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Civil Service administrator": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Curator": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Community development worker": {
+    "industry": "Retail",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, production": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geographical information systems officer": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Solicitor, Scotland": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Veterinary surgeon": {
+    "industry": "Entertainment",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, sport and exercise": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "IT consultant": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Print production planner": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Local government officer": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sports therapist": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Fine artist": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Orthoptist": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pilot, airline": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geophysicist/field seismologist": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Product designer": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Land": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Horticultural therapist": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chemical engineer": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geneticist, molecular": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Radiographer, therapeutic": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator, sports": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Insurance broker": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Nurse, children's": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Loss adjuster, chartered": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Communications engineer": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Claims inspector/assessor": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Control and instrumentation engineer": {
+    "industry": "Manufacturing",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chartered management accountant": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Product/process development scientist": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Music tutor": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Licensed conveyancer": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Market researcher": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Nurse, mental health": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, furniture": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Insurance underwriter": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dancer": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Accountant, chartered public finance": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Commercial art gallery manager": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Video editor": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Copy": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Advertising art director": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Financial controller": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Broadcast engineer": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Brewing technologist": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Production manager": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Arts administrator": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Publishing copy": {
+    "industry": "Entertainment",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychotherapist, dance movement": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Production designer, theatre/television/film": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Corporate treasurer": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Recruitment consultant": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Forensic scientist": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, blown glass/stained glass": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, biomedical": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Financial adviser": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Editor, film/video": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Tourism officer": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief Technology Officer": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Theme park manager": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Mudlogger": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Haematologist": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Software engineer": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Textile designer": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Private music teacher": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Airline pilot": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Agricultural engineer": {
+    "industry": "Healthcare",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Regulatory affairs officer": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Passenger transport manager": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Learning mentor": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, water": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Financial trader": {
+    "industry": "Retail",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Tree surgeon": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "English as a foreign language teacher": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pathologist": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Homeopath": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief Executive Officer": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Food technologist": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Waste management officer": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Accountant, chartered management": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Editor, commissioning": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, electronics": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, industrial/product": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Wellsite geologist": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Civil engineer, consulting": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Presenter, broadcasting": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, special educational needs": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Event organiser": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dealer": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Analytical chemist": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Fast food restaurant manager": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Neurosurgeon": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Land/geomatics surveyor": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, clinical": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ship broker": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chemist, analytical": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Copywriter, advertising": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Best boy": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Education administrator": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pharmacist, community": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, research (medical)": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Financial manager": {
+    "industry": "Entertainment",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Insurance risk surveyor": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, building control": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Telecommunications researcher": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Data processing manager": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Horticulturist, amenity": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Lawyer": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator, arts": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pension scheme manager": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical molecular geneticist": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Environmental education officer": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, site": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, sports": {
+    "industry": "Manufacturing",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Operational researcher": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Barrister's clerk": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Restaurant manager, fast food": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Hydrographic surveyor": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Structural engineer": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Embryologist, clinical": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Rural practice surveyor": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "IT trainer": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, speech and language": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Retail merchandiser": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Art therapist": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Learning disability nurse": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Freight forwarder": {
+    "industry": "Transportation",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Personnel officer": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Insurance account manager": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Facilities manager": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Conservator, furniture": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Programme researcher, broadcasting/film/video": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Systems analyst": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, clinical (histocompatibility and immunogenetics)": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Technical sales engineer": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, marine": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Restaurant manager": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Camera operator": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Glass blower/designer": {
+    "industry": "Finance",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Toxicologist": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Cytogeneticist": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Stage manager": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Biomedical scientist": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Accommodation manager": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, forensic": {
+    "industry": "Entertainment",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Actor": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Media planner": {
+    "industry": "Manufacturing",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, hydrographic": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Seismic interpreter": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Biomedical engineer": {
+    "industry": "Healthcare",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Doctor, general practice": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Graphic designer": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Set designer": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Writer": {
+    "industry": "Entertainment",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Equality and diversity officer": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Art gallery manager": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Intelligence analyst": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Lobbyist": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Insurance claims handler": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Politician's assistant": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Television camera operator": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Midwife": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Social research officer, government": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Company secretary": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Development worker, community": {
+    "industry": "Manufacturing",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Conference centre manager": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Magazine journalist": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, land": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, automotive": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Computer games developer": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Film/video editor": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research officer, government": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teacher, adult education": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, interior/spatial": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Landscape architect": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Conservation officer, nature": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Data scientist": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "TEFL teacher": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dietitian": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Forensic psychologist": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Records manager": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Education officer, museum": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Maintenance engineer": {
+    "industry": "Retail",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, aeronautical": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Field seismologist": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Soil scientist": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Nutritional therapist": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research officer, trade union": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Further education lecturer": {
+    "industry": "Manufacturing",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Fisheries officer": {
+    "industry": "Retail",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, graphic": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Heritage manager": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, maintenance": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Armed forces training and education officer": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Tax adviser": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Banker": {
+    "industry": "Education",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Field trials officer": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, building": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geoscientist": {
+    "industry": "Finance",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, exhibition/display": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, minerals": {
+    "industry": "Transportation",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Merchant navy officer": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Horticulturist, commercial": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Television/film/video producer": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, television/film set": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, water quality": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Equities trader": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Designer, textile": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Broadcast journalist": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief Financial Officer": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Proofreader": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Race relations officer": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, counselling": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Paramedic": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Ophthalmologist": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Prison officer": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapeutic radiographer": {
+    "industry": "Entertainment",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Agricultural consultant": {
+    "industry": "Retail",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chartered loss adjuster": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Mining engineer": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Astronomer": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, physiological": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Development worker, international aid": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief Operating Officer": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Physicist, medical": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Trading standards officer": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Nature conservation officer": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, petroleum": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Adult nurse": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Community education officer": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Exhibition designer": {
+    "industry": "Manufacturing",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychiatric nurse": {
+    "industry": "Retail",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Metallurgist": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Marketing executive": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, nutritional": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Applications developer": {
+    "industry": "Retail",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, communications": {
+    "industry": "Retail",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Public house manager": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Air traffic controller": {
+    "industry": "Education",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Printmaker": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Personal assistant": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, audiological": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, manufacturing": {
+    "industry": "Manufacturing",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sports development officer": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical cytogeneticist": {
+    "industry": "IT",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Health visitor": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Hotel manager": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Network engineer": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Oncologist": {
+    "industry": "Entertainment",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Warden/ranger": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Barrister": {
+    "industry": "Education",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chief Strategy Officer": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "IT technical support officer": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Investment banker, corporate": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Warehouse manager": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, energy": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pharmacologist": {
+    "industry": "Entertainment",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Operational investment banker": {
+    "industry": "Manufacturing",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Psychologist, prison and probation services": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Physiological scientist": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Herpetologist": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Catering manager": {
+    "industry": "IT",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Quality manager": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, drama": {
+    "industry": "Transportation",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Chartered public finance accountant": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Clinical research associate": {
+    "industry": "Entertainment",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Podiatrist": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Health and safety adviser": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Holiday representative": {
+    "industry": "IT",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Office manager": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Accountant, chartered certified": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Retail manager": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineering geologist": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "International aid/development worker": {
+    "industry": "Finance",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Public relations account executive": {
+    "industry": "Retail",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Conservation officer, historic buildings": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Adult guidance worker": {
+    "industry": "Transportation",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Artist": {
+    "industry": "IT",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Historic buildings inspector/conservation officer": {
+    "industry": "Manufacturing",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientific laboratory technician": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Medical sales representative": {
+    "industry": "Transportation",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Merchandiser, retail": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Theatre director": {
+    "industry": "Transportation",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Human resources officer": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Diagnostic radiographer": {
+    "industry": "IT",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Nurse, adult": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sports coach": {
+    "industry": "IT",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Energy manager": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Medical technical officer": {
+    "industry": "Transportation",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Associate Professor": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Risk analyst": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Health physicist": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Outdoor activities/education manager": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Leisure centre manager": {
+    "industry": "Manufacturing",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Medical secretary": {
+    "industry": "Finance",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Logistics and distribution manager": {
+    "industry": "Retail",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Make": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dispensing optician": {
+    "industry": "Finance",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Phytotherapist": {
+    "industry": "Entertainment",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Surveyor, rural practice": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Furniture conservator/restorer": {
+    "industry": "Entertainment",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Occupational hygienist": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Administrator, education": {
+    "industry": "Transportation",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Dance movement psychotherapist": {
+    "industry": "Manufacturing",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Immigration officer": {
+    "industry": "Healthcare",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research scientist (medical)": {
+    "industry": "Manufacturing",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Newspaper journalist": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Research scientist (life sciences)": {
+    "industry": "IT",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Arboriculturist": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Call centre manager": {
+    "industry": "Finance",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Social researcher": {
+    "industry": "Education",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Manufacturing systems engineer": {
+    "industry": "Healthcare",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Trade mark attorney": {
+    "industry": "Healthcare",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Scientist, research (physical sciences)": {
+    "industry": "Finance",
+    "location": "USA",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Production engineer": {
+    "industry": "Entertainment",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Arts development officer": {
+    "industry": "Transportation",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Sports administrator": {
+    "industry": "IT",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Therapist, occupational": {
+    "industry": "Education",
+    "location": "Australia",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Lecturer, further education": {
+    "industry": "Healthcare",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Geologist, engineering": {
+    "industry": "Education",
+    "location": "India",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Pharmacist, hospital": {
+    "industry": "Finance",
+    "location": "Brazil",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Retail buyer": {
+    "industry": "Retail",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Teaching laboratory technician": {
+    "industry": "Education",
+    "location": "UK",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Optician, dispensing": {
+    "industry": "Healthcare",
+    "location": "China",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Engineer, agricultural": {
+    "industry": "Healthcare",
+    "location": "Canada",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  },
+  "Diplomatic Services operational officer": {
+    "industry": "Education",
+    "location": "Germany",
+    "automation_risk": 0.0,
+    "growth_projection": 0.0
+  }
+}

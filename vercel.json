@@ -1,4 +1,11 @@
 {
+  "functions": {
+    "api/job-search.py": {
+      "runtime": "python3.9",
+      "maxDuration": 10,
+      "memory": 1024
+    }
+  },
   "headers": [
     {
       "source": "/.well-known/farcaster.json",
