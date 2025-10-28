@@ -35,24 +35,61 @@ export async function POST(request: NextRequest) {
       score: data.score,
       narrative: data.narrative,
       riskLevel: data.riskLevel,
+      outlook: data.outlook || "neutral",
       factors: {
-        roleScore: 0,
-        experienceScore: 0,
-        skillsScore: 0,
-        industryScore: 0,
+        automation_risk: data.factors?.automation_risk || 0,
+        growth_projection: data.factors?.growth_projection || 0,
+        skills_adaptation: data.factors?.skills_adaptation || "Medium",
+        salary_trend: data.factors?.salary_trend || 0,
       },
-      strategies: data.strategies.map((s: any) => ({
+      salary_analysis: data.salary_analysis || {
+        current: 0,
+        projected: 0,
+        change_percent: 0,
+        user_comparison: {
+          user_salary_range: "",
+          market_median: 0,
+          percentile: 50,
+        },
+      },
+      job_data: data.job_data || {
+        automation_risk: 0,
+        growth_projection: 0,
+        skills_needed: "",
+        industry: "",
+        location: "",
+      },
+      data_source: data.data_source || "premium",
+      tier: "premium",
+      strategies: data.strategies?.map((s: {
+        title: string;
+        description: string;
+        timeline: string;
+        resources?: string[];
+        difficulty?: string;
+        impact?: string;
+        priority?: string;
+        cost_estimate?: string;
+      }) => ({
         title: s.title,
         description: s.description,
         timeline: s.timeline,
-        resources: [s.difficulty, s.impact],
-      })),
-      fateMap: data.fateMap,
+        resources: s.resources || [s.difficulty, s.impact],
+        priority: s.priority || "medium",
+        cost_estimate: s.cost_estimate || "Free",
+      })) || [],
+      fateMap: data.fateMap || [],
       nftMetadata: {
-        name: data.nftMetadata.name,
-        description: data.nftMetadata.description,
-        image: data.nftMetadata.imagePrompt, // Will be used to generate actual image
-        attributes: data.nftMetadata.attributes,
+        name: data.nftMetadata?.name || "AI Fortune NFT",
+        description: data.nftMetadata?.description || "Your personalized AI fortune",
+        image: data.nftMetadata?.imagePrompt || data.nftMetadata?.image || "",
+        attributes: data.nftMetadata?.attributes || [],
+      },
+      detailed_analysis: data.detailed_analysis || {
+        market_trends: "",
+        skill_gaps: [],
+        career_paths: [],
+        salary_projections: [],
       },
     };
 
@@ -67,11 +104,11 @@ export async function POST(request: NextRequest) {
       outlook: data.outlook,
       salaryAnalysis: data.salary_analysis,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Premium fortune error:", error);
     
     // Check if it's an LLM availability error
-    if (error.message?.includes("Premium features unavailable")) {
+    if (error instanceof Error && error.message?.includes("Premium features unavailable")) {
       return NextResponse.json(
         {
           error: "Premium features require OpenAI API key. Please configure OPENAI_API_KEY.",

@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const { address, answers } = await request.json();
+    const { address } = await request.json();
 
     if (!address) {
       return NextResponse.json({ error: "Wallet address required" }, { status: 400 });
