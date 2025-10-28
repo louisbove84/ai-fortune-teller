@@ -16,6 +16,9 @@
   "categories": ["utility", "lifestyle"],
   "lang": "en",
   "scope": "/",
-  "orientation": "portrait-primary"
+  "orientation": "portrait-primary",
+  "baseBuilder": {
+    "ownerAddress": "0x3b583CA8953effcF2135679886A9965754954204"
+  }
 }
 
