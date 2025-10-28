@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
 
 interface AutomationTier {
@@ -18,6 +19,8 @@ export default function ResultPage() {
   const [result, setResult] = useState<FortuneResult | null>(null);
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showTicket, setShowTicket] = useState(false);
+  const [flipTicket, setFlipTicket] = useState(false);
 
   const automationTiers: AutomationTier[] = [
     {
@@ -160,6 +163,14 @@ export default function ResultPage() {
       }
       
       setLoading(false);
+      
+      // Start ticket animation sequence
+      setShowTicket(true);
+      
+      // After 1 second, flip the ticket
+      setTimeout(() => {
+        setFlipTicket(true);
+      }, 1000);
     };
 
     fetchFortune();
@@ -187,91 +198,107 @@ export default function ResultPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 relative">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-lg w-full space-y-3"
-      >
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-center mb-6"
-        >
-          <h1 className="text-3xl font-bold text-cyan-300 mb-2 animate-flicker">
-            Your Fortune
-          </h1>
-          <p className="text-cyan-400 text-sm">The crystal ball has spoken...</p>
-        </motion.div>
+      <AnimatePresence mode="wait">
+        {showTicket && (
+          <motion.div
+            key="ticket"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.5 }}
+            className="relative w-80 h-96 perspective-1000"
+            style={{ perspective: "1000px" }}
+          >
+            <motion.div
+              className="relative w-full h-full transform-style-preserve-3d"
+              animate={{ rotateY: flipTicket ? 180 : 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            >
+              {/* Ticket Front */}
+              <div className="absolute inset-0 w-full h-full backface-hidden">
+                <Image
+                  src="/fortune_teller_ticket.png"
+                  alt="Fortune Teller Ticket"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
 
-        {/* Automation Risk Card - Main Focus */}
+              {/* Ticket Back - Results */}
+              <div className="absolute inset-0 w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-b from-amber-50 to-amber-100 rounded-lg shadow-2xl border-4 border-amber-300">
+                <div className="p-4 h-full flex flex-col justify-between text-amber-900">
+                  {/* Header */}
+                  <div className="text-center mb-3">
+                    <h1 className="text-lg font-bold text-amber-800 mb-1">YOUR FORTUNE</h1>
+                    <div className="w-full h-0.5 bg-amber-600"></div>
+                  </div>
+
+                  {/* Automation Risk - Main Focus */}
+                  <div className={`${automationTier.bgColor} rounded-lg p-3 mb-3`}>
+                    <div className="text-center">
+                      <div className="text-3xl mb-1">{automationTier.emoji}</div>
+                      <h2 className={`text-sm font-bold ${automationTier.color} mb-1`}>
+                        {automationTier.name}
+                      </h2>
+                      <div className="text-2xl font-bold text-amber-800">
+                        {automationRisk}% Risk
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-3 gap-2 mb-3 text-center">
+                    <div className="bg-amber-200 rounded p-2">
+                      <div className="text-sm font-bold text-amber-800">{result.job_data.growth_projection}%</div>
+                      <div className="text-xs text-amber-600">Growth</div>
+                    </div>
+                    <div className="bg-amber-200 rounded p-2">
+                      <div className="text-sm font-bold text-amber-800">{answers.location}</div>
+                      <div className="text-xs text-amber-600">Location</div>
+                    </div>
+                    <div className="bg-amber-200 rounded p-2">
+                      <div className="text-sm font-bold text-amber-800">{answers.experience}</div>
+                      <div className="text-xs text-amber-600">Experience</div>
+                    </div>
+                  </div>
+
+                  {/* Prophecy */}
+                  <div className="flex-1 mb-3">
+                    <h3 className="text-sm font-bold text-amber-800 mb-2 text-center">PROPHECY</h3>
+                    <p className="text-xs text-amber-700 leading-tight text-center">
+                      {result.narrative}
+                    </p>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="text-center text-xs text-amber-600">
+                    <div className="w-full h-0.5 bg-amber-600 mb-1"></div>
+                    <div>AI Fortune Teller • {new Date().toLocaleDateString()}</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Action Button - Only show after ticket flip */}
+      {flipTicket && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className={`${automationTier.bgColor} backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-4`}
-        >
-          <div className="text-center">
-            <div className="text-5xl mb-3">{automationTier.emoji}</div>
-            <h2 className={`text-xl font-bold ${automationTier.color} mb-2`}>
-              {automationTier.name}
-            </h2>
-            <p className="text-gray-300 text-sm mb-3">{automationTier.description}</p>
-            <div className="text-4xl font-bold text-cyan-300">
-              {automationRisk}% Automation Risk
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Consolidated Stats & Narrative */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-4"
-        >
-          {/* Job Stats Row */}
-          <div className="grid grid-cols-3 gap-4 mb-4 text-center">
-            <div>
-              <div className="text-xl font-bold text-cyan-400">{result.job_data.growth_projection}%</div>
-              <div className="text-xs text-gray-400">Growth</div>
-            </div>
-            <div>
-              <div className="text-xl font-bold text-green-400">{answers.location}</div>
-              <div className="text-xs text-gray-400">Location</div>
-            </div>
-            <div>
-              <div className="text-xl font-bold text-purple-400">{answers.experience}</div>
-              <div className="text-xs text-gray-400">Experience</div>
-            </div>
-          </div>
-
-          {/* Narrative */}
-          <div className="border-t border-cyan-500/20 pt-4">
-            <h3 className="text-lg font-bold text-cyan-300 mb-3 text-center">The Prophecy</h3>
-            <p className="text-sm text-gray-300 leading-relaxed">
-              {result.narrative}
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Actions */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="text-center"
+          transition={{ delay: 0.5 }}
+          className="mt-8"
         >
           <button
             onClick={() => router.push("/")}
-            className="w-full px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105"
+            className="px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105"
           >
             Take Another Reading
           </button>
         </motion.div>
-      </motion.div>
+      )}
     </main>
   );
 }
