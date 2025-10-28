@@ -21,11 +21,15 @@ interface WalletButtonProps {
 export function WalletButton({ showConnectionStatus = false }: WalletButtonProps) {
   const { address, isConnected } = useAccount();
 
+  console.log('WalletButton rendered:', { isConnected, address });
+
   return (
     <>
       <div className="absolute top-8 right-8 z-50">
         <Wallet>
-          <ConnectWallet />
+          <ConnectWallet className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+            Connect Wallet
+          </ConnectWallet>
           <WalletDropdown>
             <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
               <Avatar />
@@ -38,7 +42,7 @@ export function WalletButton({ showConnectionStatus = false }: WalletButtonProps
       </div>
 
       {showConnectionStatus && isConnected && (
-        <p className="mt-6 text-fortune-gold text-sm">
+        <p className="mt-6 text-yellow-400 text-sm">
           Wallet Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
         </p>
       )}
