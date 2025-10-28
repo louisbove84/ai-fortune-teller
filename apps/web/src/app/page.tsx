@@ -35,22 +35,26 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
-      {/* Wallet Connection - Top Right */}
-      <div className="absolute top-8 right-8 z-50">
-        <Wallet>
-          <ConnectWallet className="px-6 py-3 bg-fortune-purple hover:bg-fortune-darkPurple text-white font-bold rounded-lg mystic-shadow transition-all duration-300">
-            <span>Connect Wallet</span>
-          </ConnectWallet>
-          <WalletDropdown>
-            <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-              <Avatar />
-              <Name />
-              <Address />
-            </Identity>
-            <WalletDropdownDisconnect />
-          </WalletDropdown>
-        </Wallet>
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 relative">
+      {/* Wallet Connection - Positioned within the fortune teller image area */}
+      <div className="absolute top-[5%] right-[10%] z-50">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <Wallet>
+            <ConnectWallet className="!px-6 !py-3 !bg-cyan-500/30 hover:!bg-cyan-400/40 !border-2 !border-cyan-400 !text-cyan-200 !font-bold !rounded-lg !shadow-2xl !transition-all !duration-300 hover:!scale-105 !backdrop-blur-md" />
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2 bg-mystic-900/90 backdrop-blur-md" hasCopyAddressOnClick>
+                <Avatar />
+                <Name className="text-cyan-200" />
+                <Address className="text-cyan-400" />
+              </Identity>
+              <WalletDropdownDisconnect className="hover:bg-red-500/20 text-cyan-200" />
+            </WalletDropdown>
+          </Wallet>
+        </motion.div>
       </div>
 
       {!showQuiz ? (
@@ -74,9 +78,9 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="mt-6 text-fortune-gold text-sm"
+              className="mt-6 text-cyan-400 text-sm backdrop-blur-sm bg-mystic-900/50 px-4 py-2 rounded-lg inline-block"
             >
-              Wallet Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
+              Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
             </motion.p>
           )}
         </motion.div>
