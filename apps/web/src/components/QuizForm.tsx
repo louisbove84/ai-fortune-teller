@@ -227,18 +227,44 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
                     <button
                       key={index}
                       onClick={() => handleJobTitleSelect(typeof job === 'string' ? job : job.job_title)}
-                      className="w-full p-2 text-left text-sm bg-black/30 hover:bg-cyan-500/20 border border-cyan-500/20 rounded transition-all flex items-center justify-between"
+                      className="w-full p-3 text-left text-sm bg-black/30 hover:bg-cyan-500/20 border border-cyan-500/20 rounded transition-all"
                     >
-                      <span>{typeof job === 'string' ? job : job.job_title}</span>
-                      {typeof job === 'object' && job.confidence && (
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          job.confidence >= 90 ? 'bg-green-500/20 text-green-400' :
-                          job.confidence >= 75 ? 'bg-yellow-500/20 text-yellow-400' :
-                          'bg-blue-500/20 text-blue-400'
-                        }`}>
-                          {job.confidence.toFixed(0)}% {job.match_method}
-                        </span>
-                      )}
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1 min-w-0">
+                          <div className="font-medium text-cyan-200 truncate">
+                            {typeof job === 'string' ? job : job.job_title}
+                          </div>
+                          {typeof job === 'object' && (
+                            <div className="text-xs text-gray-400 mt-1 space-y-0.5">
+                              <div className="flex items-center gap-2">
+                                <span className="text-cyan-400">🏢</span>
+                                <span>{job.industry || 'Unknown'}</span>
+                                <span className="text-gray-500">•</span>
+                                <span className="text-cyan-400">📍</span>
+                                <span>{job.location || 'Unknown'}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-cyan-400">🤖</span>
+                                <span>AI Risk: {job.automation_risk ? job.automation_risk.toFixed(1) : '0'}%</span>
+                                <span className="text-gray-500">•</span>
+                                <span className="text-cyan-400">📈</span>
+                                <span>Growth: {job.growth_projection ? job.growth_projection.toFixed(1) : '0'}%</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        {typeof job === 'object' && job.confidence && (
+                          <div className="ml-3 flex-shrink-0">
+                            <span className={`text-xs px-2 py-1 rounded-full ${
+                              job.confidence >= 90 ? 'bg-green-500/20 text-green-400' :
+                              job.confidence >= 75 ? 'bg-yellow-500/20 text-yellow-400' :
+                              'bg-blue-500/20 text-blue-400'
+                            }`}>
+                              {job.confidence.toFixed(0)}% {job.match_method}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </button>
                   ))}
                 </div>
