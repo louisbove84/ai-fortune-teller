@@ -130,17 +130,9 @@ export async function POST(req: NextRequest) {
       const suggestions = Object.entries(jobCounts)
         .sort(([,a], [,b]) => b - a)
         .slice(0, 15)
-        .map(([title, count]) => ({
-          job_title: title,
-          confidence: Math.min(95, Math.max(60, (count / jobTitles.length) * 100)), // Calculate confidence based on frequency
-          match_method: 'csv-fallback',
-          industry: 'Unknown', // CSV fallback doesn't have this data
-          location: 'Unknown', // CSV fallback doesn't have this data
-          automation_risk: 0, // CSV fallback doesn't have this data
-          growth_projection: 0 // CSV fallback doesn't have this data
-        }));
+        .map(([title]) => title);
       
-      console.log(`Returning ${suggestions.length} suggestions from CSV with enhanced format`);
+      console.log(`Returning ${suggestions.length} suggestions from CSV`);
       
       return NextResponse.json({
         suggestions,
