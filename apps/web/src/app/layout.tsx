@@ -3,14 +3,23 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "AI Fortune Teller - Peer into Your Career Fate",
-  description: "Quiz your job's future against AI disruption. Unlock strategies & personalized NFTs.",
+  title: "AI Fortune Teller - Career Resilience in the AI Age",
+  description: "Discover your career fate in the age of AI. Get free fortunes from real job market data, or pay for premium AI strategies & collectible NFTs on Base.",
   manifest: "/manifest.json",
+  metadataBase: new URL("https://ai-fortune-teller.vercel.app"),
   openGraph: {
     title: "AI Fortune Teller",
-    description: "Assess your career resilience against AI disruption",
+    description: "Discover your career fate in the age of AI. Get free fortunes or premium AI strategies & NFTs on Base.",
     type: "website",
-    images: ["/fortune-teller-bg.png"],
+    url: "https://ai-fortune-teller.vercel.app",
+    images: [
+      {
+        url: "/fortune-teller-bg.png",
+        width: 1200,
+        height: 630,
+        alt: "AI Fortune Teller",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

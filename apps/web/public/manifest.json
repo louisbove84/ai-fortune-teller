@@ -1,11 +1,11 @@
 {
   "name": "AI Fortune Teller",
   "short_name": "Fortune",
-  "description": "Peer into your career's future in the age of AI. Get free fortunes or premium AI strategies.",
+  "description": "Discover your career fate in the age of AI. Get free fortunes or pay for premium AI strategies & NFTs.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0e1a",
-  "theme_color": "#00ffff",
+  "theme_color": "#0a0e1a",
   "icons": [
     {
       "src": "/fortune-teller-bg.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "categories": ["productivity", "lifestyle"],
+  "categories": ["utility", "lifestyle"],
   "lang": "en",
   "scope": "/",
   "orientation": "portrait-primary"

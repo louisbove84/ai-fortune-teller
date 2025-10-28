@@ -5,21 +5,22 @@
     "iconUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
     "homeUrl": "https://ai-fortune-teller.vercel.app",
     "imageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
-    "buttonTitle": "Peer Into Your Career's Future",
+    "buttonTitle": "🔮 Get Your AI Career Fortune",
     "splashImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
     "splashBackgroundColor": "#0a0e1a",
-    "subtitle": "Career Resilience Against AI",
-    "description": "Discover your career's fate in the age of AI. Get a free fortune based on real job market data, or unlock premium AI-powered strategies and an NFT.",
+    "webhookUrl": "https://ai-fortune-teller.vercel.app/api/webhook",
+    "subtitle": "Career Resilience in the AI Age",
+    "description": "AI-powered career fortune teller. Get free insights from real job market data, or pay for premium AI strategies & collectible NFTs on Base network.",
     "screenshotUrls": [
       "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png"
     ],
-    "primaryCategory": "social",
+    "primaryCategory": "utility",
     "heroImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
-    "tagline": "career-ai-fortune",
+    "tagline": "ai-career-fortune",
     "ogImageUrl": "https://ai-fortune-teller.vercel.app/fortune-teller-bg.png",
     "ogTitle": "AI Fortune Teller",
-    "ogDescription": "Peer into your career's future. Will AI disrupt your profession or will you thrive?",
-    "tags": ["career", "ai", "fortune", "jobs", "future"]
+    "ogDescription": "Discover your career fate in the age of AI. Get free fortunes or premium AI strategies & NFTs on Base.",
+    "tags": ["ai", "career", "fortune", "base", "nft"]
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjg4NjUwMywidHlwZSI6ImF1dGgiLCJrZXkiOiIweEQyRTc4MzlDOTI2QTlBMzQ5ODdFM0E4NjI2ODFDYTUyZmU2M2M0ZTYifQ",
