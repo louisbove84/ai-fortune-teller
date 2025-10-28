@@ -23,16 +23,25 @@ export async function POST(req: NextRequest) {
         ? `https://${process.env.VERCEL_URL}` 
         : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
       
+      console.log(`Attempting to call Python serverless function at: ${baseUrl}/api/job-search`);
+      
       const pythonResponse = await fetch(`${baseUrl}/api/job-search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query })
       });
 
+      console.log(`Python serverless response status: ${pythonResponse.status}`);
+
       if (pythonResponse.ok) {
         const data = await pythonResponse.json();
+        console.log('Python serverless function returned:', data);
         // Python serverless function returns: { suggestions: [{job_title, confidence, match_method, ...}] }
         return NextResponse.json(data);
+      } else {
+        console.log('Python serverless function failed with status:', pythonResponse.status);
+        const errorText = await pythonResponse.text();
+        console.log('Python serverless function error:', errorText);
       }
     } catch (error) {
       console.log('Python serverless function not available, using CSV fallback:', error);
