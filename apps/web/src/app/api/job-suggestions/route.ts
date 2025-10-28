@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
         csvPath = testPath;
         console.log(`✅ Successfully loaded CSV from: ${testPath}`);
         break;
-      } catch (pathError) {
+      } catch {
         console.log(`❌ Failed to load CSV from: ${testPath}`);
         continue;
       }

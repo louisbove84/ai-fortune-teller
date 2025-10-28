@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
@@ -18,7 +18,6 @@ export default function ResultPage() {
   const [result, setResult] = useState<FortuneResult | null>(null);
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   const automationTiers: AutomationTier[] = [
     {
@@ -94,9 +93,9 @@ export default function ResultPage() {
     };
 
     fetchFortune();
-  }, [router]);
+  }, [router, createFallbackResult]);
 
-  const createFallbackResult = (answers: QuizAnswers): FortuneResult => {
+  const createFallbackResult = useCallback((answers: QuizAnswers): FortuneResult => {
     // Calculate basic automation risk based on job title and AI skills
     const automationRisk = calculateAutomationRisk(answers.job_title, answers.ai_skills);
     const score = Math.max(10, 100 - automationRisk);
@@ -132,7 +131,7 @@ export default function ResultPage() {
       data_source: "fallback",
       tier: "free",
     };
-  };
+  }, []);
 
   const calculateAutomationRisk = (jobTitle: string, aiSkills: string): number => {
     const title = jobTitle.toLowerCase();

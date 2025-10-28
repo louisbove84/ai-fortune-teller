@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
     // Create fallback result instead of returning error
     const fallbackResult: FortuneResult = {
       score: 75, // Default score
-      narrative: `Based on your role as a ${answers.job_title} with ${answers.ai_skills} AI skills, you have a moderate automation risk. Focus on developing complementary AI skills and staying adaptable to market changes.`,
+      narrative: "Based on your responses, you have a moderate automation risk. Focus on developing complementary AI skills and staying adaptable to market changes. The future of work is evolving rapidly, and those who embrace continuous learning will thrive.",
       riskLevel: "medium",
       outlook: "neutral",
       factors: {
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
         projected: 0,
         change_percent: 0,
         user_comparison: {
-          user_salary_range: answers.current_salary,
+          user_salary_range: "Unknown",
           market_median: 0,
           percentile: 50,
         },
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
         growth_projection: 5,
         skills_needed: "Unknown",
         industry: "Unknown",
-        location: answers.location,
+        location: "Unknown",
       },
       data_source: "fallback",
       tier: "free",
