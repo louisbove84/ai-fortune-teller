@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useAccount } from "wagmi";
@@ -23,6 +23,11 @@ export default function Home() {
   const router = useRouter();
   const { address, isConnected } = useAccount();
   const [showQuiz, setShowQuiz] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleStartQuiz = () => {
     setShowQuiz(true);
@@ -36,20 +41,22 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
-      {/* Wallet Connection - Top Right */}
-      <div className="absolute top-8 right-8 z-50">
-        <Wallet>
-          <ConnectWallet />
-          <WalletDropdown>
-            <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-              <Avatar />
-              <Name />
-              <Address />
-            </Identity>
-            <WalletDropdownDisconnect />
-          </WalletDropdown>
-        </Wallet>
-      </div>
+      {/* Wallet Connection - Top Right - Only render on client */}
+      {isMounted && (
+        <div className="absolute top-8 right-8 z-50">
+          <Wallet>
+            <ConnectWallet />
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+              </Identity>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
+        </div>
+      )}
 
       {!showQuiz ? (
         <motion.div
@@ -67,7 +74,7 @@ export default function Home() {
             Begin Reading
           </motion.button>
 
-          {isConnected && (
+          {isMounted && isConnected && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

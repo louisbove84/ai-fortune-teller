@@ -12,6 +12,7 @@ import { OnchainKitProvider } from '@coinbase/onchainkit';
 const queryClient = new QueryClient();
 
 // Simple wallet config without WalletConnect
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let config: any = null;
 
 if (typeof window !== 'undefined') {
