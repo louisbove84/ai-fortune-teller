@@ -1,66 +1,86 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { QuizAnswers } from "@/types/fortune";
 
+// Enhanced questions leveraging the Kaggle dataset
 const questions = [
   {
-    id: "role",
-    question: "What is your primary occupation?",
+    id: "job_title",
+    question: "What is your current job title or occupation?",
+    type: "searchable_dropdown",
+    placeholder: "Type to search... (e.g., Software Developer, Accountant)",
+    description: "We'll find your exact role in our database of 30,000+ jobs",
+    options: [], // Will be populated dynamically
+  },
+  {
+    id: "current_salary",
+    question: "What's your current annual salary? (USD)",
+    type: "salary_range",
+    description: "We'll compare this to market data for your role",
     options: [
-      { value: "accountant", label: "💼 Accountant / Financial Analyst", score: -40 },
-      { value: "developer", label: "💻 Software Developer", score: 10 },
-      { value: "electrician", label: "⚡ Electrician / Skilled Trades", score: 35 },
-      { value: "designer", label: "🎨 Designer / Creative", score: 20 },
-      { value: "healthcare", label: "🏥 Healthcare Worker", score: 30 },
-      { value: "teacher", label: "📚 Teacher / Educator", score: 25 },
+      { value: "under-30k", label: "Under $30,000", min: 0, max: 30000 },
+      { value: "30k-50k", label: "$30,000 - $50,000", min: 30000, max: 50000 },
+      { value: "50k-75k", label: "$50,000 - $75,000", min: 50000, max: 75000 },
+      { value: "75k-100k", label: "$75,000 - $100,000", min: 75000, max: 100000 },
+      { value: "100k-150k", label: "$100,000 - $150,000", min: 100000, max: 150000 },
+      { value: "150k-200k", label: "$150,000 - $200,000", min: 150000, max: 200000 },
+      { value: "over-200k", label: "Over $200,000", min: 200000, max: 1000000 },
+    ],
+  },
+  {
+    id: "location",
+    question: "Where are you located?",
+    type: "location",
+    description: "Location affects salary expectations and job market trends",
+    options: [
+      { value: "USA", label: "🇺🇸 United States" },
+      { value: "UK", label: "🇬🇧 United Kingdom" },
+      { value: "Canada", label: "🇨🇦 Canada" },
+      { value: "Australia", label: "🇦🇺 Australia" },
+      { value: "Germany", label: "🇩🇪 Germany" },
+      { value: "other", label: "🌍 Other" },
     ],
   },
   {
     id: "experience",
-    question: "How long have you been in your field?",
+    question: "How many years of experience do you have in your field?",
+    type: "experience",
+    description: "Experience level affects AI resilience and career trajectory",
     options: [
-      { value: "recent-grad", label: "👶 Recent grad (0-2 years)", score: -20 },
-      { value: "early-career", label: "🌱 Early career (3-5 years)", score: 0 },
-      { value: "mid-career", label: "🌳 Mid-career (6-15 years)", score: 15 },
-      { value: "veteran", label: "🏆 Veteran (15+ years)", score: 10 },
+      { value: "0-2", label: "0-2 years (Entry Level)", years: 1 },
+      { value: "3-5", label: "3-5 years (Early Career)", years: 4 },
+      { value: "6-10", label: "6-10 years (Mid Career)", years: 8 },
+      { value: "11-15", label: "11-15 years (Senior)", years: 13 },
+      { value: "16-20", label: "16-20 years (Expert)", years: 18 },
+      { value: "20+", label: "20+ years (Veteran)", years: 25 },
     ],
   },
   {
-    id: "skills",
-    question: "Which tech skills do you have? (Select all that apply)",
-    multiple: true,
+    id: "education",
+    question: "What's your highest level of education?",
+    type: "education",
+    description: "Education requirements vary by role and affect AI adaptability",
     options: [
-      { value: "none", label: "None / Basic computer use", score: -10 },
-      { value: "ml", label: "Machine Learning / AI", score: 30 },
-      { value: "programming", label: "Programming / Coding", score: 20 },
-      { value: "automation", label: "Process Automation", score: 15 },
-      { value: "data-analysis", label: "Data Analysis", score: 15 },
-      { value: "blockchain", label: "Blockchain / Web3", score: 25 },
+      { value: "high-school", label: "High School Diploma" },
+      { value: "associate", label: "Associate Degree" },
+      { value: "bachelor", label: "Bachelor's Degree" },
+      { value: "master", label: "Master's Degree" },
+      { value: "phd", label: "PhD / Doctorate" },
+      { value: "certification", label: "Professional Certification" },
     ],
   },
   {
-    id: "industry",
-    question: "What industry do you work in?",
+    id: "ai_skills",
+    question: "How comfortable are you with AI and technology?",
+    type: "ai_comfort",
+    description: "Your tech comfort level affects AI resilience",
     options: [
-      { value: "finance", label: "💰 Finance / Banking", score: -30 },
-      { value: "tech", label: "🚀 Technology", score: 20 },
-      { value: "construction", label: "🏗️ Construction / Trades", score: 35 },
-      { value: "healthcare", label: "🏥 Healthcare", score: 30 },
-      { value: "education", label: "🎓 Education", score: 25 },
-      { value: "creative", label: "🎭 Arts / Entertainment", score: 15 },
-    ],
-  },
-  {
-    id: "age",
-    question: "What's your age range?",
-    options: [
-      { value: "18-25", label: "18-25", score: 10 },
-      { value: "26-35", label: "26-35", score: 5 },
-      { value: "36-45", label: "36-45", score: 0 },
-      { value: "46-55", label: "46-55", score: -5 },
-      { value: "56+", label: "56+", score: -10 },
+      { value: "beginner", label: "🟢 Beginner - Learning basics", score: 10 },
+      { value: "intermediate", label: "🟡 Intermediate - Use AI tools regularly", score: 25 },
+      { value: "advanced", label: "🟠 Advanced - Build/work with AI systems", score: 40 },
+      { value: "expert", label: "🔴 Expert - AI researcher/engineer", score: 60 },
     ],
   },
 ];
@@ -72,10 +92,36 @@ interface QuizFormProps {
 export default function QuizForm({ onComplete }: QuizFormProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Partial<QuizAnswers>>({});
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [jobSuggestions, setJobSuggestions] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   const question = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
+
+  // Fetch job suggestions when user types
+  useEffect(() => {
+    if (question.id === "job_title" && searchQuery.length > 2) {
+      fetchJobSuggestions(searchQuery);
+    }
+  }, [searchQuery, question.id]);
+
+  const fetchJobSuggestions = async (query: string) => {
+    setIsSearching(true);
+    try {
+      const response = await fetch('/api/job-suggestions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query })
+      });
+      const data = await response.json();
+      setJobSuggestions(data.suggestions || []);
+    } catch (error) {
+      console.error('Error fetching job suggestions:', error);
+    } finally {
+      setIsSearching(false);
+    }
+  };
 
   const handleAnswer = (value: string) => {
     const newAnswers = { ...answers, [question.id]: value };
@@ -88,21 +134,14 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
     }
   };
 
-  const handleMultipleChoice = (value: string) => {
-    const newSkills = selectedSkills.includes(value)
-      ? selectedSkills.filter((s) => s !== value)
-      : [...selectedSkills, value];
-    setSelectedSkills(newSkills);
+  const handleJobTitleSelect = (jobTitle: string) => {
+    setSearchQuery(jobTitle);
+    handleAnswer(jobTitle);
   };
 
-  const handleMultipleNext = () => {
-    const newAnswers = { ...answers, skills: selectedSkills };
-    setAnswers(newAnswers);
-
-    if (!isLastQuestion) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      onComplete(newAnswers as QuizAnswers);
+  const handleBack = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
     }
   };
 
@@ -118,13 +157,16 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
           <span className="text-xs text-cyan-400">
             {currentQuestion + 1} / {questions.length}
           </span>
+          <span className="text-xs text-cyan-400/60">
+            {Math.round(((currentQuestion + 1) / questions.length) * 100)}% Complete
+          </span>
         </div>
-        <div className="w-full bg-black/40 rounded-full h-1">
+        <div className="w-full bg-black/40 rounded-full h-2">
           <motion.div
-            className="bg-cyan-400 h-1 rounded-full"
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
           />
         </div>
       </div>
@@ -132,72 +174,94 @@ export default function QuizForm({ onComplete }: QuizFormProps) {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentQuestion}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
           className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6"
         >
-          <h2 className="text-xl font-semibold text-cyan-300 mb-4 text-center">
+          <h2 className="text-xl font-semibold text-cyan-300 mb-2 text-center">
             {question.question}
           </h2>
+          
+          {question.description && (
+            <p className="text-sm text-cyan-400/80 mb-6 text-center">
+              {question.description}
+            </p>
+          )}
 
-          <div className="space-y-2">
-            {question.options.map((option) => (
-              <motion.button
-                key={option.value}
-                onClick={() =>
-                  question.multiple ? handleMultipleChoice(option.value) : handleAnswer(option.value)
-                }
-                className={`w-full p-3 rounded text-left text-sm transition-all ${
-                  question.multiple && selectedSkills.includes(option.value)
-                    ? "bg-cyan-500/30 border border-cyan-400 text-cyan-300"
-                    : "bg-black/40 hover:bg-black/60 border border-cyan-500/20 text-gray-300"
-                }`}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                <div className="flex items-center">
-                  {question.multiple && (
-                    <div
-                      className={`w-4 h-4 rounded border mr-3 flex items-center justify-center ${
-                        selectedSkills.includes(option.value)
-                          ? "border-cyan-400 bg-cyan-400/30"
-                          : "border-cyan-500/50"
-                      }`}
+          {/* Job Title Search */}
+          {question.type === "searchable_dropdown" && (
+            <div className="space-y-3">
+              <div className="relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={question.placeholder}
+                  className="w-full p-3 bg-black/40 border border-cyan-500/30 rounded text-gray-300 placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
+                />
+                {isSearching && (
+                  <div className="absolute right-3 top-3">
+                    <div className="animate-spin w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full"></div>
+                  </div>
+                )}
+              </div>
+              
+              {jobSuggestions.length > 0 && (
+                <div className="max-h-48 overflow-y-auto space-y-1">
+                  {jobSuggestions.map((job, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleJobTitleSelect(job)}
+                      className="w-full p-2 text-left text-sm bg-black/30 hover:bg-cyan-500/20 border border-cyan-500/20 rounded transition-all"
                     >
-                      {selectedSkills.includes(option.value) && <span className="text-xs text-cyan-300">✓</span>}
-                    </div>
-                  )}
-                  <span>{option.label}</span>
+                      {job}
+                    </button>
+                  ))}
                 </div>
-              </motion.button>
-            ))}
-          </div>
+              )}
+            </div>
+          )}
 
-          {question.multiple && (
-            <motion.button
-              onClick={handleMultipleNext}
-              disabled={selectedSkills.length === 0}
-              className="mt-4 w-full px-6 py-2 bg-cyan-500/20 hover:bg-cyan-400/30 disabled:bg-black/20 disabled:cursor-not-allowed border border-cyan-400 disabled:border-cyan-500/20 text-cyan-300 disabled:text-gray-600 font-semibold rounded transition-all text-sm"
-              whileHover={{ scale: selectedSkills.length > 0 ? 1.02 : 1 }}
-              whileTap={{ scale: selectedSkills.length > 0 ? 0.98 : 1 }}
-            >
-              {isLastQuestion ? "Reveal Fortune" : "Next"}
-            </motion.button>
+          {/* Regular Options */}
+          {question.type !== "searchable_dropdown" && (
+            <div className="space-y-2">
+              {question.options.map((option) => (
+                <motion.button
+                  key={option.value}
+                  onClick={() => handleAnswer(option.value)}
+                  className="w-full p-3 rounded text-left text-sm transition-all bg-black/40 hover:bg-cyan-500/20 border border-cyan-500/20 text-gray-300 hover:text-cyan-300"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  <span>{option.label}</span>
+                </motion.button>
+              ))}
+            </div>
           )}
         </motion.div>
       </AnimatePresence>
 
-      {currentQuestion > 0 && (
-        <button
-          onClick={() => setCurrentQuestion(currentQuestion - 1)}
-          className="mt-3 text-cyan-400/60 hover:text-cyan-400 transition-colors text-sm"
-        >
-          ← Back
-        </button>
-      )}
+      {/* Navigation */}
+      <div className="flex justify-between mt-6">
+        {currentQuestion > 0 && (
+          <button
+            onClick={handleBack}
+            className="px-4 py-2 text-cyan-400/60 hover:text-cyan-400 transition-colors text-sm"
+          >
+            ← Back
+          </button>
+        )}
+        
+        <div className="ml-auto">
+          {currentQuestion > 0 && (
+            <span className="text-xs text-gray-500">
+              Question {currentQuestion + 1} of {questions.length}
+            </span>
+          )}
+        </div>
+      </div>
     </motion.div>
   );
 }
-
