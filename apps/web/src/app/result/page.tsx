@@ -226,12 +226,12 @@ export default function ResultPage() {
               </div>
 
               {/* Ticket Back - Results */}
-              <div className="absolute inset-0 w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-b from-amber-50 to-amber-100 rounded-lg shadow-2xl border-4 border-amber-300">
-                <div className="p-4 h-full flex flex-col justify-between text-amber-900">
+              <div className="absolute inset-0 w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-b from-yellow-200 to-yellow-300 rounded-lg shadow-2xl border-4 border-yellow-400">
+                <div className="p-4 h-full flex flex-col justify-between text-yellow-900">
                   {/* Header */}
                   <div className="text-center mb-3">
-                    <h1 className="text-lg font-bold text-amber-800 mb-1">YOUR FORTUNE</h1>
-                    <div className="w-full h-0.5 bg-amber-600"></div>
+                    <h1 className="text-lg font-bold text-yellow-900 mb-1">YOUR FORTUNE</h1>
+                    <div className="w-full h-0.5 bg-yellow-600"></div>
                   </div>
 
                   {/* Automation Risk - Main Focus */}
@@ -241,40 +241,30 @@ export default function ResultPage() {
                       <h2 className={`text-sm font-bold ${automationTier.color} mb-1`}>
                         {automationTier.name}
                       </h2>
-                      <div className="text-2xl font-bold text-amber-800">
+                      <div className="text-2xl font-bold text-yellow-900">
                         {automationRisk}% Risk
                       </div>
                     </div>
                   </div>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-2 mb-3 text-center">
-                    <div className="bg-amber-200 rounded p-2">
-                      <div className="text-sm font-bold text-amber-800">{result.job_data.growth_projection}%</div>
-                      <div className="text-xs text-amber-600">Growth</div>
+                  <div className="grid grid-cols-2 gap-2 mb-3 text-center">
+                    <div className="bg-yellow-200 rounded p-2">
+                      <div className="text-sm font-bold text-yellow-900">{result.job_data.growth_projection}%</div>
+                      <div className="text-xs text-yellow-900">Growth</div>
                     </div>
-                    <div className="bg-amber-200 rounded p-2">
-                      <div className="text-sm font-bold text-amber-800">{answers.location}</div>
-                      <div className="text-xs text-amber-600">Location</div>
-                    </div>
-                    <div className="bg-amber-200 rounded p-2">
-                      <div className="text-sm font-bold text-amber-800">{answers.experience}</div>
-                      <div className="text-xs text-amber-600">Experience</div>
+                    <div className="bg-yellow-200 rounded p-2">
+                      <div className="text-sm font-bold text-yellow-900">{Math.round(result.job_data.growth_projection * 1000)}</div>
+                      <div className="text-xs text-yellow-900">Job Openings 2030</div>
                     </div>
                   </div>
 
                   {/* Prophecy */}
                   <div className="flex-1 mb-3">
-                    <h3 className="text-sm font-bold text-amber-800 mb-2 text-center">PROPHECY</h3>
-                    <p className="text-xs text-amber-700 leading-tight text-center">
-                      {result.narrative}
+                    <h3 className="text-sm font-bold text-yellow-900 mb-2 text-center">PROPHECY</h3>
+                    <p className="text-xs text-yellow-900 leading-tight text-center">
+                      As a {answers.job_title}, {result.narrative}
                     </p>
-                  </div>
-
-                  {/* Footer */}
-                  <div className="text-center text-xs text-amber-600">
-                    <div className="w-full h-0.5 bg-amber-600 mb-1"></div>
-                    <div>AI Fortune Teller • {new Date().toLocaleDateString()}</div>
                   </div>
                 </div>
               </div>
