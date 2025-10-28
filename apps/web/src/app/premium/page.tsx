@@ -6,13 +6,14 @@ import { useRouter } from "next/navigation";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { injected } from "wagmi/connectors";
 import PremiumFortune from "@/components/PremiumFortune";
+import type { QuizAnswers } from "@/types/fortune";
 
 export default function PremiumPage() {
   const router = useRouter();
   const { address, isConnected } = useAccount();
   const { connect } = useConnect();
   const { disconnect } = useDisconnect();
-  const [answers, setAnswers] = useState<any>(null);
+  const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [hasPaid, setHasPaid] = useState(false);
 
   useEffect(() => {

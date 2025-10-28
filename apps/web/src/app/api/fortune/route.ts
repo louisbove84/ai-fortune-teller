@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     const answers: QuizAnswers = await request.json();
 
     // Validate inputs
-    if (!answers.role || !answers.experience || !answers.industry || !answers.age) {
+    if (!answers.job_title || !answers.current_salary || !answers.location || !answers.experience || !answers.education || !answers.ai_skills) {
       return NextResponse.json({ error: "Missing required answers" }, { status: 400 });
     }
 
@@ -31,23 +31,36 @@ export async function POST(request: NextRequest) {
     const result: FortuneResult = {
       score: data.score,
       narrative: data.narrative,
-      riskLevel: data.riskLevel,
+      riskLevel: data.riskLevel || "medium",
+      outlook: data.outlook || "neutral",
       factors: {
-        roleScore: data.factors.automation_risk || 0,
-        experienceScore: data.factors.growth_projection || 0,
-        skillsScore: 0, // Calculated by Python backend
-        industryScore: 0, // Calculated by Python backend
+        automation_risk: data.factors?.automation_risk || 0,
+        growth_projection: data.factors?.growth_projection || 0,
+        skills_adaptation: data.factors?.skills_adaptation || "Medium",
+        salary_trend: data.factors?.salary_trend || 0,
       },
+      salary_analysis: data.salary_analysis || {
+        current: 0,
+        projected: 0,
+        change_percent: 0,
+        user_comparison: {
+          user_salary_range: answers.current_salary,
+          market_median: 0,
+          percentile: 50,
+        },
+      },
+      job_data: data.job_data || {
+        automation_risk: 0,
+        growth_projection: 0,
+        skills_needed: "Unknown",
+        industry: "Unknown",
+        location: "Unknown",
+      },
+      data_source: data.data_source || "free",
+      tier: "free",
     };
 
-    // Add additional data for display
-    return NextResponse.json({
-      ...result,
-      outlook: data.outlook,
-      jobData: data.job_data,
-      salaryAnalysis: data.salary_analysis,
-      dataSource: data.data_source,
-    });
+    return NextResponse.json(result);
   } catch (error) {
     console.error("Fortune calculation error:", error);
     

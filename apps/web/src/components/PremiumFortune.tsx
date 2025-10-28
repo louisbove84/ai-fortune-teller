@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import type { PremiumFortuneResult } from "@/types/fortune";
+import type { PremiumFortuneResult, QuizAnswers } from "@/types/fortune";
 
 interface PremiumFortuneProps {
-  answers: any;
+  answers: QuizAnswers;
   address: string;
 }
 
