@@ -48,24 +48,62 @@ export async function POST(req: NextRequest) {
     }
 
     // Fallback: Read CSV file directly (for production)
-    const csvPath = path.join(process.cwd(), 'apps/web/public/job_market_data.csv');
+    console.log('Attempting CSV fallback...');
+    
+    // Try multiple possible paths for the CSV file
+    const possiblePaths = [
+      path.join(process.cwd(), 'apps/web/public/job_market_data.csv'),
+      path.join(process.cwd(), 'public/job_market_data.csv'),
+      path.join(process.cwd(), 'job_market_data.csv'),
+      '/vercel/path0/apps/web/public/job_market_data.csv',
+      '/vercel/path0/public/job_market_data.csv'
+    ];
+    
+    let csvContent = '';
+    let csvPath = '';
+    
+    for (const testPath of possiblePaths) {
+      try {
+        console.log(`Trying CSV path: ${testPath}`);
+        csvContent = fs.readFileSync(testPath, 'utf-8');
+        csvPath = testPath;
+        console.log(`✅ Successfully loaded CSV from: ${testPath}`);
+        break;
+      } catch (pathError) {
+        console.log(`❌ Failed to load CSV from: ${testPath}`);
+        continue;
+      }
+    }
+    
+    if (!csvContent) {
+      throw new Error('Could not find job_market_data.csv in any expected location');
+    }
     
     try {
-      const csvContent = fs.readFileSync(csvPath, 'utf-8');
       const lines = csvContent.split('\n');
+      console.log(`CSV has ${lines.length} lines`);
+      
+      if (lines.length < 2) {
+        throw new Error('CSV file appears to be empty or invalid');
+      }
+      
       const headers = lines[0].split(',');
+      console.log('CSV headers:', headers.slice(0, 5)); // Log first 5 headers
       
       // Find job title column index
       const jobTitleIndex = headers.findIndex(header => 
         header.includes('Job Title') || header.includes('Job_Title')
       );
       
+      console.log(`Job title column index: ${jobTitleIndex}`);
+      
       if (jobTitleIndex === -1) {
-        throw new Error('Job title column not found');
+        throw new Error('Job title column not found in CSV headers');
       }
       
       // Extract job titles and filter by query
       const jobTitles = lines.slice(1)
+        .filter(line => line.trim()) // Remove empty lines
         .map(line => {
           // Handle CSV parsing with quotes
           const matches = line.match(/(".*?"|[^,]+)(?=\s*,|\s*$)/g);
@@ -80,6 +118,8 @@ export async function POST(req: NextRequest) {
           title.toLowerCase().includes(query.toLowerCase())
         );
       
+      console.log(`Found ${jobTitles.length} matching job titles for query: "${query}"`);
+      
       // Count frequency and get unique suggestions
       const jobCounts: { [key: string]: number } = {};
       jobTitles.forEach(title => {
@@ -92,10 +132,13 @@ export async function POST(req: NextRequest) {
         .slice(0, 15)
         .map(([title]) => title);
       
+      console.log(`Returning ${suggestions.length} suggestions from CSV`);
+      
       return NextResponse.json({
         suggestions,
         total_matches: jobTitles.length,
-        source: 'csv_fallback'
+        source: 'csv_fallback',
+        csv_path: csvPath
       });
       
     } catch (csvError) {
