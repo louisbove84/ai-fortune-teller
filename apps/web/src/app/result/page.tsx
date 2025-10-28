@@ -92,14 +92,6 @@ export default function ResultPage() {
     return "Smooth sailing";
   };
 
-  const getAIImpactDescription = (aiImpact: string): string => {
-    switch (aiImpact?.toLowerCase()) {
-      case 'high': return 'High AI Impact';
-      case 'moderate': return 'Moderate AI Impact';
-      case 'low': return 'Low AI Impact';
-      default: return 'Unknown AI Impact';
-    }
-  };
 
   const getAutomationTier = (risk: number): AutomationTier => {
     if (risk <= 20) return automationTiers[0];
@@ -272,10 +264,6 @@ export default function ResultPage() {
                     <div className="bg-yellow-300 rounded p-2">
                       <div className="text-sm font-bold text-yellow-900">{getJobOpeningsDescription(Math.round(result.job_data.growth_projection * 1000))}</div>
                       <div className="text-xs text-yellow-900">Job Outlook</div>
-                    </div>
-                    <div className="bg-yellow-300 rounded p-2 col-span-2">
-                      <div className="text-sm font-bold text-yellow-900">{getAIImpactDescription(result.job_data.ai_impact_level || 'Unknown')}</div>
-                      <div className="text-xs text-yellow-900">AI Impact Level</div>
                     </div>
                   </div>
 

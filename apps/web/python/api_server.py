@@ -332,6 +332,7 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     score = score_data['score']
     risk = job_data['ai_automation_risk']
     growth = job_data['job_growth_projection']
+    ai_impact = job_data.get('ai_impact_level', 'Moderate')
     salary_comparison = score_data['salary_analysis']['user_comparison']
     
     intro = f"The crystal ball reveals your path, {job_title}..."
@@ -363,6 +364,15 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     else:
         risk_msg += " - your skills remain valuable in the AI age."
     
+    # AI Impact Level analysis
+    ai_impact_msg = f" The AI Impact Level for your role is {ai_impact}."
+    if ai_impact.lower() == 'high':
+        ai_impact_msg += " This means AI will significantly reshape your field - embrace it or be left behind."
+    elif ai_impact.lower() == 'moderate':
+        ai_impact_msg += " AI will bring changes, but your core skills remain valuable with proper adaptation."
+    else:  # low
+        ai_impact_msg += " Your field has minimal AI disruption - focus on honing your human skills."
+    
     growth_msg = f" Job growth projections show {abs(growth):.0f}% {'growth' if growth > 0 else 'decline'} through 2030."
     
     salary_change = score_data['salary_analysis']['change_percent']
@@ -375,7 +385,7 @@ def _generate_free_narrative(user_data: Dict[str, Any],
     
     conclusion = "\n\nRemember: Those who embrace change and continuously adapt shall thrive. Unlock premium insights for your personalized roadmap to AI resilience."
     
-    return intro + "\n\n" + assessment + salary_msg + risk_msg + growth_msg + salary_trend + conclusion
+    return intro + "\n\n" + assessment + salary_msg + risk_msg + ai_impact_msg + growth_msg + salary_trend + conclusion
 
 
 def _generate_fate_map(user_data: Dict[str, Any],
