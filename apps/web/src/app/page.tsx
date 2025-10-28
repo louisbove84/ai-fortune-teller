@@ -1,33 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useAccount } from "wagmi";
-import { 
-  Wallet, 
-  ConnectWallet, 
-  WalletDropdown, 
-  WalletDropdownDisconnect 
-} from "@coinbase/onchainkit/wallet";
-import { 
-  Avatar, 
-  Name, 
-  Identity, 
-  Address 
-} from "@coinbase/onchainkit/identity";
+import dynamic from "next/dynamic";
 import QuizForm from "@/components/QuizForm";
 import type { QuizAnswers } from "@/types/fortune";
 
+// Dynamically import WalletButton to prevent SSR issues
+const WalletButton = dynamic(
+  () => import("@/components/WalletButton").then((mod) => ({ default: mod.WalletButton })),
+  { ssr: false }
+);
+
 export default function Home() {
   const router = useRouter();
-  const { address, isConnected } = useAccount();
   const [showQuiz, setShowQuiz] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const handleStartQuiz = () => {
     setShowQuiz(true);
@@ -41,22 +29,8 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
-      {/* Wallet Connection - Top Right - Only render on client */}
-      {isMounted && (
-        <div className="absolute top-8 right-8 z-50">
-          <Wallet>
-            <ConnectWallet />
-            <WalletDropdown>
-              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-              </Identity>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
-        </div>
-      )}
+      {/* Wallet Connection - Client-side only */}
+      <WalletButton />
 
       {!showQuiz ? (
         <motion.div
@@ -73,17 +47,6 @@ export default function Home() {
           >
             Begin Reading
           </motion.button>
-
-          {isMounted && isConnected && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="mt-6 text-fortune-gold text-sm"
-            >
-              Wallet Connected: {address?.slice(0, 6)}...{address?.slice(-4)}
-            </motion.p>
-          )}
         </motion.div>
       ) : (
         <QuizForm onComplete={handleQuizComplete} />
