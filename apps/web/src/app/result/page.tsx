@@ -191,7 +191,7 @@ export default function ResultPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="max-w-2xl w-full space-y-4"
+        className="max-w-lg w-full space-y-3"
       >
         {/* Header */}
         <motion.div
@@ -211,7 +211,7 @@ export default function ResultPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className={`${automationTier.bgColor} backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-6`}
+          className={`${automationTier.bgColor} backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-4`}
         >
           <div className="text-center">
             <div className="text-5xl mb-3">{automationTier.emoji}</div>
@@ -230,7 +230,7 @@ export default function ResultPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-5"
+          className="bg-black/60 backdrop-blur-sm rounded-lg border-2 border-cyan-500/30 p-4"
         >
           {/* Job Stats Row */}
           <div className="grid grid-cols-3 gap-4 mb-4 text-center">
@@ -254,11 +254,6 @@ export default function ResultPage() {
             <p className="text-sm text-gray-300 leading-relaxed">
               {result.narrative}
             </p>
-            {result.data_source === "fallback" && (
-              <div className="mt-3 p-2 bg-yellow-500/20 border border-yellow-500/30 rounded text-yellow-300 text-xs text-center">
-                ⚠️ Using fallback calculation
-              </div>
-            )}
           </div>
         </motion.div>
 
