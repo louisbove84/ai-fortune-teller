@@ -8,19 +8,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #0a0e1a url('/fortune-teller-bg.png') no-repeat center center;
+  background: #0a0e1a url('/fortune-teller-bg.png') no-repeat center center fixed;
   background-size: contain;
-  background-attachment: scroll;
   min-height: 100vh;
   font-family: var(--font-geist-sans);
-}
-
-/* Ensure html also has background for Farcaster Mini App compatibility */
-html {
-  background: #0a0e1a url('/fortune-teller-bg.png') no-repeat center center;
-  background-size: contain;
-  background-attachment: scroll;
-  min-height: 100vh;
 }
 
 @layer utilities {
