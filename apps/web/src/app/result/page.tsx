@@ -180,17 +180,7 @@ export default function ResultPage() {
 
 
   if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="text-6xl text-cyan-400"
-        >
-          🔮
-        </motion.div>
-      </div>
-    );
+    return null;
   }
 
   if (!result || !answers) return null;
