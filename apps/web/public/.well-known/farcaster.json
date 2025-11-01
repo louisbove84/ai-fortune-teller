@@ -9,8 +9,8 @@
     "splashImageUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
     "splashBackgroundColor": "#0a0e1a",
     "webhookUrl": "https://fortune.beuxbunk.com/api/webhook",
-    "subtitle": "Career Resilience in the AI Age",
-    "description": "AI-powered career fortune teller. Get free insights from real job market data, or pay for premium AI strategies & collectible NFTs on Base network.",
+    "subtitle": "Your AI Career Future",
+    "description": "AI-powered career fortune teller. Get free insights from real job market data, or pay for premium AI strategies and NFTs on Base.",
     "screenshotUrls": [
       "https://fortune.beuxbunk.com/fortune-teller-bg.png"
     ],
@@ -19,7 +19,7 @@
     "tagline": "ai-career-fortune",
     "ogImageUrl": "https://fortune.beuxbunk.com/fortune-teller-bg.png",
     "ogTitle": "AI Fortune Teller",
-    "ogDescription": "Discover your career fate in the age of AI. Get free fortunes or premium AI strategies & NFTs on Base.",
+    "ogDescription": "Discover your career fate in the AI age. Get free fortunes or premium strategies and NFTs on Base.",
     "tags": ["ai", "career", "fortune", "base", "nft"]
   },
   "accountAssociation": {
