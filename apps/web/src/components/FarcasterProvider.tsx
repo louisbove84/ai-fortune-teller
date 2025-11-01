@@ -16,7 +16,7 @@ export default function FarcasterProvider() {
         // Call ready to hide splash screen
         await sdk.actions.ready();
         console.log("✅ Farcaster SDK ready called");
-      } catch {
+      } catch (error) {
         // SDK not available (running in regular browser), silently continue
         console.log("ℹ️ Running outside Farcaster miniapp context");
       }
