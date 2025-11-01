@@ -4,11 +4,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import QuizForm from "@/components/QuizForm";
+import { useFarcaster } from "@/components/FarcasterContext";
 import type { QuizAnswers } from "@/types/fortune";
 
 export default function Home() {
   const router = useRouter();
   const [showQuiz, setShowQuiz] = useState(false);
+  const { isInMiniApp, isLoading } = useFarcaster();
 
   const handleStartQuiz = () => {
     setShowQuiz(true);
@@ -20,6 +22,13 @@ export default function Home() {
     router.push("/result");
   };
 
+  // Optional: Show different UI based on context
+  // if (isInMiniApp) {
+  //   // Render miniapp-specific UI
+  // } else {
+  //   // Render browser-specific UI
+  // }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
       {!showQuiz ? (
@@ -29,6 +38,12 @@ export default function Home() {
           transition={{ duration: 1.5, delay: 0.5 }}
           className="text-center mb-16"
         >
+          {/* Optional: Show context indicator for debugging */}
+          {process.env.NODE_ENV === "development" && !isLoading && (
+            <div className="mb-4 text-xs text-cyan-400/60">
+              {isInMiniApp ? "📱 Farcaster Mini App" : "🌐 Browser"}
+            </div>
+          )}
           <motion.button
             onClick={handleStartQuiz}
             className="px-12 py-6 bg-cyan-500/30 hover:bg-cyan-400/40 border-2 border-cyan-400 text-cyan-200 text-2xl font-bold rounded-lg shadow-2xl transition-all duration-300 hover:scale-105 backdrop-blur-md animate-flicker"

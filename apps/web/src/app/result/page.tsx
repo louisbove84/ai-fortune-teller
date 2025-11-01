@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
 
@@ -14,6 +15,7 @@ interface AutomationTier {
 }
 
 export default function ResultPage() {
+  const router = useRouter();
   const [result, setResult] = useState<FortuneResult | null>(null);
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [loading, setLoading] = useState(true);
@@ -135,10 +137,7 @@ export default function ResultPage() {
     const fetchFortune = async () => {
       const answersStr = sessionStorage.getItem("fortuneAnswers");
       if (!answersStr) {
-        // Use window.location for Farcaster frame compatibility
-        if (typeof window !== 'undefined') {
-          window.location.href = '/';
-        }
+        router.push("/");
         return;
       }
 
@@ -177,7 +176,7 @@ export default function ResultPage() {
     };
 
     fetchFortune();
-  }, [createFallbackResult]);
+  }, [router, createFallbackResult]);
 
 
   if (loading) {
@@ -189,15 +188,8 @@ export default function ResultPage() {
   const automationRisk = result.factors.automation_risk;
   const automationTier = getAutomationTier(automationRisk);
 
-  const handleBackToHome = () => {
-    // Use window.location for Farcaster frame compatibility
-    if (typeof window !== 'undefined') {
-      window.location.href = '/';
-    }
-  };
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 relative bg-[#0a0e1a]" style={{ backgroundImage: "url('/fortune-teller-bg.png')", backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 relative">
       <AnimatePresence mode="wait">
         {showTicket && (
           <motion.div
@@ -206,17 +198,16 @@ export default function ResultPage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.5 }}
-            className="relative w-80 h-96 perspective-1000 z-10"
+            className="relative w-80 h-96 perspective-1000"
             style={{ perspective: "1000px" }}
           >
             <motion.div
               className="relative w-full h-full transform-style-preserve-3d"
-              style={{ transformStyle: "preserve-3d", willChange: "transform" }}
               animate={{ rotateY: flipTicket ? 180 : 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               {/* Ticket Front */}
-              <div className="absolute inset-0 w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden" }}>
+              <div className="absolute inset-0 w-full h-full backface-hidden">
                 <Image
                   src="/fortune_teller_ticket.png"
                   alt="Fortune Teller Ticket"
@@ -227,7 +218,7 @@ export default function ResultPage() {
               </div>
 
               {/* Ticket Back - Results */}
-              <div className="absolute inset-0 w-full h-full backface-hidden bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-lg shadow-2xl border-4 border-yellow-600" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
+              <div className="absolute inset-0 w-full h-full backface-hidden transform rotate-y-180 bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-lg shadow-2xl border-4 border-yellow-600">
                 <div className="p-4 h-full flex flex-col justify-between text-yellow-900">
                   {/* Header */}
                   <div className="text-center mb-3">
@@ -272,9 +263,8 @@ export default function ResultPage() {
           className="mt-8"
         >
           <button
-            onClick={handleBackToHome}
-            className="px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105 cursor-pointer"
-            type="button"
+            onClick={() => router.push("/")}
+            className="px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105"
           >
             Take Another Reading
           </button>
