@@ -12,11 +12,12 @@ export const metadata: Metadata = {
     description: "Discover your career fate in the age of AI. Get AI-powered career insights.",
     type: "website",
     url: "https://fortune.beuxbunk.com",
+    siteName: "AI Fortune Teller",
     images: [
       {
-        url: "/fortune-teller-bg.png",
-        width: 1200,
-        height: 630,
+        url: "https://fortune.beuxbunk.com/loading_image.png",
+        width: 1024,
+        height: 1024,
         alt: "AI Fortune Teller",
       },
     ],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Fortune Teller",
     description: "Peer into your career's future in the age of AI",
-    images: ["/fortune-teller-bg.png"],
+    images: ["https://fortune.beuxbunk.com/loading_image.png"],
   },
 };
 
