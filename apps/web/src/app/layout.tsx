@@ -28,6 +28,36 @@ export const metadata: Metadata = {
     description: "Peer into your career's future in the age of AI",
     images: ["/fortune-teller-bg.png"],
   },
+  other: {
+    "fc:miniapp": JSON.stringify({
+      version: "1",
+      imageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
+      button: {
+        title: "🔮 Get Your AI Career Fortune",
+        action: {
+          type: "launch_miniapp",
+          url: "https://fortune.beuxbunk.com",
+          name: "AI Fortune Teller",
+          splashImageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
+          splashBackgroundColor: "#0a0e1a",
+        },
+      },
+    }),
+    "fc:frame": JSON.stringify({
+      version: "1",
+      imageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
+      button: {
+        title: "🔮 Get Your AI Career Fortune",
+        action: {
+          type: "launch_frame",
+          url: "https://fortune.beuxbunk.com",
+          name: "AI Fortune Teller",
+          splashImageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
+          splashBackgroundColor: "#0a0e1a",
+        },
+      },
+    }),
+  },
 };
 
 export default function RootLayout({
@@ -37,8 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <head>
         <FarcasterEmbedMeta />
+      </head>
+      <body className="antialiased">
         <FarcasterProvider />
         {children}
       </body>
