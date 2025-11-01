@@ -189,7 +189,7 @@ export default function ResultPage() {
   const automationTier = getAutomationTier(automationRisk);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 relative">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 relative bg-[#0a0e1a]">
       <AnimatePresence mode="wait">
         {showTicket && (
           <motion.div
@@ -263,8 +263,17 @@ export default function ResultPage() {
           className="mt-8"
         >
           <button
-            onClick={() => router.push("/")}
-            className="px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105"
+            onClick={() => {
+              // Clear session storage and navigate
+              sessionStorage.removeItem("fortuneAnswers");
+              // Use window.location for Farcaster Mini App compatibility
+              if (typeof window !== "undefined") {
+                window.location.href = "/";
+              } else {
+                router.push("/");
+              }
+            }}
+            className="px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105 cursor-pointer"
           >
             Take Another Reading
           </button>

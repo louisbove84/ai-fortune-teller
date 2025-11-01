@@ -21,7 +21,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
+    <main className="flex min-h-screen flex-col items-center justify-end p-8 relative bg-[#0a0e1a]">
       {!showQuiz ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
