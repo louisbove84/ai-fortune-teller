@@ -30,7 +30,7 @@ function isInIframe(): boolean {
   if (typeof window === "undefined") return false;
   try {
     return window.self !== window.top;
-  } catch (e) {
+  } catch {
     return true; // If we can't access top, we're likely in an iframe
   }
 }
@@ -58,27 +58,33 @@ export function FarcasterContextProvider({
       try {
         // Try to import the Farcaster SDK
         const frameSdk = await import("@farcaster/frame-sdk");
-        const sdk = frameSdk.sdk || (frameSdk as any).default?.sdk || (frameSdk as any).default;
+        // Type-safe access to SDK
+        const sdk = (frameSdk as { sdk?: unknown }).sdk || 
+                   (frameSdk as { default?: { sdk?: unknown } }).default?.sdk || 
+                   (frameSdk as { default?: unknown }).default;
 
-        if (sdk && typeof sdk.isInMiniApp === "function") {
+        // Type guard: check if SDK has isInMiniApp method
+        const sdkWithDetection = sdk as { isInMiniApp?: () => Promise<boolean>; actions?: { ready?: () => Promise<void> } };
+        
+        if (sdkWithDetection && typeof sdkWithDetection.isInMiniApp === "function") {
           // Use isInMiniApp if available (preferred method)
-          const isMiniApp = await sdk.isInMiniApp();
+          const isMiniApp = await sdkWithDetection.isInMiniApp();
           setIsInMiniApp(isMiniApp);
           setIsLoading(false);
 
           // If in miniapp, call ready()
-          if (isMiniApp && sdk.actions?.ready) {
-            await sdk.actions.ready();
+          if (isMiniApp && sdkWithDetection.actions?.ready) {
+            await sdkWithDetection.actions.ready();
             console.log("✅ Farcaster SDK ready called");
           }
-        } else if (sdk && sdk.actions?.ready) {
+        } else if (sdkWithDetection && sdkWithDetection.actions?.ready) {
           // Fallback: if SDK exists and has ready(), try to call it
           // If it succeeds, we're in miniapp
           try {
-            await sdk.actions.ready();
+            await sdkWithDetection.actions.ready();
             setIsInMiniApp(true);
             console.log("✅ Farcaster SDK ready called - detected miniapp context");
-          } catch (error) {
+          } catch {
             setIsInMiniApp(false);
             console.log("ℹ️ SDK available but not in miniapp context");
           }
@@ -88,7 +94,7 @@ export function FarcasterContextProvider({
           setIsInMiniApp(isInIframe());
           setIsLoading(false);
         }
-      } catch (error) {
+      } catch {
         // SDK not available - use iframe detection as fallback
         setIsInMiniApp(isInIframe());
         setIsLoading(false);
