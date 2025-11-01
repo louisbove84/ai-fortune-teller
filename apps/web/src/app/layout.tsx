@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import FarcasterProvider from "@/components/FarcasterProvider";
 
 export const metadata: Metadata = {
   title: "AI Fortune Teller - Career Resilience in the AI Age",
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <FarcasterProvider />
         {children}
       </body>
     </html>
