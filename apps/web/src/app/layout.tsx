@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import FarcasterProvider from "@/components/FarcasterProvider";
+import FarcasterEmbedMeta from "@/components/FarcasterEmbedMeta";
 
 export const metadata: Metadata = {
   title: "AI Fortune Teller - Career Resilience in the AI Age",
@@ -12,12 +13,11 @@ export const metadata: Metadata = {
     description: "Discover your career fate in the age of AI. Get AI-powered career insights.",
     type: "website",
     url: "https://fortune.beuxbunk.com",
-    siteName: "AI Fortune Teller",
     images: [
       {
-        url: "https://fortune.beuxbunk.com/loading_image.png",
-        width: 1024,
-        height: 1024,
+        url: "/fortune-teller-bg.png",
+        width: 1200,
+        height: 630,
         alt: "AI Fortune Teller",
       },
     ],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Fortune Teller",
     description: "Peer into your career's future in the age of AI",
-    images: ["https://fortune.beuxbunk.com/loading_image.png"],
+    images: ["/fortune-teller-bg.png"],
   },
 };
 
@@ -35,48 +35,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Create the miniapp embed metadata
-  const miniappEmbed = JSON.stringify({
-    version: "1",
-    imageUrl: "https://fortune.beuxbunk.com/loading_image.png",
-    button: {
-      title: "🔮 Get Your AI Career Fortune",
-      action: {
-        type: "launch_miniapp",
-        url: "https://fortune.beuxbunk.com",
-        name: "AI Fortune Teller",
-        splashImageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
-        splashBackgroundColor: "#0a0e1a",
-      },
-    },
-  });
-
-  const frameEmbed = JSON.stringify({
-    version: "1",
-    imageUrl: "https://fortune.beuxbunk.com/loading_image.png",
-    button: {
-      title: "🔮 Get Your AI Career Fortune",
-      action: {
-        type: "launch_frame",
-        url: "https://fortune.beuxbunk.com",
-        name: "AI Fortune Teller",
-        splashImageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
-        splashBackgroundColor: "#0a0e1a",
-      },
-    },
-  });
-
   return (
     <html lang="en">
-      <head
-        dangerouslySetInnerHTML={{
-          __html: `
-            <meta name="fc:miniapp" content="${miniappEmbed.replace(/"/g, "&quot;")}" />
-            <meta name="fc:frame" content="${frameEmbed.replace(/"/g, "&quot;")}" />
-          `,
-        }}
-      />
       <body className="antialiased">
+        <FarcasterEmbedMeta />
         <FarcasterProvider />
         {children}
       </body>
