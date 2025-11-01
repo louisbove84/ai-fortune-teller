@@ -88,11 +88,11 @@ export default function ResultPage() {
 
 
   const getAutomationTier = (risk: number): AutomationTier => {
-    if (risk <= 20) return automationTiers[0];
-    if (risk <= 40) return automationTiers[1];
-    if (risk <= 60) return automationTiers[2];
-    if (risk <= 80) return automationTiers[3];
-    return automationTiers[4];
+    if (risk <= 10) return automationTiers[0];      // Indestructible Career
+    if (risk <= 30) return automationTiers[1];      // Safe & Sound
+    if (risk <= 50) return automationTiers[2];      // Safe for a While
+    if (risk <= 70) return automationTiers[3];      // The Clock is Ticking
+    return automationTiers[4];                       // Terminator at Your Door
   };
 
   const createFallbackResult = useCallback((answers: QuizAnswers): FortuneResult => {
@@ -126,7 +126,7 @@ export default function ResultPage() {
         growth_projection: 5,
         skills_needed: "Unknown",
         industry: "Unknown",
-        location: answers.location,
+        location: "Unknown",
       },
       data_source: "fallback",
       tier: "free",

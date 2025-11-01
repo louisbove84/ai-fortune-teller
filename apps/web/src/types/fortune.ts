@@ -1,7 +1,6 @@
 export interface QuizAnswers {
   job_title: string;
   current_salary: string;
-  location: string;
   experience: string;
   education: string;
   ai_skills: string;

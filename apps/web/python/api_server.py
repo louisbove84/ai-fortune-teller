@@ -127,7 +127,6 @@ def get_free_fortune():
     {
         "job_title": "Software Developer",
         "current_salary": "75k-100k",
-        "location": "USA",
         "experience": "6-10",
         "education": "bachelor",
         "ai_skills": "intermediate"
@@ -137,13 +136,13 @@ def get_free_fortune():
         data = request.get_json()
         
         # Validate input
-        required_fields = ['job_title', 'current_salary', 'location', 'experience', 'education', 'ai_skills']
+        required_fields = ['job_title', 'current_salary', 'experience', 'education', 'ai_skills']
         for field in required_fields:
             if field not in data:
                 return jsonify({'error': f'Missing required field: {field}'}), 400
         
-        # Get job data from Kaggle dataset
-        job_data = data_loader.get_job_data(data['job_title'], data.get('location'))
+        # Get job data from Kaggle dataset (location is optional)
+        job_data = data_loader.get_job_data(data['job_title'], None)
         
         # Calculate salary comparison
         salary_comparison = _calculate_salary_comparison(data['current_salary'], job_data)

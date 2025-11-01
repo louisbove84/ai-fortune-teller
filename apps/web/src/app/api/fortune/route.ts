@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     const answers: QuizAnswers = await request.json();
 
     // Validate inputs
-    if (!answers.job_title || !answers.current_salary || !answers.location || !answers.experience || !answers.education || !answers.ai_skills) {
+    if (!answers.job_title || !answers.current_salary || !answers.experience || !answers.education || !answers.ai_skills) {
       return NextResponse.json({ error: "Missing required answers" }, { status: 400 });
     }
 

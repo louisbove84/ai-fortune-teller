@@ -30,20 +30,6 @@ const questions = [
     ],
   },
   {
-    id: "location",
-    question: "Where are you located?",
-    type: "location",
-    description: "Location affects salary expectations and job market trends",
-        options: [
-          { value: "USA", label: "United States" },
-          { value: "UK", label: "United Kingdom" },
-          { value: "Canada", label: "Canada" },
-          { value: "Australia", label: "Australia" },
-          { value: "Germany", label: "Germany" },
-          { value: "other", label: "Other" },
-        ],
-  },
-  {
     id: "experience",
     question: "How many years of experience do you have in your field?",
     type: "experience",
