@@ -1,90 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-import { mintProphecyNFT } from "@/lib/contracts";
-import { isAddress } from "viem";
 
 /**
  * NFT Minting API Route
- * POST /api/nft/mint
  * 
- * Mints a ProphecyToken NFT for a user based on their fortune reading
+ * NOTE: Minting is now done client-side using the user's wallet.
+ * This endpoint is kept for backwards compatibility and health checks.
  * 
- * Body:
- * {
- *   recipient: string (Ethereum address)
- *   tokenURI: string (IPFS URI with NFT metadata)
- *   score: number (0-100 resilience score)
- *   occupation: string (user's occupation)
- * }
+ * For client-side minting, use the MintNFTButton component which uses
+ * Wagmi's useWriteContract hook to call the contract directly.
  */
 export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    const { recipient, tokenURI, score, occupation } = body;
-
-    // Validate inputs
-    if (!recipient || !isAddress(recipient)) {
-      return NextResponse.json(
-        { success: false, error: "Invalid recipient address" },
-        { status: 400 }
-      );
-    }
-
-    if (!tokenURI || typeof tokenURI !== "string") {
-      return NextResponse.json(
-        { success: false, error: "Invalid tokenURI" },
-        { status: 400 }
-      );
-    }
-
-    if (typeof score !== "number" || score < 0 || score > 100) {
-      return NextResponse.json(
-        { success: false, error: "Score must be between 0 and 100" },
-        { status: 400 }
-      );
-    }
-
-    if (!occupation || typeof occupation !== "string") {
-      return NextResponse.json(
-        { success: false, error: "Occupation is required" },
-        { status: 400 }
-      );
-    }
-
-    // Check if contract address is configured
-    if (!process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Contract address not configured. Please set NEXT_PUBLIC_NFT_CONTRACT_ADDRESS",
-        },
-        { status: 500 }
-      );
-    }
-
-    // Mint the NFT
-    const result = await mintProphecyNFT(
-      recipient as `0x${string}`,
-      tokenURI,
-      score,
-      occupation
-    );
-
-    return NextResponse.json({
-      success: true,
-      txHash: result.txHash,
-      tokenId: result.tokenId,
-      message: "NFT minted successfully!",
-    });
-  } catch (error: unknown) {
-    console.error("NFT minting error:", error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: error instanceof Error ? error.message : "Failed to mint NFT",
-      },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json(
+    {
+      success: false,
+      error: "Minting is now done client-side. Use the MintNFTButton component with your connected wallet.",
+      note: "Connect your wallet and use the mint button on the result page.",
+    },
+    { status: 400 }
+  );
 }
 
 /**

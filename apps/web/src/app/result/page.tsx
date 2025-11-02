@@ -298,7 +298,6 @@ export default function ResultPage() {
           {/* NFT Minting Button - Only show if wallet connected */}
           {isConnected && address && ipfsUri && result && answers ? (
             <MintNFTButton
-              recipient={address}
               tokenURI={ipfsUri}
               score={result.score}
               occupation={answers.job_title}

@@ -45,14 +45,46 @@ contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
     }
     
     /**
-     * @dev Mint a new prophecy NFT
-     * @param to Address to receive the NFT
+     * @dev Mint a new prophecy NFT (public - anyone can mint)
      * @param tokenURI IPFS URI containing the NFT metadata
      * @param score AI resilience score (0-100)
      * @param occupation User's occupation
      * @return tokenId The ID of the newly minted token
      */
     function mintProphecy(
+        string memory tokenURI,
+        uint256 score,
+        string memory occupation
+    ) public nonReentrant returns (uint256) {
+        require(score <= 100, "Score must be <= 100");
+        require(bytes(occupation).length > 0, "Occupation cannot be empty");
+        
+        address to = msg.sender; // Mint to the caller
+        uint256 tokenId = _nextTokenId++;
+        _safeMint(to, tokenId);
+        _setTokenURI(tokenId, tokenURI);
+        
+        prophecies[tokenId] = ProphecyData({
+            resilienceScore: score,
+            occupation: occupation,
+            timestamp: block.timestamp,
+            updateCount: 0,
+            recipient: to
+        });
+        
+        emit ProphecyMinted(to, tokenId, score, occupation, tokenURI);
+        return tokenId;
+    }
+    
+    /**
+     * @dev Mint a new prophecy NFT (owner only - for backwards compatibility)
+     * @param to Address to receive the NFT
+     * @param tokenURI IPFS URI containing the NFT metadata
+     * @param score AI resilience score (0-100)
+     * @param occupation User's occupation
+     * @return tokenId The ID of the newly minted token
+     */
+    function mintProphecyFor(
         address to,
         string memory tokenURI,
         uint256 score,

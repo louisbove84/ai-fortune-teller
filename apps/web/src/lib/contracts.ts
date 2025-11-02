@@ -13,6 +13,17 @@ export const PROPHECY_TOKEN_ABI = [
     type: "function",
     name: "mintProphecy",
     inputs: [
+      { name: "tokenURI", type: "string" },
+      { name: "score", type: "uint256" },
+      { name: "occupation", type: "string" },
+    ],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "mintProphecyFor",
+    inputs: [
       { name: "to", type: "address" },
       { name: "tokenURI", type: "string" },
       { name: "score", type: "uint256" },
@@ -132,8 +143,10 @@ export async function getProphecyData(tokenId: bigint) {
 }
 
 /**
- * Mint a prophecy NFT (server-side only)
+ * Mint a prophecy NFT for a specific address (server-side only, owner function)
  * Requires PRIVATE_KEY environment variable with contract owner's key
+ * NOTE: This uses mintProphecyFor which is owner-only
+ * For regular users, minting is done client-side via MintNFTButton component
  */
 export async function mintProphecyNFT(
   recipient: `0x${string}`,
@@ -147,7 +160,7 @@ export async function mintProphecyNFT(
 
   const privateKey = process.env.PRIVATE_KEY;
   if (!privateKey) {
-    throw new Error("PRIVATE_KEY not set - required for minting");
+    throw new Error("PRIVATE_KEY not set - required for owner minting");
   }
 
   // Validate private key format
@@ -173,11 +186,11 @@ export async function mintProphecyNFT(
   });
 
   try {
-    // Mint the NFT
+    // Mint the NFT using owner-only function
     const hash = await walletClient.writeContract({
       address: CONTRACT_ADDRESS,
       abi: PROPHECY_TOKEN_ABI,
-      functionName: "mintProphecy",
+      functionName: "mintProphecyFor",
       args: [recipient, tokenURI, BigInt(score), occupation],
     });
 
