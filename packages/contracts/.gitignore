@@ -1,0 +1,10 @@
+node_modules/
+cache/
+artifacts/
+typechain-types/
+deployment-info.json
+*.log
+
+# Note: .env.local is in the root directory and should not be committed
+# The contracts package reads from the root .env.local file
+

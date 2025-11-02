@@ -4,7 +4,10 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useAccount } from "wagmi";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
+import WalletConnect from "@/components/WalletConnect";
+import MintNFTButton from "@/components/MintNFTButton";
 
 interface AutomationTier {
   name: string;
@@ -16,11 +19,13 @@ interface AutomationTier {
 
 export default function ResultPage() {
   const router = useRouter();
+  const { address, isConnected } = useAccount();
   const [result, setResult] = useState<FortuneResult | null>(null);
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
   const [loading, setLoading] = useState(true);
   const [showTicket, setShowTicket] = useState(false);
   const [flipTicket, setFlipTicket] = useState(false);
+  const [ipfsUri, setIpfsUri] = useState<string | null>(null);
 
   const automationTiers: AutomationTier[] = [
     {
@@ -178,6 +183,35 @@ export default function ResultPage() {
     fetchFortune();
   }, [router, createFallbackResult]);
 
+  // Generate IPFS metadata when result is ready
+  useEffect(() => {
+    if (result && answers) {
+      const generateMetadata = async () => {
+        try {
+          const response = await fetch("/api/ipfs/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              score: result.score,
+              occupation: answers.job_title,
+              riskLevel: result.riskLevel,
+              outlook: result.outlook,
+            }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            setIpfsUri(data.ipfsUri);
+          }
+        } catch (error) {
+          console.error("Failed to generate IPFS metadata:", error);
+        }
+      };
+
+      generateMetadata();
+    }
+  }, [result, answers]);
+
 
   if (loading) {
     return null;
@@ -254,14 +288,37 @@ export default function ResultPage() {
         )}
       </AnimatePresence>
 
-      {/* Action Button - Only show after ticket flip */}
+      {/* Wallet Connect & NFT Minting - Only show after ticket flip */}
       {flipTicket && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mt-8"
+          className="mt-8 flex flex-col items-center gap-4"
         >
+          {/* Wallet Connection */}
+          <div className="mb-2">
+            <WalletConnect />
+          </div>
+
+          {/* NFT Minting Button */}
+          {isConnected && address && ipfsUri && result && answers && (
+            <MintNFTButton
+              recipient={address}
+              tokenURI={ipfsUri}
+              score={result.score}
+              occupation={answers.job_title}
+              onSuccess={(tokenId, txHash) => {
+                console.log("NFT minted successfully!", { tokenId, txHash });
+                // You can show a success message or redirect here
+              }}
+              onError={(error) => {
+                console.error("Minting failed:", error);
+              }}
+            />
+          )}
+
+          {/* Action Button */}
           <button
             onClick={() => router.push("/")}
             className="px-6 py-3 bg-cyan-500/20 hover:bg-cyan-400/30 border border-cyan-400 text-cyan-300 font-semibold rounded transition-all hover:scale-105"

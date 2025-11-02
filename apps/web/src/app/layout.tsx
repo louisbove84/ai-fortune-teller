@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import FarcasterProvider from "@/components/FarcasterProvider";
 import FarcasterEmbedMeta from "@/components/FarcasterEmbedMeta";
+import WalletProvider from "@/components/WalletProvider";
 
 export const metadata: Metadata = {
   title: "AI Fortune Teller - Career Resilience in the AI Age",
@@ -28,36 +29,6 @@ export const metadata: Metadata = {
     description: "Peer into your career's future in the age of AI",
     images: ["/fortune-teller-bg.png"],
   },
-  other: {
-    "fc:miniapp": JSON.stringify({
-      version: "1",
-      imageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
-      button: {
-        title: "🔮 Get Your AI Career Fortune",
-        action: {
-          type: "launch_miniapp",
-          url: "https://fortune.beuxbunk.com",
-          name: "AI Fortune Teller",
-          splashImageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
-          splashBackgroundColor: "#0a0e1a",
-        },
-      },
-    }),
-    "fc:frame": JSON.stringify({
-      version: "1",
-      imageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
-      button: {
-        title: "🔮 Get Your AI Career Fortune",
-        action: {
-          type: "launch_frame",
-          url: "https://fortune.beuxbunk.com",
-          name: "AI Fortune Teller",
-          splashImageUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
-          splashBackgroundColor: "#0a0e1a",
-        },
-      },
-    }),
-  },
 };
 
 export default function RootLayout({
@@ -67,12 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <FarcasterEmbedMeta />
-      </head>
       <body className="antialiased">
+        <FarcasterEmbedMeta />
         <FarcasterProvider />
-        {children}
+        <WalletProvider>
+          {children}
+        </WalletProvider>
       </body>
     </html>
   );
