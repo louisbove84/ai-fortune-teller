@@ -14,7 +14,12 @@ export const wagmiConfig = createConfig({
   chains: [base],
   connectors: [
     injected(),
-    metaMask(),
+    metaMask({
+      dappMetadata: {
+        name: "AI Fortune Teller",
+        url: "https://fortune.beuxbunk.com",
+      },
+    }),
     coinbaseWallet({
       appName: "AI Fortune Teller",
       appLogoUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
@@ -24,5 +29,7 @@ export const wagmiConfig = createConfig({
     [base.id]: http(baseRpcUrl),
   },
   ssr: true,
+  // Ensure we default to Base network
+  multiInjectedProviderDiscovery: false,
 });
 

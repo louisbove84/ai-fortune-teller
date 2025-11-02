@@ -1,6 +1,7 @@
 "use client";
 
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
+import { base } from "wagmi/chains";
 import { motion } from "framer-motion";
 
 /**
@@ -8,26 +9,47 @@ import { motion } from "framer-motion";
  * Button to connect/disconnect wallet
  */
 export default function WalletConnect() {
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, chainId } = useAccount();
+  const chainIdFromHook = useChainId();
   const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();
+  const { switchChain } = useSwitchChain();
+
+  const isOnBase = chainId === base.id || chainIdFromHook === base.id;
 
   if (isConnected && address) {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="flex items-center gap-2"
+        className="flex flex-col items-end gap-1.5"
       >
-        <div className="px-3 py-1.5 bg-green-500/20 border border-green-400 text-green-300 rounded text-xs">
-          {address.slice(0, 6)}...{address.slice(-4)}
+        <div className="flex items-center gap-2">
+          <div className={`px-3 py-1.5 border rounded text-xs ${
+            isOnBase 
+              ? "bg-green-500/20 border-green-400 text-green-300" 
+              : "bg-yellow-500/20 border-yellow-400 text-yellow-300"
+          }`}>
+            {address.slice(0, 6)}...{address.slice(-4)}
+          </div>
+          {!isOnBase && (
+            <button
+              onClick={() => switchChain({ chainId: base.id })}
+              className="px-2 py-1 bg-yellow-500/20 hover:bg-yellow-400/30 border border-yellow-400 text-yellow-300 rounded text-xs transition-all"
+            >
+              Switch to Base
+            </button>
+          )}
+          <button
+            onClick={() => disconnect()}
+            className="px-3 py-1.5 bg-red-500/20 hover:bg-red-400/30 border border-red-400 text-red-300 rounded text-xs transition-all"
+          >
+            Disconnect
+          </button>
         </div>
-        <button
-          onClick={() => disconnect()}
-          className="px-3 py-1.5 bg-red-500/20 hover:bg-red-400/30 border border-red-400 text-red-300 rounded text-xs transition-all"
-        >
-          Disconnect
-        </button>
+        {!isOnBase && (
+          <p className="text-yellow-400 text-xs">Not on Base network</p>
+        )}
       </motion.div>
     );
   }
