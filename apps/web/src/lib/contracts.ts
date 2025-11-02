@@ -145,20 +145,31 @@ export async function mintProphecyNFT(
     throw new Error("NEXT_PUBLIC_NFT_CONTRACT_ADDRESS not set");
   }
 
-  if (!process.env.PRIVATE_KEY) {
+  const privateKey = process.env.PRIVATE_KEY;
+  if (!privateKey) {
     throw new Error("PRIVATE_KEY not set - required for minting");
   }
 
-  if (!process.env.BASE_RPC_URL) {
-    throw new Error("BASE_RPC_URL not set");
+  // Validate private key format
+  if (!privateKey.startsWith("0x")) {
+    throw new Error("PRIVATE_KEY must start with 0x");
+  }
+
+  if (privateKey.length !== 66) {
+    throw new Error("PRIVATE_KEY must be 66 characters (0x + 64 hex chars)");
+  }
+
+  const baseRpcUrl = process.env.BASE_RPC_URL || process.env.NEXT_PUBLIC_BASE_RPC_URL;
+  if (!baseRpcUrl) {
+    throw new Error("BASE_RPC_URL or NEXT_PUBLIC_BASE_RPC_URL not set");
   }
 
   // Initialize wallet client with owner account
-  const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
+  const account = privateKeyToAccount(privateKey as `0x${string}`);
   const walletClient = createWalletClient({
     account,
     chain: base,
-    transport: http(process.env.BASE_RPC_URL),
+    transport: http(baseRpcUrl),
   });
 
   try {
@@ -221,19 +232,25 @@ export async function updateProphecyNFT(
     throw new Error("NEXT_PUBLIC_NFT_CONTRACT_ADDRESS not set");
   }
 
-  if (!process.env.PRIVATE_KEY) {
+  const privateKey = process.env.PRIVATE_KEY;
+  if (!privateKey) {
     throw new Error("PRIVATE_KEY not set - required for updating");
   }
 
-  if (!process.env.BASE_RPC_URL) {
-    throw new Error("BASE_RPC_URL not set");
+  if (!privateKey.startsWith("0x") || privateKey.length !== 66) {
+    throw new Error("PRIVATE_KEY format invalid");
   }
 
-  const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
+  const baseRpcUrl = process.env.BASE_RPC_URL || process.env.NEXT_PUBLIC_BASE_RPC_URL;
+  if (!baseRpcUrl) {
+    throw new Error("BASE_RPC_URL or NEXT_PUBLIC_BASE_RPC_URL not set");
+  }
+
+  const account = privateKeyToAccount(privateKey as `0x${string}`);
   const walletClient = createWalletClient({
     account,
     chain: base,
-    transport: http(process.env.BASE_RPC_URL),
+    transport: http(baseRpcUrl),
   });
 
   try {

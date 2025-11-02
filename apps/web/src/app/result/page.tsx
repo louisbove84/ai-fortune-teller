@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAccount } from "wagmi";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
-import WalletConnect from "@/components/WalletConnect";
 import MintNFTButton from "@/components/MintNFTButton";
 
 interface AutomationTier {
@@ -288,7 +287,7 @@ export default function ResultPage() {
         )}
       </AnimatePresence>
 
-      {/* Wallet Connect & NFT Minting - Only show after ticket flip */}
+      {/* NFT Minting - Only show after ticket flip */}
       {flipTicket && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -296,13 +295,8 @@ export default function ResultPage() {
           transition={{ delay: 0.5 }}
           className="mt-8 flex flex-col items-center gap-4"
         >
-          {/* Wallet Connection */}
-          <div className="mb-2">
-            <WalletConnect />
-          </div>
-
-          {/* NFT Minting Button */}
-          {isConnected && address && ipfsUri && result && answers && (
+          {/* NFT Minting Button - Only show if wallet connected */}
+          {isConnected && address && ipfsUri && result && answers ? (
             <MintNFTButton
               recipient={address}
               tokenURI={ipfsUri}
@@ -316,6 +310,10 @@ export default function ResultPage() {
                 console.error("Minting failed:", error);
               }}
             />
+          ) : (
+            <p className="text-yellow-400 text-sm text-center">
+              Connect your wallet on the home page to mint an NFT
+            </p>
           )}
 
           {/* Action Button */}

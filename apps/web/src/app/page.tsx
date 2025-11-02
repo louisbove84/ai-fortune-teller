@@ -3,11 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useAccount } from "wagmi";
 import QuizForm from "@/components/QuizForm";
+import WalletConnect from "@/components/WalletConnect";
 import type { QuizAnswers } from "@/types/fortune";
 
 export default function Home() {
   const router = useRouter();
+  const { isConnected } = useAccount();
   const [showQuiz, setShowQuiz] = useState(false);
 
   const handleStartQuiz = () => {
@@ -22,6 +25,11 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-end p-8 relative">
+      {/* Wallet Connection - Top Right */}
+      <div className="absolute top-4 right-4 z-10">
+        <WalletConnect />
+      </div>
+
       {!showQuiz ? (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
