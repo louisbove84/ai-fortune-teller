@@ -127,9 +127,11 @@ export default function MintNFTButton({
         score,
         occupation,
         value: formatEther(MINT_PRICE),
+        contractAddress,
+        chainId: base.id,
       });
 
-      writeContract({
+      const result = writeContract({
         address: contractAddress,
         abi: PROPHECY_TOKEN_ABI,
         functionName: "mintProphecy",
@@ -137,6 +139,8 @@ export default function MintNFTButton({
         value: MINT_PRICE,
         chain: base, // Explicitly specify Base chain
       });
+      
+      console.log("✍️ writeContract called, result:", result);
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : "Failed to mint NFT";
       setError(errorMessage);
@@ -144,9 +148,17 @@ export default function MintNFTButton({
     }
   };
 
+  // Log hash when available
+  useEffect(() => {
+    if (hash) {
+      console.log("🔗 Transaction hash received:", hash);
+    }
+  }, [hash]);
+
   // Handle transaction success
   useEffect(() => {
     if (isSuccess && hash && !minted) {
+      console.log("✅ Transaction confirmed successfully!");
       setMinted(true);
       // Try to extract token ID from transaction receipt
       // For now, just pass the hash
@@ -166,11 +178,25 @@ export default function MintNFTButton({
   // Handle write errors
   useEffect(() => {
     if (writeError) {
+      console.error("❌ Write error:", writeError);
       const errorMessage = writeError.message || "Transaction failed";
       setError(errorMessage);
       onError?.(errorMessage);
     }
   }, [writeError, onError]);
+
+  // Log minting state changes
+  useEffect(() => {
+    if (isWriting) {
+      console.log("✍️ Waiting for user to approve transaction in wallet...");
+    }
+  }, [isWriting]);
+
+  useEffect(() => {
+    if (isConfirming) {
+      console.log("⏳ Transaction submitted, waiting for confirmation...");
+    }
+  }, [isConfirming]);
 
   const minting = isWriting || isConfirming;
 
