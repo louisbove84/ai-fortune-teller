@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAccount } from "wagmi";
 import type { FortuneResult, QuizAnswers } from "@/types/fortune";
 import MintNFTButton from "@/components/MintNFTButton";
+import { captureElementScreenshot, uploadImageToIPFS } from "@/lib/ipfs";
 
 interface AutomationTier {
   name: string;
@@ -25,6 +26,7 @@ export default function ResultPage() {
   const [showTicket, setShowTicket] = useState(false);
   const [flipTicket, setFlipTicket] = useState(false);
   const [ipfsUri, setIpfsUri] = useState<string | null>(null);
+  const ticketRef = useRef<HTMLDivElement>(null);
 
   const automationTiers: AutomationTier[] = [
     {
@@ -182,11 +184,31 @@ export default function ResultPage() {
     fetchFortune();
   }, [router, createFallbackResult]);
 
-  // Generate IPFS metadata when result is ready
+  // Generate IPFS metadata when ticket is flipped (so we can capture image)
   useEffect(() => {
-    if (result && answers) {
-      const generateMetadata = async () => {
+    if (result && answers && flipTicket && ticketRef.current) {
+      const generateMetadataWithImage = async () => {
         try {
+          // Wait a bit for the flip animation to complete
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          // Capture screenshot of the fortune ticket
+          let imageIpfsUri: string | undefined;
+          try {
+            console.log("📸 Capturing fortune ticket screenshot...");
+            const screenshotBlob = await captureElementScreenshot(ticketRef.current!);
+            const timestamp = Date.now();
+            const filename = `fortune-ticket-${timestamp}.png`;
+            
+            console.log("📤 Uploading image to IPFS...");
+            imageIpfsUri = await uploadImageToIPFS(screenshotBlob, filename);
+            console.log("✅ Image uploaded:", imageIpfsUri);
+          } catch (imageError) {
+            console.warn("⚠️ Failed to capture/upload image, continuing without image:", imageError);
+            // Continue without image - NFT will still have metadata
+          }
+
+          // Upload metadata with image URL
           const response = await fetch("/api/ipfs/upload", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -195,21 +217,23 @@ export default function ResultPage() {
               occupation: answers.job_title,
               riskLevel: result.riskLevel,
               outlook: result.outlook,
+              imageUrl: imageIpfsUri, // Include image IPFS URI if available
             }),
           });
 
           if (response.ok) {
             const data = await response.json();
             setIpfsUri(data.ipfsUri);
+            console.log("✅ Metadata uploaded:", data.ipfsUri);
           }
         } catch (error) {
           console.error("Failed to generate IPFS metadata:", error);
         }
       };
 
-      generateMetadata();
+      generateMetadataWithImage();
     }
-  }, [result, answers]);
+  }, [result, answers, flipTicket]);
 
 
   if (loading) {
@@ -226,6 +250,7 @@ export default function ResultPage() {
       <AnimatePresence mode="wait">
         {showTicket && (
           <motion.div
+            ref={ticketRef}
             key="ticket"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}

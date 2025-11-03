@@ -1,18 +1,36 @@
 /**
- * IPFS Integration for NFT Metadata
- * Handles uploading NFT metadata to IPFS
+ * IPFS Integration for NFT Metadata and Images
+ * Handles uploading NFT metadata and images to IPFS via Pinata
  */
 
 /**
+ * Upload an image to IPFS via Pinata
+ */
+export async function uploadImageToIPFS(imageBlob: Blob, filename: string): Promise<string> {
+  const formData = new FormData();
+  formData.append('file', imageBlob, filename);
+
+  const pinataMetadata = JSON.stringify({
+    name: filename,
+  });
+  formData.append('pinataMetadata', pinataMetadata);
+
+  const response = await fetch('/api/ipfs/upload-image', {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(`Failed to upload image to IPFS: ${error.message}`);
+  }
+
+  const data = await response.json();
+  return `ipfs://${data.IpfsHash}`;
+}
+
+/**
  * Upload JSON metadata to IPFS
- * 
- * This is a placeholder implementation. You can integrate with:
- * - Pinata (https://www.pinata.cloud/)
- * - NFT.Storage (https://nft.storage/)
- * - Web3.Storage (https://web3.storage/)
- * - Your own IPFS node
- * 
- * For now, returns a placeholder IPFS URI. Replace with actual IPFS upload.
  */
 export async function uploadToIPFS(metadata: object): Promise<string> {
   // If Pinata is configured, use it
@@ -56,6 +74,30 @@ async function uploadToPinata(metadata: object): Promise<string> {
     console.error("Pinata upload error:", error);
     throw error;
   }
+}
+
+/**
+ * Capture screenshot from HTML element using html2canvas
+ */
+export async function captureElementScreenshot(element: HTMLElement): Promise<Blob> {
+  const html2canvas = (await import('html2canvas')).default;
+  
+  const canvas = await html2canvas(element, {
+    backgroundColor: '#000000',
+    scale: 2, // Higher resolution
+    logging: false,
+    useCORS: true,
+  });
+
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) {
+        resolve(blob);
+      } else {
+        reject(new Error('Failed to capture screenshot'));
+      }
+    }, 'image/png');
+  });
 }
 
 /**
