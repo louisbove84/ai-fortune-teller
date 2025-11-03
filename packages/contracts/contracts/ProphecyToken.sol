@@ -14,8 +14,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
     uint256 private _nextTokenId;
     uint256 public mintPrice;
-    address public constant FEE_RECIPIENT = 0x3b583CA8953effcF2135679886A9965754954204;
-    uint256 public constant FEE_PERCENTAGE = 10; // 10% fee
+    address public constant PROFIT_RECIPIENT = 0x3b583CA8953effcF2135679886A9965754954204;
     
     struct ProphecyData {
         uint256 resilienceScore;  // 0-100
@@ -72,19 +71,9 @@ contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
         require(bytes(occupation).length > 0, "Occupation cannot be empty");
         require(msg.value >= mintPrice, "Insufficient payment");
         
-        // Calculate fee (10% of mint price)
-        uint256 feeAmount = (mintPrice * FEE_PERCENTAGE) / 100;
-        uint256 ownerAmount = mintPrice - feeAmount;
-        
-        // Send fee to fee recipient
-        (bool feeSuccess, ) = payable(FEE_RECIPIENT).call{value: feeAmount}("");
-        require(feeSuccess, "Fee transfer failed");
-        
-        // Send remainder to contract owner
-        if (ownerAmount > 0) {
-            (bool ownerSuccess, ) = payable(owner()).call{value: ownerAmount}("");
-            require(ownerSuccess, "Owner transfer failed");
-        }
+        // Send all mint price to profit recipient
+        (bool success, ) = payable(PROFIT_RECIPIENT).call{value: mintPrice}("");
+        require(success, "Transfer to profit recipient failed");
         
         // Refund excess payment
         if (msg.value > mintPrice) {

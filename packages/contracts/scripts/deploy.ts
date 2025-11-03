@@ -26,9 +26,13 @@ async function main() {
   const ProphecyToken = await ethers.getContractFactory("ProphecyToken");
   
   console.log("📦 Deploying ProphecyToken contract...");
-  
-  // Deploy the contract
-  const prophecyToken = await ProphecyToken.deploy();
+
+  // Get current nonce from the network to avoid nonce issues
+  const nonce = await deployer.getNonce();
+  console.log("🔢 Using nonce:", nonce);
+
+  // Deploy the contract with explicit nonce
+  const prophecyToken = await ProphecyToken.deploy({ nonce });
   
   console.log("⏳ Waiting for deployment confirmation...");
   await prophecyToken.waitForDeployment();
@@ -60,8 +64,7 @@ async function main() {
   // Get mint price
   const mintPrice = await prophecyToken.mintPrice();
   console.log("💵 Mint Price:", ethers.formatEther(mintPrice), "ETH");
-  console.log("💸 Fee Recipient:", await prophecyToken.FEE_RECIPIENT());
-  console.log("📊 Fee Percentage:", (await prophecyToken.FEE_PERCENTAGE()).toString(), "%");
+  console.log("💰 All Profits Go To:", await prophecyToken.PROFIT_RECIPIENT());
   
   // Save deployment info
   const deploymentInfo = {

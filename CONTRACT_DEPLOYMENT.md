@@ -2,18 +2,19 @@
 
 ## 🎉 Successfully Deployed!
 
-**Contract Address:** `0xF473d3813A804809dC924936383c7F638b2B696f`
+**Contract Address:** `0x137545F47E801026321dab1b8a1421489e438461`
 
 **Network:** Base Mainnet (L2)  
 **Chain ID:** 8453  
-**Deployment TX:** [0x375e953...](https://basescan.org/tx/0x375e953fbd55b6aa04bbc4f06054c12cdfa140368c85becf3aec1b0bb83df82d)
+**Deployment TX:** [0xa14017a...](https://basescan.org/tx/0xa14017afb2209b10290996aba90643fbf09db2931be303d204023ad0c71526d8)
 
 ## 📋 Contract Details
 
 - **Mint Price:** 0.001 ETH per NFT
-- **Fee Structure:**
-  - 10% to platform: `0x3b583CA8953effcF2135679886A9965754954204`
-  - 90% to contract owner: `0xD2E7839C926A9A34987E3A862681Ca52fe63c4e6`
+- **Revenue Model:** 
+  - **100% of mint price** → `0x3b583CA8953effcF2135679886A9965754954204` (Your profit address!)
+  - Gas fees → Paid by user (automatic)
+  - Contract owner: `0xD2E7839C926A9A34987E3A862681Ca52fe63c4e6`
 - **Token Name:** AI Fortune Prophecy
 - **Token Symbol:** PROPHECY
 
@@ -25,7 +26,7 @@ Create or update `.env.local` in the project root:
 
 ```bash
 cd /Users/beuxb/Desktop/Projects/ai-fortune-teller
-echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0xF473d3813A804809dC924936383c7F638b2B696f" > .env.local
+echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x137545F47E801026321dab1b8a1421489e438461" > .env.local
 ```
 
 **Note:** The contract address is also hardcoded as a fallback in `MintNFTButton.tsx`, so it will work even without the env variable.
@@ -35,7 +36,7 @@ echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0xF473d3813A804809dC924936383c7F638b2B696
 Go to your Vercel project settings and add:
 
 ```
-NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0xF473d3813A804809dC924936383c7F638b2B696f
+NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x137545F47E801026321dab1b8a1421489e438461
 ```
 
 Then redeploy your app.
@@ -54,11 +55,11 @@ Then redeploy your app.
 
 ## 🔗 Links
 
-- **Contract on BaseScan:** https://basescan.org/address/0xF473d3813A804809dC924936383c7F638b2B696f
+- **Contract on BaseScan:** https://basescan.org/address/0x137545F47E801026321dab1b8a1421489e438461
 - **Verify Contract (optional):**
   ```bash
   cd packages/contracts
-  npm run verify:base 0xF473d3813A804809dC924936383c7F638b2B696f
+  npm run verify:base 0x137545F47E801026321dab1b8a1421489e438461
   ```
 
 ## 💡 Testing
@@ -84,8 +85,10 @@ This prevents transactions from being sent to Ethereum mainnet by mistake!
 
 ## 🎯 Revenue
 
-Every mint generates **0.0001 ETH profit** for you automatically sent to:  
+Every mint generates **0.001 ETH profit (100%)** for you automatically sent to:  
 `0x3b583CA8953effcF2135679886A9965754954204`
 
-No manual withdrawals needed - fees are distributed on every mint!
+**No manual withdrawals needed** - all mint revenue goes directly to your address on every mint!
+
+The user pays gas fees separately (automatic in blockchain transactions), and the entire mint price is yours! 💰
 

@@ -45,7 +45,7 @@ export default function MintNFTButton({
   const [needsNetworkSwitch, setNeedsNetworkSwitch] = useState(false);
 
   const contractAddress = (process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS ||
-    "0xF473d3813A804809dC924936383c7F638b2B696f") as `0x${string}`;
+    "0x137545F47E801026321dab1b8a1421489e438461") as `0x${string}`;
 
   // Check if user is on Base network (chainId 8453)
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
@@ -227,7 +227,7 @@ export default function MintNFTButton({
               : `Mint Your Prophecy NFT (${MINT_PRICE_DISPLAY} ETH)`}
           </motion.button>
           <p className="text-gray-400 text-xs text-center">
-            10% fee goes to platform
+            Gas fees paid by you, mint price goes to platform
           </p>
         </>
       )}
