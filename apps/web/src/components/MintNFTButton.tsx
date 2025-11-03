@@ -50,9 +50,9 @@ export default function MintNFTButton({
   // Check if user is on Base network (chainId 8453)
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
 
-  // Flat mint price: 0.001 ETH (1000000000000000 wei)
-  const MINT_PRICE = BigInt("1000000000000000"); // 0.001 ETH
-  const MINT_PRICE_DISPLAY = "0.001";
+  // Flat mint price: 0.00001 ETH (10000000000000 wei)
+  const MINT_PRICE = BigInt("10000000000000"); // 0.00001 ETH
+  const MINT_PRICE_DISPLAY = "0.00001";
 
   // Prompt user to switch to Base if not already on it
   useEffect(() => {
