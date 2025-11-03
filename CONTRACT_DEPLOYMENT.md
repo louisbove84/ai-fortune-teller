@@ -21,11 +21,14 @@
 
 ### 1. Update Local Environment
 
-Create or update `/Users/beuxb/Desktop/Projects/ai-fortune-teller/.env.local`:
+Create or update `.env.local` in the project root:
 
 ```bash
-NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0xF473d3813A804809dC924936383c7F638b2B696f
+cd /Users/beuxb/Desktop/Projects/ai-fortune-teller
+echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0xF473d3813A804809dC924936383c7F638b2B696f" > .env.local
 ```
+
+**Note:** The contract address is also hardcoded as a fallback in `MintNFTButton.tsx`, so it will work even without the env variable.
 
 ### 2. Update Vercel Environment Variables
 
@@ -60,13 +63,24 @@ Then redeploy your app.
 
 ## 💡 Testing
 
-1. Make sure `NEXT_PUBLIC_NFT_CONTRACT_ADDRESS` is set
-2. Restart your dev server: `npm run dev`
-3. Connect wallet (must be on Base network)
+1. Restart your dev server: `npm run dev`
+2. Connect wallet at the home page
+3. **If not on Base network**, you'll see a "Switch to Base Network" button - click it
 4. Complete quiz and view fortune
-5. Click "Mint Your Prophecy NFT (0.001 ETH)"
-6. Approve transaction in wallet
-7. Wait for confirmation (~2 seconds on Base L2)
+5. Image will be captured and uploaded to IPFS automatically
+6. You'll see "Mint Your Prophecy NFT (0.001 ETH)" button
+7. Click mint and approve in your wallet
+8. Wait for confirmation (~2 seconds on Base L2)
+9. Check transaction on BaseScan!
+
+## 🔒 Network Enforcement
+
+The mint button now **strictly enforces** Base network:
+- If wallet not connected → Shows "Connect your wallet" message
+- If on wrong network → Shows "Switch to Base Network to Mint" button
+- If on Base → Shows mint button (0.001 ETH)
+
+This prevents transactions from being sent to Ethereum mainnet by mistake!
 
 ## 🎯 Revenue
 
