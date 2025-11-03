@@ -50,15 +50,25 @@ export default function MintNFTButton({
   // Check if user is on Base network (chainId 8453)
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
 
-  // Fetch mint price from contract
-  const { data: mintPrice } = useReadContract({
+  // Fetch mint price from contract (allow reading even if not on Base)
+  const { data: mintPrice, isLoading: isLoadingPrice, error: priceError } = useReadContract({
     address: contractAddress,
     abi: PROPHECY_TOKEN_ABI,
     functionName: "mintPrice",
     query: {
-      enabled: !!contractAddress && isOnBase,
+      enabled: !!contractAddress,
     },
   });
+
+  // Log for debugging
+  useEffect(() => {
+    if (priceError) {
+      console.warn("⚠️ Failed to fetch mint price:", priceError);
+    }
+    if (mintPrice !== undefined) {
+      console.log("💰 Mint price fetched:", formatEther(mintPrice || BigInt(0)), "ETH");
+    }
+  }, [mintPrice, priceError]);
 
   // Prompt user to switch to Base if not already on it
   useEffect(() => {
@@ -128,17 +138,27 @@ export default function MintNFTButton({
         throw new Error("Please switch to Base network first");
       }
 
-      // Ensure we have the mint price
+      // Use mint price if available, otherwise use default (0.001 ETH)
+      // This allows minting even if contract hasn't been redeployed with mintPrice yet
+      const valueToSend = mintPrice || BigInt("1000000000000000"); // 0.001 ETH default
+      
       if (!mintPrice) {
-        throw new Error("Could not fetch mint price. Please try again.");
+        console.warn("⚠️ Mint price not available, using default 0.001 ETH");
       }
+
+      console.log("📝 Minting NFT with:", {
+        tokenURI,
+        score,
+        occupation,
+        value: formatEther(valueToSend),
+      });
 
       writeContract({
         address: contractAddress,
         abi: PROPHECY_TOKEN_ABI,
         functionName: "mintProphecy",
         args: [tokenURI, BigInt(score), occupation],
-        value: mintPrice, // Send ETH equal to mint price
+        value: valueToSend,
         chain: base, // Explicitly specify Base chain
       });
     } catch (err: unknown) {
@@ -208,26 +228,40 @@ export default function MintNFTButton({
         <>
           <motion.button
             onClick={handleMint}
-            disabled={minting || !isConnected || !mintPrice}
+            disabled={minting || !isConnected || isLoadingPrice}
             className={`px-6 py-3 font-semibold rounded transition-all ${
-              minting || !isConnected || !mintPrice
+              minting || !isConnected || isLoadingPrice
                 ? "bg-gray-500/20 border border-gray-400 text-gray-400 cursor-not-allowed"
                 : "bg-purple-500/20 hover:bg-purple-400/30 border border-purple-400 text-purple-300 hover:scale-105"
             }`}
-            whileHover={!minting && isConnected && mintPrice ? { scale: 1.05 } : {}}
-            whileTap={!minting && isConnected && mintPrice ? { scale: 0.95 } : {}}
+            whileHover={!minting && isConnected && !isLoadingPrice ? { scale: 1.05 } : {}}
+            whileTap={!minting && isConnected && !isLoadingPrice ? { scale: 0.95 } : {}}
           >
-            {minting
+            {isLoadingPrice
+              ? "Loading mint price..."
+              : minting
               ? isConfirming
                 ? "Confirming Transaction..."
                 : isWriting
                 ? "Please Approve in Wallet..."
                 : "Minting NFT..."
-              : `Mint Your Prophecy NFT (${mintPriceDisplay} ETH)`}
+              : mintPrice
+              ? `Mint Your Prophecy NFT (${mintPriceDisplay} ETH)`
+              : "Mint Your Prophecy NFT (0.001 ETH)"}
           </motion.button>
           {mintPrice && (
             <p className="text-gray-400 text-xs text-center">
               10% fee goes to platform
+            </p>
+          )}
+          {priceError && (
+            <p className="text-yellow-400 text-xs text-center">
+              ⚠️ Using default mint price (0.001 ETH). Contract may need redeployment.
+            </p>
+          )}
+          {!mintPrice && !priceError && !isLoadingPrice && (
+            <p className="text-yellow-400 text-xs text-center">
+              Using default mint price (0.001 ETH)
             </p>
           )}
         </>
