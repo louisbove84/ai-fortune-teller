@@ -18,6 +18,20 @@ export const PROPHECY_TOKEN_ABI = [
       { name: "occupation", type: "string" },
     ],
     outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "mintPrice",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "setMintPrice",
+    inputs: [{ name: "_mintPrice", type: "uint256" }],
+    outputs: [],
     stateMutability: "nonpayable",
   },
   {

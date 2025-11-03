@@ -13,6 +13,9 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  */
 contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
     uint256 private _nextTokenId;
+    uint256 public mintPrice;
+    address public constant FEE_RECIPIENT = 0x3b583CA8953effcF2135679886A9965754954204;
+    uint256 public constant FEE_PERCENTAGE = 10; // 10% fee
     
     struct ProphecyData {
         uint256 resilienceScore;  // 0-100
@@ -42,6 +45,15 @@ contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
     
     constructor() ERC721("AI Fortune Prophecy", "PROPHECY") Ownable(msg.sender) {
         _nextTokenId = 1;
+        mintPrice = 0.001 ether; // Default mint price: 0.001 ETH
+    }
+    
+    /**
+     * @dev Set the mint price (owner only)
+     * @param _mintPrice New mint price in wei
+     */
+    function setMintPrice(uint256 _mintPrice) public onlyOwner {
+        mintPrice = _mintPrice;
     }
     
     /**
@@ -55,9 +67,31 @@ contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
         string memory tokenURI,
         uint256 score,
         string memory occupation
-    ) public nonReentrant returns (uint256) {
+    ) public payable nonReentrant returns (uint256) {
         require(score <= 100, "Score must be <= 100");
         require(bytes(occupation).length > 0, "Occupation cannot be empty");
+        require(msg.value >= mintPrice, "Insufficient payment");
+        
+        // Calculate fee (10% of mint price)
+        uint256 feeAmount = (mintPrice * FEE_PERCENTAGE) / 100;
+        uint256 ownerAmount = mintPrice - feeAmount;
+        
+        // Send fee to fee recipient
+        (bool feeSuccess, ) = payable(FEE_RECIPIENT).call{value: feeAmount}("");
+        require(feeSuccess, "Fee transfer failed");
+        
+        // Send remainder to contract owner
+        if (ownerAmount > 0) {
+            (bool ownerSuccess, ) = payable(owner()).call{value: ownerAmount}("");
+            require(ownerSuccess, "Owner transfer failed");
+        }
+        
+        // Refund excess payment
+        if (msg.value > mintPrice) {
+            uint256 refund = msg.value - mintPrice;
+            (bool refundSuccess, ) = payable(msg.sender).call{value: refund}("");
+            require(refundSuccess, "Refund failed");
+        }
         
         address to = msg.sender; // Mint to the caller
         uint256 tokenId = _nextTokenId++;

@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useAccount, useWriteContract, useWaitForTransactionReceipt, useSwitchChain, useChainId } from "wagmi";
+import { useAccount, useWriteContract, useWaitForTransactionReceipt, useSwitchChain, useChainId, useReadContract } from "wagmi";
 import { PROPHECY_TOKEN_ABI } from "@/lib/contracts";
 import { base } from "wagmi/chains";
+import { formatEther } from "viem";
 
 interface MintNFTButtonProps {
   tokenURI: string; // IPFS URI with NFT metadata JSON
@@ -48,6 +49,16 @@ export default function MintNFTButton({
 
   // Check if user is on Base network (chainId 8453)
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
+
+  // Fetch mint price from contract
+  const { data: mintPrice } = useReadContract({
+    address: contractAddress,
+    abi: PROPHECY_TOKEN_ABI,
+    functionName: "mintPrice",
+    query: {
+      enabled: !!contractAddress && isOnBase,
+    },
+  });
 
   // Prompt user to switch to Base if not already on it
   useEffect(() => {
@@ -117,11 +128,17 @@ export default function MintNFTButton({
         throw new Error("Please switch to Base network first");
       }
 
+      // Ensure we have the mint price
+      if (!mintPrice) {
+        throw new Error("Could not fetch mint price. Please try again.");
+      }
+
       writeContract({
         address: contractAddress,
         abi: PROPHECY_TOKEN_ABI,
         functionName: "mintProphecy",
         args: [tokenURI, BigInt(score), occupation],
+        value: mintPrice, // Send ETH equal to mint price
         chain: base, // Explicitly specify Base chain
       });
     } catch (err: unknown) {
@@ -173,6 +190,9 @@ export default function MintNFTButton({
     );
   }
 
+  const mintPriceEth = mintPrice ? formatEther(mintPrice) : "0.001";
+  const mintPriceDisplay = parseFloat(mintPriceEth).toFixed(4);
+
   return (
     <div className="flex flex-col items-center gap-2">
       {needsNetworkSwitch ? (
@@ -185,25 +205,32 @@ export default function MintNFTButton({
           Switch to Base Network
         </motion.button>
       ) : (
-        <motion.button
-          onClick={handleMint}
-          disabled={minting || !isConnected}
-          className={`px-6 py-3 font-semibold rounded transition-all ${
-            minting || !isConnected
-              ? "bg-gray-500/20 border border-gray-400 text-gray-400 cursor-not-allowed"
-              : "bg-purple-500/20 hover:bg-purple-400/30 border border-purple-400 text-purple-300 hover:scale-105"
-          }`}
-          whileHover={!minting && isConnected ? { scale: 1.05 } : {}}
-          whileTap={!minting && isConnected ? { scale: 0.95 } : {}}
-        >
-          {minting
-            ? isConfirming
-              ? "Confirming Transaction..."
-              : isWriting
-              ? "Please Approve in Wallet..."
-              : "Minting NFT..."
-            : "Mint Your Prophecy NFT"}
-        </motion.button>
+        <>
+          <motion.button
+            onClick={handleMint}
+            disabled={minting || !isConnected || !mintPrice}
+            className={`px-6 py-3 font-semibold rounded transition-all ${
+              minting || !isConnected || !mintPrice
+                ? "bg-gray-500/20 border border-gray-400 text-gray-400 cursor-not-allowed"
+                : "bg-purple-500/20 hover:bg-purple-400/30 border border-purple-400 text-purple-300 hover:scale-105"
+            }`}
+            whileHover={!minting && isConnected && mintPrice ? { scale: 1.05 } : {}}
+            whileTap={!minting && isConnected && mintPrice ? { scale: 0.95 } : {}}
+          >
+            {minting
+              ? isConfirming
+                ? "Confirming Transaction..."
+                : isWriting
+                ? "Please Approve in Wallet..."
+                : "Minting NFT..."
+              : `Mint Your Prophecy NFT (${mintPriceDisplay} ETH)`}
+          </motion.button>
+          {mintPrice && (
+            <p className="text-gray-400 text-xs text-center">
+              10% fee goes to platform
+            </p>
+          )}
+        </>
       )}
 
       {error && (

@@ -57,6 +57,12 @@ async function main() {
   const currentTokenId = await prophecyToken.getCurrentTokenId();
   console.log("🎯 Next Token ID:", currentTokenId.toString());
   
+  // Get mint price
+  const mintPrice = await prophecyToken.mintPrice();
+  console.log("💵 Mint Price:", ethers.formatEther(mintPrice), "ETH");
+  console.log("💸 Fee Recipient:", await prophecyToken.FEE_RECIPIENT());
+  console.log("📊 Fee Percentage:", (await prophecyToken.FEE_PERCENTAGE()).toString(), "%");
+  
   // Save deployment info
   const deploymentInfo = {
     contractAddress: contractAddress,
