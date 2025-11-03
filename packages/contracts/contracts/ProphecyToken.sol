@@ -44,7 +44,7 @@ contract ProphecyToken is ERC721URIStorage, Ownable, ReentrancyGuard {
     
     constructor() ERC721("AI Fortune Prophecy", "PROPHECY") Ownable(msg.sender) {
         _nextTokenId = 1;
-        mintPrice = 0.001 ether; // Default mint price: 0.001 ETH
+        mintPrice = 0.00001 ether; // Default mint price: 0.00001 ETH
     }
     
     /**

@@ -45,14 +45,14 @@ export default function MintNFTButton({
   const [needsNetworkSwitch, setNeedsNetworkSwitch] = useState(false);
 
   const contractAddress = (process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS ||
-    "0x137545F47E801026321dab1b8a1421489e438461") as `0x${string}`;
+    "0x75d24DAe5E13be252A24e6F8869307a91d61CA29") as `0x${string}`;
 
   // Check if user is on Base network (chainId 8453)
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
 
-  // Flat mint price: 0.001 ETH (1000000000000000 wei)
-  const MINT_PRICE = BigInt("1000000000000000"); // 0.001 ETH
-  const MINT_PRICE_DISPLAY = "0.001";
+  // Flat mint price: 0.00001 ETH (10000000000000 wei)
+  const MINT_PRICE = BigInt("10000000000000"); // 0.00001 ETH
+  const MINT_PRICE_DISPLAY = "0.00001";
 
   // Auto-switch to Base if not already on it
   useEffect(() => {

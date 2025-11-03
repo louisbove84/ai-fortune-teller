@@ -4,6 +4,9 @@ async function main() {
   const contractAddress = "0x137545F47E801026321dab1b8a1421489e438461";
   const newMintPrice = ethers.parseEther("0.00001"); // 0.00001 ETH
   
+  console.log("⚠️  WARNING: This will update the mint price on Base Mainnet");
+  console.log("⚠️  Make sure you have ETH on Base for gas fees\n");
+  
   console.log("🔧 Updating mint price for ProphecyToken");
   console.log("📍 Contract:", contractAddress);
   console.log("💵 New Mint Price:", ethers.formatEther(newMintPrice), "ETH");

@@ -2,15 +2,15 @@
 
 ## 🎉 Successfully Deployed!
 
-**Contract Address:** `0x137545F47E801026321dab1b8a1421489e438461`
+**Contract Address:** `0x75d24DAe5E13be252A24e6F8869307a91d61CA29`
 
 **Network:** Base Mainnet (L2)  
 **Chain ID:** 8453  
-**Deployment TX:** [0xa14017a...](https://basescan.org/tx/0xa14017afb2209b10290996aba90643fbf09db2931be303d204023ad0c71526d8)
+**Deployment TX:** [0xa3ac157...](https://basescan.org/tx/0xa3ac157feb086c869a5f7eb1a78d171c6d6e4473b5f532026aaa6bb2a03c2a2f)
 
 ## 📋 Contract Details
 
-- **Mint Price:** 0.001 ETH per NFT
+- **Mint Price:** 0.00001 ETH per NFT (~$0.04)
 - **Revenue Model:** 
   - **100% of mint price** → `0x3b583CA8953effcF2135679886A9965754954204` (Your profit address!)
   - Gas fees → Paid by user (automatic)
@@ -26,7 +26,7 @@ Create or update `.env.local` in the project root:
 
 ```bash
 cd /Users/beuxb/Desktop/Projects/ai-fortune-teller
-echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x137545F47E801026321dab1b8a1421489e438461" > .env.local
+echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x75d24DAe5E13be252A24e6F8869307a91d61CA29" > .env.local
 ```
 
 **Note:** The contract address is also hardcoded as a fallback in `MintNFTButton.tsx`, so it will work even without the env variable.
@@ -36,7 +36,7 @@ echo "NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x137545F47E801026321dab1b8a1421489e43846
 Go to your Vercel project settings and add:
 
 ```
-NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x137545F47E801026321dab1b8a1421489e438461
+NEXT_PUBLIC_NFT_CONTRACT_ADDRESS=0x75d24DAe5E13be252A24e6F8869307a91d61CA29
 ```
 
 Then redeploy your app.
@@ -47,19 +47,19 @@ Then redeploy your app.
 2. **Fortune is displayed** with ticket flip animation  
 3. **Image is captured** and uploaded to Pinata IPFS
 4. **Metadata is created** with image URL and uploaded to IPFS
-5. **Mint button appears** showing "Mint Your Prophecy NFT (0.001 ETH)"
+5. **Mint button appears** showing "Mint Your Prophecy NFT (0.00001 ETH)"
 6. **User pays:**
    - Gas fees (automatic, ~$0.01 on Base L2)
-   - 0.001 ETH mint price → **100% to your address** `0x3b583CA8953effcF2135679886A9965754954204`
+   - 0.00001 ETH mint price (~$0.04) → **100% to your address** `0x3b583CA8953effcF2135679886A9965754954204`
 7. **NFT is minted** on Base network with the fortune ticket image
 
 ## 🔗 Links
 
-- **Contract on BaseScan:** https://basescan.org/address/0x137545F47E801026321dab1b8a1421489e438461
+- **Contract on BaseScan:** https://basescan.org/address/0x75d24DAe5E13be252A24e6F8869307a91d61CA29
 - **Verify Contract (optional):**
   ```bash
   cd packages/contracts
-  npm run verify:base 0x137545F47E801026321dab1b8a1421489e438461
+  npm run verify:base 0x75d24DAe5E13be252A24e6F8869307a91d61CA29
   ```
 
 ## 💡 Testing
@@ -85,10 +85,10 @@ This prevents transactions from being sent to Ethereum mainnet by mistake!
 
 ## 🎯 Revenue
 
-Every mint generates **0.001 ETH profit (100%)** for you automatically sent to:  
+Every mint generates **0.00001 ETH profit (100%)** (~$0.04) for you automatically sent to:  
 `0x3b583CA8953effcF2135679886A9965754954204`
 
 **No manual withdrawals needed** - all mint revenue goes directly to your address on every mint!
 
-The user pays gas fees separately (automatic in blockchain transactions), and the entire mint price is yours! 💰
+The user pays gas fees separately (automatic in blockchain transactions, ~$0.01), and the entire mint price is yours! 💰
 
