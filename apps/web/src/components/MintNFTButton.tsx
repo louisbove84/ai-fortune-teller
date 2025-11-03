@@ -128,7 +128,9 @@ export default function MintNFTButton({
         occupation,
         value: formatEther(MINT_PRICE),
         contractAddress,
-        chainId: base.id,
+        expectedChainId: base.id,
+        actualWalletChainId: chainId,
+        isOnBase,
       });
 
       const result = writeContract({
@@ -271,21 +273,21 @@ export default function MintNFTButton({
       {hash && (
         <div className="flex flex-col items-center gap-1">
           <a
-            href={`https://basescan.org/tx/${hash}`}
+            href={`https://etherscan.io/tx/${hash}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-cyan-400 text-xs hover:underline"
           >
-            View Transaction on BaseScan
+            View Transaction on Etherscan
           </a>
           {isConfirming && (
             <p className="text-yellow-400 text-xs text-center">
-              Waiting for confirmation... (Base L2 typically confirms in ~2 seconds)
+              Waiting for confirmation...
             </p>
           )}
           {!isConfirming && hash && (
             <p className="text-green-400 text-xs text-center">
-              Transaction submitted! Click link above to view on BaseScan.
+              Transaction submitted! Click link above to view on Etherscan.
             </p>
           )}
         </div>
