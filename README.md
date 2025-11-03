@@ -89,9 +89,12 @@ All detailed documentation is available in the [`docs/`](docs/) folder:
 - **[Complete Setup Guide](docs/GETTING_STARTED.md)** - Detailed installation instructions
 - **[Quick Start Guide](docs/QUICK_START_GUIDE.md)** - Fast setup for developers
 - **[Python Backend Setup](docs/PYTHON_BACKEND_SETUP.md)** - Backend configuration
-- **[Deployment Guide](docs/DEPLOYMENT.md)** - Vercel deployment instructions
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Complete deployment instructions
+- **[Deployment Checklist](docs/VERCEL_DEPLOYMENT_CHECKLIST.md)** - Pre-deployment checklist
+- **[Post-Deployment Testing](docs/POST_DEPLOYMENT_TEST.md)** - Testing guide after deployment
 - **[API Documentation](docs/API.md)** - API endpoints and usage
 - **[Architecture Overview](docs/ARCHITECTURE.md)** - System design details
+- **[Smart Contract Deployment](packages/contracts/DEPLOYMENT_GUIDE.md)** - NFT contract deployment
 
 ## ⚙️ Configuration
 
