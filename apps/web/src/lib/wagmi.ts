@@ -23,13 +23,14 @@ export const wagmiConfig = createConfig({
     coinbaseWallet({
       appName: "AI Fortune Teller",
       appLogoUrl: "https://fortune.beuxbunk.com/fortune-teller-bg.png",
+      preference: "all", // Try both WalletLink and SDK
     }),
   ],
   transports: {
     [base.id]: http(baseRpcUrl),
   },
   ssr: true,
-  // Ensure we default to Base network
+  // Reduce WebSocket connection attempts
   multiInjectedProviderDiscovery: false,
 });
 
