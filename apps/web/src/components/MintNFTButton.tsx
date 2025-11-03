@@ -45,7 +45,7 @@ export default function MintNFTButton({
   const [needsNetworkSwitch, setNeedsNetworkSwitch] = useState(false);
 
   const contractAddress = (process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS ||
-    "0xE93dC0A97e1f41bC5Bca56EFaFF7eA3Ced918bC2") as `0x${string}`;
+    "0xF473d3813A804809dC924936383c7F638b2B696f") as `0x${string}`;
 
   // Check if user is on Base network (chainId 8453)
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
@@ -188,27 +188,35 @@ export default function MintNFTButton({
 
   return (
     <div className="flex flex-col items-center gap-2">
-      {needsNetworkSwitch ? (
+      {!isConnected ? (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-yellow-400 text-sm text-center"
+        >
+          Connect your wallet to mint an NFT
+        </motion.div>
+      ) : needsNetworkSwitch || !isOnBase ? (
         <motion.button
           onClick={handleSwitchNetwork}
           className="px-6 py-3 bg-yellow-500/20 hover:bg-yellow-400/30 border border-yellow-400 text-yellow-300 font-semibold rounded transition-all hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Switch to Base Network
+          Switch to Base Network to Mint
         </motion.button>
       ) : (
         <>
           <motion.button
             onClick={handleMint}
-            disabled={minting || !isConnected}
+            disabled={minting || !isOnBase}
             className={`px-6 py-3 font-semibold rounded transition-all ${
-              minting || !isConnected
+              minting || !isOnBase
                 ? "bg-gray-500/20 border border-gray-400 text-gray-400 cursor-not-allowed"
                 : "bg-purple-500/20 hover:bg-purple-400/30 border border-purple-400 text-purple-300 hover:scale-105"
             }`}
-            whileHover={!minting && isConnected ? { scale: 1.05 } : {}}
-            whileTap={!minting && isConnected ? { scale: 0.95 } : {}}
+            whileHover={!minting && isOnBase ? { scale: 1.05 } : {}}
+            whileTap={!minting && isOnBase ? { scale: 0.95 } : {}}
           >
             {minting
               ? isConfirming
@@ -232,12 +240,6 @@ export default function MintNFTButton({
         >
           {error}
         </motion.p>
-      )}
-
-      {!isConnected && (
-        <p className="text-yellow-400 text-sm text-center">
-          Connect your wallet to mint an NFT
-        </p>
       )}
 
       {hash && (
