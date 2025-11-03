@@ -22,9 +22,14 @@ export default function WalletConnect() {
   useEffect(() => {
     if (isConnected && !isOnBase && switchChain) {
       console.log("🔄 Auto-switching to Base network...");
-      switchChain({ chainId: base.id }).catch((err) => {
-        console.warn("Failed to auto-switch to Base:", err);
-      });
+      const doSwitch = async () => {
+        try {
+          await switchChain({ chainId: base.id });
+        } catch (err) {
+          console.warn("Failed to auto-switch to Base:", err);
+        }
+      };
+      doSwitch();
     }
   }, [isConnected, isOnBase, switchChain]);
 

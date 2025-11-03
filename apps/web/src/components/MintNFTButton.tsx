@@ -60,17 +60,22 @@ export default function MintNFTButton({
       setNeedsNetworkSwitch(true);
       setError("Switching to Base network...");
       // Auto-trigger network switch
-      switchChain({ chainId: base.id }).catch((err) => {
-        console.error("Failed to auto-switch network:", err);
-        setError("Please manually switch to Base network in your wallet");
-      });
+      const doSwitch = async () => {
+        try {
+          await switchChain({ chainId: base.id });
+        } catch (err) {
+          console.error("Failed to auto-switch network:", err);
+          setError("Please manually switch to Base network in your wallet");
+        }
+      };
+      doSwitch();
     } else {
       setNeedsNetworkSwitch(false);
       if (error?.includes("Base network")) {
         setError(null);
       }
     }
-  }, [isConnected, isOnBase, chainId, chainIdFromHook, switchChain]);
+  }, [isConnected, isOnBase, chainId, chainIdFromHook, switchChain, error]);
 
   const {
     writeContract,
