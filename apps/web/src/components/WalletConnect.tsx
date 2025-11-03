@@ -3,6 +3,7 @@
 import { useAccount, useConnect, useDisconnect, useSwitchChain, useChainId } from "wagmi";
 import { base } from "wagmi/chains";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 /**
  * Wallet Connect Component
@@ -16,6 +17,16 @@ export default function WalletConnect() {
   const { switchChain } = useSwitchChain();
 
   const isOnBase = chainId === base.id || chainIdFromHook === base.id;
+
+  // Auto-switch to Base when wallet connects
+  useEffect(() => {
+    if (isConnected && !isOnBase && switchChain) {
+      console.log("🔄 Auto-switching to Base network...");
+      switchChain({ chainId: base.id }).catch((err) => {
+        console.warn("Failed to auto-switch to Base:", err);
+      });
+    }
+  }, [isConnected, isOnBase, switchChain]);
 
   if (isConnected && address) {
     return (

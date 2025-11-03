@@ -54,18 +54,23 @@ export default function MintNFTButton({
   const MINT_PRICE = BigInt("10000000000000"); // 0.00001 ETH
   const MINT_PRICE_DISPLAY = "0.00001";
 
-  // Prompt user to switch to Base if not already on it
+  // Auto-switch to Base if not already on it
   useEffect(() => {
     if (isConnected && !isOnBase) {
       setNeedsNetworkSwitch(true);
-      setError("Please switch to Base network to mint NFTs");
+      setError("Switching to Base network...");
+      // Auto-trigger network switch
+      switchChain({ chainId: base.id }).catch((err) => {
+        console.error("Failed to auto-switch network:", err);
+        setError("Please manually switch to Base network in your wallet");
+      });
     } else {
       setNeedsNetworkSwitch(false);
-      if (error?.includes("switch to Base")) {
+      if (error?.includes("Base network")) {
         setError(null);
       }
     }
-  }, [isConnected, isOnBase, chainId, chainIdFromHook]);
+  }, [isConnected, isOnBase, chainId, chainIdFromHook, switchChain]);
 
   const {
     writeContract,
@@ -103,9 +108,21 @@ export default function MintNFTButton({
     }
 
     if (!isOnBase) {
-      setError("Please switch to Base network first");
-      await handleSwitchNetwork();
-      return;
+      setError("Switching to Base network...");
+      try {
+        await switchChain({ chainId: base.id });
+        // Wait a bit for the switch to complete
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Check again
+        if (!isOnBase) {
+          setError("Failed to switch to Base. Please switch manually in your wallet.");
+          return;
+        }
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : "Failed to switch network";
+        setError(`${errorMessage}. Please switch to Base manually in your wallet.`);
+        return;
+      }
     }
 
     if (!contractAddress) {
