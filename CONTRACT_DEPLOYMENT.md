@@ -48,9 +48,9 @@ Then redeploy your app.
 3. **Image is captured** and uploaded to Pinata IPFS
 4. **Metadata is created** with image URL and uploaded to IPFS
 5. **Mint button appears** showing "Mint Your Prophecy NFT (0.001 ETH)"
-6. **User pays 0.001 ETH:**
-   - 0.0001 ETH (10%) → Your platform address
-   - 0.0009 ETH (90%) → Contract owner
+6. **User pays:**
+   - Gas fees (automatic, ~$0.01 on Base L2)
+   - 0.001 ETH mint price → **100% to your address** `0x3b583CA8953effcF2135679886A9965754954204`
 7. **NFT is minted** on Base network with the fortune ticket image
 
 ## 🔗 Links
